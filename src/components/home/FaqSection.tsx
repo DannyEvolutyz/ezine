@@ -25,15 +25,15 @@ const FaqSection = () => {
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faqs" className="bg-background py-20 md:py-24 px-5 md:px-12">
+    <section id="faqs" className="bg-off-white py-16 md:py-24 px-5 md:px-12">
       <div className="max-w-[1000px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16">
           {/* Left */}
           <div className="reveal">
-            <h2 className="font-heading text-3xl md:text-[40px] font-bold tracking-tight leading-[1.15] text-text-dark mb-4">
+            <h2 className="font-heading text-3xl md:text-[38px] font-extrabold tracking-tight leading-[1.1] text-text-dark mb-3">
               Any <span className="text-primary">Questions</span>?<br />Find here.
             </h2>
             <p className="text-sm text-text-mid font-light mb-6">
@@ -41,29 +41,29 @@ const FaqSection = () => {
             </p>
             <a
               href="/#contact"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary no-underline border border-primary rounded-lg px-5 py-2.5 hover:bg-red-bg transition-colors"
+              className="inline-flex items-center text-sm font-semibold text-primary no-underline border border-primary rounded-lg px-6 py-2.5 hover:bg-red-bg transition-colors"
             >
               Contact us
             </a>
           </div>
 
           {/* Right: accordion */}
-          <div className="space-y-3 reveal">
+          <div className="space-y-2.5 reveal">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-border rounded-xl overflow-hidden">
+              <div key={i} className="border border-border rounded-xl overflow-hidden bg-background">
                 <button
-                  className="w-full flex items-center justify-between p-5 text-left bg-off-white hover:bg-warm-gray transition-colors"
+                  className="w-full flex items-center justify-between p-4 px-5 text-left hover:bg-off-white transition-colors"
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 >
-                  <span className="font-heading text-sm font-semibold text-text-dark pr-4">{faq.q}</span>
+                  <span className="font-heading text-[13px] font-semibold text-text-dark pr-4">{faq.q}</span>
                   <ChevronDown
-                    size={18}
+                    size={16}
                     className={`text-text-light flex-shrink-0 transition-transform duration-200 ${openIndex === i ? "rotate-180" : ""}`}
                   />
                 </button>
                 {openIndex === i && (
-                  <div className="px-5 pb-5 bg-off-white">
-                    <p className="text-sm leading-[1.7] text-text-mid font-light">{faq.a}</p>
+                  <div className="px-5 pb-4">
+                    <p className="text-[13px] leading-[1.7] text-text-mid font-light">{faq.a}</p>
                   </div>
                 )}
               </div>
