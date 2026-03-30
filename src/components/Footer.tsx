@@ -1,72 +1,91 @@
-import { Link } from "react-router-dom";
+import { Linkedin, Facebook, Instagram, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-ink text-primary-foreground/60">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16 mb-12">
+    <footer className="bg-off-white">
+      {/* Top bar */}
+      <div className="max-w-[1200px] mx-auto px-5 md:px-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 py-8">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-primary-foreground">
-                  <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                </svg>
-              </div>
-              <span className="font-heading font-bold text-lg text-primary-foreground">
-                e<span className="text-primary">Z</span>ine
-              </span>
-            </div>
-            <p className="text-sm leading-relaxed text-primary-foreground/40">
-              Turn your boring docs into smart, swipe-able digital publications with AI.
-            </p>
-            <p className="text-xs mt-4 text-primary-foreground/30">by Evolutyz</p>
+          <div className="flex items-center gap-1.5">
+            <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
+              e<span className="text-primary">Z</span>ine.
+            </span>
+            <span className="text-base text-text-mid font-light ml-1">by Evolutyz</span>
           </div>
 
-          {/* Product */}
-          <div>
-            <h4 className="font-heading font-semibold text-sm text-primary-foreground/80 mb-4 tracking-wide uppercase">
-              Product
-            </h4>
-            <ul className="space-y-3 list-none">
-              <li><Link to="/features/ai-chat" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">AI Chat</Link></li>
-              <li><a href="https://www.ezine.digital" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">Features</a></li>
-              <li><Link to="/compare" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">Comparison</Link></li>
-            </ul>
+          {/* Links */}
+          <div className="flex items-center gap-8 md:gap-10 flex-wrap justify-center">
+            <a href="https://www.ezine.digital/#terms" className="text-base font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+              Terms & Conditions
+            </a>
+            <a href="https://www.ezine.digital/#faqs" className="text-base font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+              FAQs
+            </a>
+            <a href="https://www.ezine.digital/#contact" className="text-base font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+              Contact us
+            </a>
           </div>
 
-          {/* Use Cases */}
-          <div>
-            <h4 className="font-heading font-semibold text-sm text-primary-foreground/80 mb-4 tracking-wide uppercase">
-              Use Cases
-            </h4>
-            <ul className="space-y-3 list-none">
-              <li><Link to="/use-cases/onboarding" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">Onboarding</Link></li>
-              <li><span className="text-sm text-primary-foreground/30">Training (coming soon)</span></li>
-              <li><span className="text-sm text-primary-foreground/30">Sales Presentations</span></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-heading font-semibold text-sm text-primary-foreground/80 mb-4 tracking-wide uppercase">
-              Company
-            </h4>
-            <ul className="space-y-3 list-none">
-              <li><a href="https://www.ezine.digital" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">About us</a></li>
-              <li><a href="https://www.ezine.digital/#contact" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">Contact us</a></li>
-              <li><a href="https://www.ezine.digital/#faqs" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors no-underline">FAQs</a></li>
-            </ul>
+          {/* LinkedIn + copyright */}
+          <div className="flex items-center gap-3">
+            <a href="https://www.linkedin.com/company/evolutyz" target="_blank" rel="noopener noreferrer" className="text-text-dark hover:text-primary transition-colors">
+              <Linkedin size={20} />
+            </a>
+            <span className="text-sm text-text-light">| Copyright ©{new Date().getFullYear()} Ezine.digital</span>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-primary-foreground/30">
-            © {new Date().getFullYear()} Ezine by Evolutyz. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-primary-foreground/30 hover:text-primary-foreground/60 transition-colors no-underline">Privacy Policy</a>
-            <a href="#" className="text-xs text-primary-foreground/30 hover:text-primary-foreground/60 transition-colors no-underline">Terms of Service</a>
+        {/* Divider */}
+        <div className="h-px bg-text-dark/15" />
+
+        {/* Bottom section */}
+        <div className="py-10">
+          {/* Product logos row */}
+          <div className="flex items-center justify-center gap-10 md:gap-16 mb-8 flex-wrap">
+            <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
+              e<span className="text-primary">Z</span>ine.
+            </span>
+            <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
+              e<span className="text-primary">Z</span><span className="font-light">connect</span>
+            </span>
+            <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
+              e<span className="text-primary">Z</span><span className="uppercase">GiFTS</span>
+            </span>
+            <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
+              e<span className="text-primary">Z</span><span className="font-light">rewards</span>
+            </span>
+          </div>
+
+          {/* Evolutyz + trademark text */}
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
+            <div className="flex-shrink-0">
+              <span className="font-heading text-xl font-bold text-accent italic">Evolutyz</span>
+            </div>
+            <p className="text-sm text-text-mid leading-relaxed">
+              Ezine, Ezconnect, Ezgifts and Ezrewards are registered trademarks of Evolutyz. Terms and conditions, features, support, pricing, and service options subject to change without notice.
+            </p>
+          </div>
+
+          {/* Social icons */}
+          <div className="flex items-center gap-4 mb-6">
+            <a href="#" className="text-text-dark hover:text-primary transition-colors"><Facebook size={18} /></a>
+            <a href="#" className="text-text-dark hover:text-primary transition-colors">
+              <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/evolutyz" target="_blank" rel="noopener noreferrer" className="text-text-dark hover:text-primary transition-colors"><Linkedin size={18} /></a>
+            <a href="#" className="text-text-dark hover:text-primary transition-colors"><Instagram size={18} /></a>
+            <a href="#" className="text-text-dark hover:text-primary transition-colors"><Youtube size={18} /></a>
+          </div>
+
+          {/* Bottom copyright row */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-text-light">
+              Copyright ©{new Date().getFullYear()} Evolutyz Corp.
+            </p>
+            <p className="text-sm text-text-mid">
+              Made with <span className="text-primary">❤️</span> from <strong className="font-bold">VIZAG!</strong>
+            </p>
           </div>
         </div>
       </div>
