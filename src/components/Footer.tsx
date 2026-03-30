@@ -9,42 +9,39 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex items-center gap-1.5">
             <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
-              e<span className="text-primary">Z</span>ine.
+              <span className="italic text-primary">e</span><span className="text-primary">Z</span>ine.
             </span>
-            <span className="text-base text-text-mid font-light ml-1">by Evolutyz</span>
+            <span className="text-sm text-text-mid font-light ml-1">by Evolutyz</span>
           </div>
 
           {/* Links */}
-          <div className="flex items-center gap-8 md:gap-10 flex-wrap justify-center">
-            <a href="https://www.ezine.digital/#terms" className="text-base font-semibold text-text-dark hover:text-primary transition-colors no-underline">
-              Terms & Conditions
+          <div className="flex items-center gap-6 md:gap-10 flex-wrap justify-center">
+            <a href="https://www.ezine.digital/#terms" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+              Terms & Services
             </a>
-            <a href="https://www.ezine.digital/#faqs" className="text-base font-semibold text-text-dark hover:text-primary transition-colors no-underline">
-              FAQs
+            <a href="https://www.ezine.digital/#privacy" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+              Privacy Policy
             </a>
-            <a href="https://www.ezine.digital/#contact" className="text-base font-semibold text-text-dark hover:text-primary transition-colors no-underline">
-              Contact us
+            <a href="https://www.ezine.digital/#data" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+              Data Processing
             </a>
           </div>
 
-          {/* LinkedIn + copyright */}
-          <div className="flex items-center gap-3">
-            <a href="https://www.linkedin.com/company/evolutyz" target="_blank" rel="noopener noreferrer" className="text-text-dark hover:text-primary transition-colors">
-              <Linkedin size={20} />
-            </a>
-            <span className="text-sm text-text-light">| Copyright ©{new Date().getFullYear()} Ezine.digital</span>
+          {/* Copyright */}
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-text-light">Copyright ©{new Date().getFullYear()} Ezine.digital</span>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-text-dark/15" />
+        <div className="h-px bg-text-dark/10" />
 
         {/* Bottom section */}
         <div className="py-10">
           {/* Product logos row */}
           <div className="flex items-center justify-center gap-10 md:gap-16 mb-8 flex-wrap">
             <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
-              e<span className="text-primary">Z</span>ine.
+              <span className="italic text-primary">e</span><span className="text-primary">Z</span>ine.
             </span>
             <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
               e<span className="text-primary">Z</span><span className="font-light">connect</span>
@@ -62,7 +59,7 @@ const Footer = () => {
             <div className="flex-shrink-0">
               <span className="font-heading text-xl font-bold text-accent italic">Evolutyz</span>
             </div>
-            <p className="text-sm text-text-mid leading-relaxed">
+            <p className="text-xs text-text-mid leading-relaxed">
               Ezine, Ezconnect, Ezgifts and Ezrewards are registered trademarks of Evolutyz. Terms and conditions, features, support, pricing, and service options subject to change without notice.
             </p>
           </div>
@@ -80,7 +77,7 @@ const Footer = () => {
 
           {/* Bottom copyright row */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-text-light">
+            <p className="text-xs text-text-light">
               Copyright ©{new Date().getFullYear()} Evolutyz Corp.
             </p>
             <p className="text-sm text-text-mid">

@@ -1,50 +1,77 @@
-import { Layers, MessageSquare, FileText, Share2 } from "lucide-react";
-
 const WhyEzine = () => {
   const features = [
     {
-      icon: Layers,
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
+          <rect x="4" y="6" width="16" height="20" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <rect x="24" y="6" width="20" height="20" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M8 30h32v12H8z" stroke="hsl(var(--primary))" strokeWidth="2" rx="2" />
+          <path d="M14 12h2M14 16h4" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      ),
       title: "PDF to Interactive Flipbook Converter",
-      desc: "Transform static PDFs into visually rich, easy-to-navigate, swipe-ready digital flipbooks. Elevate boring content.",
+      desc: "Transform static PDFs into visually rich, easy-to-navigate, swipe-ready digital flipbooks. Elevate boring content into engaging experiences.",
     },
     {
-      icon: MessageSquare,
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
+          <rect x="8" y="4" width="32" height="40" rx="3" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M14 14h20M14 20h16M14 26h12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="36" cy="36" r="8" fill="hsl(var(--primary))" opacity="0.15" />
+          <path d="M33 36h6M36 33v6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      ),
       title: "AI Chat for Your Documents",
       desc: "Let users ask questions and get precise answers pulled directly from the document — no scrolling, no searching, no guessing.",
     },
     {
-      icon: FileText,
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
+          <rect x="6" y="8" width="36" height="32" rx="3" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M6 16h36" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M14 24h20M14 30h14M14 36h8" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="10" cy="12" r="1.5" fill="hsl(var(--primary))" />
+          <circle cx="15" cy="12" r="1.5" fill="hsl(var(--primary))" />
+          <circle cx="20" cy="12" r="1.5" fill="hsl(var(--primary))" />
+        </svg>
+      ),
       title: "Instant Document Summaries",
-      desc: "Auto-generate concise, meaningful summaries of any document — so readers can get the gist before diving into the detail.",
+      desc: "Auto-generate concise, meaningful summaries of any document — so readers get the gist before diving into the detail and what matters most.",
     },
     {
-      icon: Share2,
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
+          <path d="M24 8v32" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M8 24h32" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <circle cx="14" cy="14" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <circle cx="34" cy="14" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <circle cx="14" cy="34" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <circle cx="34" cy="34" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M18 10l12 0M18 38l12 0M10 18v12M38 18v12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 3" />
+        </svg>
+      ),
       title: "Seamless Document Sharing",
       desc: "Share documents with a single link. No attachments, no downloads. Email, WhatsApp, Slack — works everywhere, opens instantly.",
     },
   ];
 
   return (
-    <section className="bg-background py-20 md:py-24 px-5 md:px-12">
+    <section className="bg-background py-16 md:py-20 px-5 md:px-12">
       <div className="max-w-[1100px] mx-auto">
-        <div className="text-center mb-14 reveal">
-          <h2 className="font-heading text-3xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-text-dark mb-4">
+        <div className="text-center mb-12 reveal">
+          <h2 className="font-heading text-3xl md:text-[40px] font-extrabold tracking-tight leading-[1.1] text-text-dark">
             Why <span className="text-primary">Ezine</span>?
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="bg-off-white rounded-2xl p-7 border border-border hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(26,21,18,0.08)] hover:border-transparent transition-all duration-300 relative overflow-hidden group reveal"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300" />
-              <div className="w-12 h-12 rounded-xl bg-red-bg flex items-center justify-center mb-5">
-                <feature.icon size={22} className="text-primary" />
+            <div key={feature.title} className="text-center reveal">
+              <div className="flex justify-center mb-5">
+                {feature.icon}
               </div>
-              <h3 className="font-heading text-base font-bold text-text-dark leading-[1.3] tracking-tight mb-2.5">{feature.title}</h3>
-              <p className="text-sm leading-[1.7] text-text-mid font-light">{feature.desc}</p>
+              <h3 className="font-heading text-[15px] font-bold text-text-dark leading-[1.3] tracking-tight mb-2.5">{feature.title}</h3>
+              <p className="text-[13px] leading-[1.7] text-text-mid font-light">{feature.desc}</p>
             </div>
           ))}
         </div>
