@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ComparisonPage from "./pages/ComparisonPage.tsx";
+import AiChatFeaturePage from "./pages/AiChatFeaturePage.tsx";
+import OnboardingLandingPage from "./pages/OnboardingLandingPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/compare" element={<ComparisonPage />} />
+          <Route path="/features/ai-chat" element={<AiChatFeaturePage />} />
+          <Route path="/use-cases/onboarding" element={<OnboardingLandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
