@@ -1,43 +1,67 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
-    { label: "Home", href: "https://www.ezine.digital", external: true },
-    { label: "About us", href: "https://www.ezine.digital/#about", external: true },
+    { label: "Home", href: "/" },
     { label: "Features", href: "/features/ai-chat" },
     { label: "Use Cases", href: "/use-cases/onboarding" },
     { label: "Comparison", href: "/compare" },
-    { label: "FAQs", href: "https://www.ezine.digital/#faqs", external: true },
-    { label: "Contact us", href: "https://www.ezine.digital/#contact", external: true },
+    { label: "Contact us", href: "/#contact", isHash: true },
+    { label: "FAQs", href: "/#faqs", isHash: true },
   ];
 
-  const isActive = (href: string) => location.pathname === href;
+  // Handle hash scrolling when navigating from other pages
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.getElementById(location.hash.replace("#", ""));
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    }
+  }, [location]);
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) return false;
+    return location.pathname === href;
+  };
+
+  const handleHashClick = (href: string) => {
+    setMobileOpen(false);
+    if (location.pathname === "/") {
+      const id = href.replace("/#", "");
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(href);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-5 md:px-12 bg-background/95 backdrop-blur-xl border-b border-border">
-      <a href="https://www.ezine.digital" className="flex items-center gap-1.5 no-underline">
+      <Link to="/" className="flex items-center gap-1.5 no-underline">
         <span className="font-heading font-bold text-xl tracking-tight text-text-dark">
           <span className="italic text-primary">e</span><span className="text-primary">Z</span>ine.
         </span>
         <span className="text-sm text-text-mid font-light ml-1 hidden sm:inline">by Evolutyz</span>
-      </a>
+      </Link>
 
       {/* Desktop links */}
       <ul className="hidden lg:flex items-center gap-6 list-none">
         {links.map((link) =>
-          link.external ? (
+          link.isHash ? (
             <li key={link.label}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-text-mid hover:text-primary transition-colors no-underline"
+              <button
+                onClick={() => handleHashClick(link.href)}
+                className="text-sm font-medium text-text-mid hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
               >
                 {link.label}
-              </a>
+              </button>
             </li>
           ) : (
             <li key={link.label}>
@@ -82,15 +106,14 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="absolute top-16 left-0 right-0 bg-background border-b border-border p-5 flex flex-col gap-4 lg:hidden shadow-lg">
           {links.map((link) =>
-            link.external ? (
-              <a
+            link.isHash ? (
+              <button
                 key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-text-mid no-underline"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => handleHashClick(link.href)}
+                className="text-sm font-medium text-text-mid text-left bg-transparent border-none cursor-pointer"
               >
                 {link.label}
-              </a>
+              </button>
             ) : (
               <Link
                 key={link.label}
