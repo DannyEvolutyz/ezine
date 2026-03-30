@@ -27,11 +27,11 @@ const AiChatFeaturePage = () => {
           WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 100%)',
         }} />
 
-        <div className="inline-flex items-center gap-2 text-xs text-primary-foreground/42 font-medium mb-8 relative z-10">
-          <a href="https://www.ezine.digital" className="text-primary-foreground/42 no-underline hover:text-primary transition-colors">Home</a>
-          <span className="text-primary-foreground/8">/</span>
-          <span className="text-primary-foreground/42">Features</span>
-          <span className="text-primary-foreground/8">/</span>
+        <div className="inline-flex items-center gap-2 text-xs text-primary-foreground/70 font-medium mb-8 relative z-10">
+          <a href="https://www.ezine.digital" className="text-primary-foreground/70 no-underline hover:text-primary transition-colors">Home</a>
+          <span className="text-primary-foreground/30">/</span>
+          <span className="text-primary-foreground/70">Features</span>
+          <span className="text-primary-foreground/30">/</span>
           <span className="text-primary font-semibold">AI Chat</span>
         </div>
 
@@ -45,7 +45,7 @@ const AiChatFeaturePage = () => {
           <em className="italic text-primary">No scrolling, no guessing.</em>
         </h1>
 
-        <p className="text-base md:text-lg leading-relaxed text-primary-foreground/62 font-light max-w-[560px] mx-auto mb-12 relative z-10">
+        <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80 font-light max-w-[560px] mx-auto mb-12 relative z-10">
           Chat with your documents using built-in AI — get precise answers instantly, without reading through everything.
         </p>
 
@@ -57,7 +57,7 @@ const AiChatFeaturePage = () => {
             Try it on your document
             <ArrowRight size={16} />
           </a>
-          <span className="text-sm text-primary-foreground/42 flex items-center gap-1.5">
+          <span className="text-sm text-primary-foreground/70 flex items-center gap-1.5">
             <Check size={14} className="text-green-400" />
             Free to use
           </span>
