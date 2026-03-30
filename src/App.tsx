@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import ComparisonPage from "./pages/ComparisonPage.tsx";
 import AiChatFeaturePage from "./pages/AiChatFeaturePage.tsx";
 import OnboardingLandingPage from "./pages/OnboardingLandingPage.tsx";
+import UseCasePage from "./pages/UseCasePage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/compare" element={<ComparisonPage />} />
           <Route path="/features/ai-chat" element={<AiChatFeaturePage />} />
+          <Route path="/use-cases/hr-people-ops" element={<OnboardingLandingPage />} />
+          <Route path="/use-cases/:slug" element={<UseCasePage />} />
           <Route path="/use-cases/onboarding" element={<OnboardingLandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

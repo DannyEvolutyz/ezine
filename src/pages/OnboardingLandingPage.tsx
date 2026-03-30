@@ -88,14 +88,11 @@ const OnboardingLandingPage = () => {
                 <div className="text-center text-[11px] text-text-light mt-2 font-medium">1 of 48 pages · Swipe to navigate</div>
               </div>
 
-              {/* AI chat bubble */}
               <div className="absolute -bottom-3 -right-3 bg-background rounded-xl p-3.5 px-4.5 shadow-[0_12px_40px_rgba(26,21,18,0.15)] border border-border min-w-[220px] animate-float">
                 <div className="text-[11px] text-text-light mb-2 font-medium">💬 Asked by Sarah (Day 3)</div>
                 <div className="flex gap-2 items-start">
                   <div className="w-[22px] h-[22px] bg-primary rounded-md flex items-center justify-center flex-shrink-0">
-                    <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                    </svg>
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
                   </div>
                   <div>
                     <div className="text-[11px] leading-snug text-text-dark">"What's the leave policy for the first 3 months?"</div>
@@ -112,11 +109,9 @@ const OnboardingLandingPage = () => {
         </div>
       </section>
 
-      {/* The Real Problem — dark */}
+      {/* The Real Problem */}
       <section className="bg-text-dark py-20 md:py-24 px-5 md:px-12 relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-[400px] h-[400px] bg-[radial-gradient(circle,hsl(var(--primary)/0.15)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-[radial-gradient(circle,hsl(var(--accent)/0.1)_0%,transparent_70%)] pointer-events-none" />
-
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
             <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-5">The Real Problem</div>
@@ -128,7 +123,6 @@ const OnboardingLandingPage = () => {
               Your team already has well-structured onboarding documents, detailed policies and handbooks, and complete training materials. The problem is what happens after you share them.
             </p>
           </div>
-
           <div className="flex flex-col gap-5">
             {problems.map((item) => (
               <div key={item.title} className="flex gap-4 items-start p-5 md:p-6 rounded-xl border border-primary-foreground/8 bg-primary-foreground/4 hover:border-primary/30 hover:bg-primary/6 hover:translate-x-1 transition-all reveal">
@@ -190,17 +184,13 @@ const OnboardingLandingPage = () => {
             <h2 className="font-heading text-3xl md:text-[40px] font-bold tracking-tight leading-[1.15] text-text-dark mb-6">
               Less time answering the same questions. More time for what matters.
             </h2>
-            <p className="text-[17px] leading-[1.75] text-text-mid font-light mb-4">
-              When employees can find answers themselves, HR stops fielding the same questions repeatedly. Engagement with onboarding documents improves, dependency on HR for basic queries drops, and new hires ramp up faster.
-            </p>
             <p className="text-[17px] leading-[1.75] text-text-mid font-light mb-8">
-              The same approach works across sales presentations, training materials, marketing brochures, and digital catalogs.
+              When employees can find answers themselves, HR stops fielding the same questions repeatedly. Engagement with onboarding documents improves, dependency on HR for basic queries drops, and new hires ramp up faster.
             </p>
             <div className="mt-8 p-6 bg-red-bg/60 border-l-[3px] border-primary rounded-r-xl text-[15px] leading-[1.7] text-text-dark italic">
               "Your onboarding document stops being something employees 'go through' and becomes something they actually use when they need it."
             </div>
           </div>
-
           <div className="flex flex-col gap-5">
             {stats.map((stat) => (
               <div key={stat.value} className="bg-off-white rounded-xl p-6 flex items-center gap-5 border border-border hover:bg-background hover:shadow-[0_8px_24px_rgba(26,21,18,0.08)] hover:translate-x-1.5 transition-all reveal">
