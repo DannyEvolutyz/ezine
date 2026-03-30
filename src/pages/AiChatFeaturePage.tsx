@@ -208,7 +208,7 @@ const AiChatFeaturePage = () => {
             <h2 className="font-heading text-3xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-primary-foreground mb-4">
               From digging through pages<br />to <em className="italic text-primary">simply asking</em>
             </h2>
-            <p className="text-base leading-relaxed text-primary-foreground/62 font-light max-w-[500px] mx-auto">
+            <p className="text-base leading-relaxed text-primary-foreground font-light max-w-[500px] mx-auto">
               Works across onboarding documents, training materials, and any internal resource your team relies on daily.
             </p>
           </div>
