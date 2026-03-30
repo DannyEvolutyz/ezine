@@ -65,53 +65,53 @@ const AiChatFeaturePage = () => {
       </section>
 
       {/* Chat Demo Window */}
-      <section className="bg-ink px-5 md:px-12 pb-20 md:pb-24">
+      <section className="bg-off-white px-5 md:px-12 pb-20 md:pb-24 pt-16">
         <div className="max-w-[900px] mx-auto">
-          <div className="bg-ink-2 rounded-2xl border border-primary-foreground/8 overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.04)]">
+          <div className="bg-background rounded-2xl border border-border overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]">
             {/* Toolbar */}
-            <div className="bg-[hsl(var(--ink)/0.8)] p-3.5 px-5 flex items-center gap-3 border-b border-primary-foreground/8">
+            <div className="bg-warm-gray p-3.5 px-5 flex items-center gap-3 border-b border-border">
               <div className="flex gap-[7px]">
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                 <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
                 <span className="w-3 h-3 rounded-full bg-[#28C840]" />
               </div>
-              <div className="flex-1 text-center text-xs text-primary-foreground/42 font-medium">
-                <strong className="text-primary-foreground/62">Employee Onboarding Handbook.pdf</strong> · AI Chat enabled
+              <div className="flex-1 text-center text-xs text-text-light font-medium">
+                <strong className="text-text-dark">Employee Onboarding Handbook.pdf</strong> · AI Chat enabled
               </div>
             </div>
 
             {/* Body */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] min-h-[420px]">
               {/* Doc preview */}
-              <div className="hidden md:block p-7 border-r border-primary-foreground/8 relative overflow-hidden">
-                <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-primary-foreground/42 mb-4">Section 4 · Leave Policy</div>
+              <div className="hidden md:block p-7 border-r border-border relative overflow-hidden">
+                <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-text-light mb-4">Section 4 · Leave Policy</div>
                 <div className="space-y-2.5">
-                  <div className="h-[11px] w-4/5 bg-primary-foreground/6 rounded" />
-                  <div className="h-[7px] w-full bg-primary-foreground/6 rounded" />
-                  <div className="h-[7px] w-[90%] bg-primary-foreground/6 rounded" />
-                  <div className="h-[7px] w-[65%] bg-primary-foreground/6 rounded" />
+                  <div className="h-[11px] w-4/5 bg-warm-gray rounded" />
+                  <div className="h-[7px] w-full bg-warm-gray rounded" />
+                  <div className="h-[7px] w-[90%] bg-warm-gray rounded" />
+                  <div className="h-[7px] w-[65%] bg-warm-gray rounded" />
                   <div className="h-5" />
                   <div className="text-[10px] font-semibold text-primary tracking-wide">↑ Relevant passage found</div>
-                  <div className="h-[7px] w-full bg-primary/25 border border-primary/40 rounded relative overflow-hidden animate-shimmer" />
-                  <div className="h-[7px] w-4/5 bg-primary/25 border border-primary/40 rounded relative overflow-hidden animate-shimmer" />
-                  <div className="h-[7px] w-[55%] bg-primary/25 border border-primary/40 rounded relative overflow-hidden animate-shimmer" />
+                  <div className="h-[7px] w-full bg-primary/20 border border-primary/30 rounded relative overflow-hidden animate-shimmer" />
+                  <div className="h-[7px] w-4/5 bg-primary/20 border border-primary/30 rounded relative overflow-hidden animate-shimmer" />
+                  <div className="h-[7px] w-[55%] bg-primary/20 border border-primary/30 rounded relative overflow-hidden animate-shimmer" />
                   <div className="h-5" />
-                  <div className="h-[7px] w-[90%] bg-primary-foreground/6 rounded" />
-                  <div className="h-[7px] w-4/5 bg-primary-foreground/6 rounded" />
-                  <div className="h-[7px] w-[65%] bg-primary-foreground/6 rounded" />
+                  <div className="h-[7px] w-[90%] bg-warm-gray rounded" />
+                  <div className="h-[7px] w-4/5 bg-warm-gray rounded" />
+                  <div className="h-[7px] w-[65%] bg-warm-gray rounded" />
                 </div>
               </div>
 
               {/* Chat panel */}
               <div className="p-5 flex flex-col gap-3.5">
-                <div className="text-[11px] font-bold tracking-[1px] uppercase text-primary-foreground/42 pb-3.5 border-b border-primary-foreground/8 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse-dot" />
+                <div className="text-[11px] font-bold tracking-[1px] uppercase text-text-light pb-3.5 border-b border-border flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-dot" />
                   EzBot · AI Chat
                 </div>
 
                 <div className="flex flex-col gap-3 flex-1">
                   {/* User message */}
-                  <div className="self-end bg-primary/15 border border-primary/20 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-primary-foreground/88 max-w-[85%]">
+                  <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
                     What's the leave policy for the first 3 months?
                   </div>
 
@@ -122,8 +122,8 @@ const AiChatFeaturePage = () => {
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
                       </svg>
                     </div>
-                    <div className="bg-primary-foreground/5 border border-primary-foreground/8 rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-primary-foreground/62">
-                      During the first 3 months, employees are eligible for <strong className="text-primary-foreground font-semibold">6 days of sick leave</strong>. Casual leave accrues from month 2 onwards at <strong className="text-primary-foreground font-semibold">1 day per month</strong>.
+                    <div className="bg-off-white border border-border rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-text-mid">
+                      During the first 3 months, employees are eligible for <strong className="text-text-dark font-semibold">6 days of sick leave</strong>. Casual leave accrues from month 2 onwards at <strong className="text-text-dark font-semibold">1 day per month</strong>.
                       <div className="inline-flex items-center gap-1 bg-primary/10 border border-primary/15 rounded px-2 py-0.5 text-[10px] text-primary font-semibold mt-2">
                         <FileText size={10} />
                         Section 4 · Page 12
@@ -132,7 +132,7 @@ const AiChatFeaturePage = () => {
                   </div>
 
                   {/* User message 2 */}
-                  <div className="self-end bg-primary/15 border border-primary/20 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-primary-foreground/88 max-w-[85%]">
+                  <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
                     When does the probation period end?
                   </div>
 
@@ -143,8 +143,8 @@ const AiChatFeaturePage = () => {
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
                       </svg>
                     </div>
-                    <div className="bg-primary-foreground/5 border border-primary-foreground/8 rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-primary-foreground/62">
-                      The standard probation period is <strong className="text-primary-foreground font-semibold">90 days</strong> from your date of joining, unless extended in writing by your manager.
+                    <div className="bg-off-white border border-border rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-text-mid">
+                      The standard probation period is <strong className="text-text-dark font-semibold">90 days</strong> from your date of joining, unless extended in writing by your manager.
                       <div className="inline-flex items-center gap-1 bg-primary/10 border border-primary/15 rounded px-2 py-0.5 text-[10px] text-primary font-semibold mt-2">
                         <FileText size={10} />
                         Section 2 · Page 6
@@ -154,8 +154,8 @@ const AiChatFeaturePage = () => {
                 </div>
 
                 {/* Chat input */}
-                <div className="flex gap-2 items-center pt-2.5 border-t border-primary-foreground/8">
-                  <div className="flex-1 bg-primary-foreground/5 border border-primary-foreground/8 rounded-lg px-3 py-2 text-[11px] text-primary-foreground/42">
+                <div className="flex gap-2 items-center pt-2.5 border-t border-border">
+                  <div className="flex-1 bg-off-white border border-border rounded-lg px-3 py-2 text-[11px] text-text-light">
                     Ask anything about this document…
                   </div>
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
