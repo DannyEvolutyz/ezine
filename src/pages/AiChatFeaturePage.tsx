@@ -17,48 +17,59 @@ const AiChatFeaturePage = () => {
 
   return (
     <MarketingLayout>
-      {/* Hero — dark */}
-      <section className="bg-ink min-h-[85vh] flex flex-col items-center justify-center text-center px-5 md:px-12 py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse,hsl(var(--primary)/0.12)_0%,transparent_65%)] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 100%)',
+      {/* Hero — light with warm gradients */}
+      <section className="bg-background min-h-[85vh] flex flex-col items-center justify-center text-center px-5 md:px-12 py-20 md:py-28 relative overflow-hidden">
+        {/* Warm gradient blobs */}
+        <div className="absolute top-[-120px] right-[-80px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,hsl(var(--primary)/0.10)_0%,hsl(var(--accent)/0.06)_40%,transparent_70%)] pointer-events-none blur-[40px]" />
+        <div className="absolute bottom-[-100px] left-[-60px] w-[450px] h-[450px] rounded-full bg-[radial-gradient(circle,hsl(var(--accent)/0.08)_0%,hsl(var(--primary)/0.04)_50%,transparent_70%)] pointer-events-none blur-[40px]" />
+        <div className="absolute top-[30%] left-[10%] w-[200px] h-[200px] rounded-full bg-[radial-gradient(circle,hsl(var(--primary)/0.06)_0%,transparent_70%)] pointer-events-none blur-[30px] animate-pulse" />
+
+        {/* Floating geometric shapes */}
+        <div className="absolute top-[15%] right-[12%] w-16 h-16 border-2 border-primary/15 rounded-2xl rotate-12 pointer-events-none" />
+        <div className="absolute bottom-[20%] left-[8%] w-10 h-10 border-2 border-accent/15 rounded-full pointer-events-none" />
+        <div className="absolute top-[60%] right-[8%] w-6 h-6 bg-primary/10 rounded-full pointer-events-none" />
+        <div className="absolute top-[25%] left-[18%] w-3 h-3 bg-accent/20 rounded-full pointer-events-none" />
+
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.35]" style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--ink) / 0.07) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse 70% 50% at 50% 40%, black 0%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 50% at 50% 40%, black 0%, transparent 100%)',
         }} />
 
-        <div className="inline-flex items-center gap-2 text-xs text-primary-foreground/70 font-medium mb-8 relative z-10">
-          <a href="https://www.ezine.digital" className="text-primary-foreground/70 no-underline hover:text-primary transition-colors">Home</a>
-          <span className="text-primary-foreground/30">/</span>
-          <span className="text-primary-foreground/70">Features</span>
-          <span className="text-primary-foreground/30">/</span>
+        <div className="inline-flex items-center gap-2 text-xs text-muted-foreground font-medium mb-8 relative z-10">
+          <a href="/" className="text-muted-foreground no-underline hover:text-primary transition-colors">Home</a>
+          <span className="text-border-strong">/</span>
+          <span className="text-muted-foreground">Features</span>
+          <span className="text-border-strong">/</span>
           <span className="text-primary font-semibold">AI Chat</span>
         </div>
 
-        <div className="inline-flex items-center gap-2 bg-primary/12 border border-primary/25 rounded-full px-4 py-1.5 text-[11px] font-bold text-primary tracking-[1.5px] uppercase mb-7 relative z-10">
+        <div className="inline-flex items-center gap-2 bg-primary/8 border border-primary/20 rounded-full px-5 py-2 text-[11px] font-bold text-primary tracking-[1.5px] uppercase mb-7 relative z-10">
           <span className="w-[5px] h-[5px] bg-primary rounded-full animate-pulse-dot" />
           AI Feature
         </div>
 
-        <h1 className="font-heading text-4xl md:text-6xl leading-none tracking-tighter text-primary-foreground mb-6 relative z-10 max-w-[840px] lg:text-5xl font-semibold">
+        <h1 className="font-heading text-4xl md:text-6xl leading-none tracking-tighter text-foreground mb-6 relative z-10 max-w-[840px] lg:text-5xl font-semibold">
           Ask questions.<br />Get answers.<br />
           <em className="italic text-primary">No scrolling, no guessing.</em>
         </h1>
 
-        <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80 font-light max-w-[560px] mx-auto mb-12 relative z-10">
+        <p className="text-base md:text-lg leading-relaxed text-muted-foreground font-light max-w-[560px] mx-auto mb-12 relative z-10">
           Chat with your documents using built-in AI and get precise answers instantly, without reading through everything.
         </p>
 
-        <div className="flex items-center gap-4 relative z-10">
+        <div className="flex flex-col sm:flex-row items-center gap-4 relative z-10">
           <a
             href="https://www.ezine.digital"
-            className="font-heading text-[15px] font-semibold text-primary-foreground no-underline px-9 py-3.5 bg-primary rounded-xl inline-flex items-center gap-2 shadow-[0_0_0_1px_hsl(var(--primary)),0_8px_32px_hsl(var(--primary)/0.4)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_hsl(var(--primary)),0_16px_40px_hsl(var(--primary)/0.5)] transition-all"
+            className="font-heading text-[15px] font-semibold text-primary-foreground no-underline px-9 py-3.5 bg-primary rounded-xl inline-flex items-center gap-2 shadow-[0_8px_32px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_hsl(var(--primary)/0.4)] transition-all"
           >
             Try it on your document
             <ArrowRight size={16} />
           </a>
-          <span className="text-sm text-primary-foreground/70 flex items-center gap-1.5">
-            <Check size={14} className="text-green-400" />
+          <span className="text-sm text-muted-foreground flex items-center gap-1.5">
+            <Check size={14} className="text-green-500" />
             Free to use
           </span>
         </div>
