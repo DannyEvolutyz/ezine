@@ -191,7 +191,7 @@ const AiChatFeaturePage = () => {
               <p className="font-heading text-xl md:text-[22px] font-semibold leading-[1.4] text-primary-foreground tracking-tight mb-5 relative z-10">
                 "Type a question. Get the answer. <em className="italic text-primary">Skip the scroll.</em>"
               </p>
-              <p className="text-sm leading-relaxed text-primary-foreground/62 font-light relative z-10">
+              <p className="text-sm leading-relaxed text-primary-foreground font-light relative z-10">
                 Instead of digging through pages, users simply ask — and get a precise answer pulled directly from the document's content, instantly.
               </p>
             </div>
@@ -218,7 +218,7 @@ const AiChatFeaturePage = () => {
               <div key={item.num} className={`bg-primary-foreground/[0.03] p-10 md:p-11 hover:bg-primary-foreground/[0.06] transition-colors reveal ${item.num === "03" ? "md:col-span-2" : ""}`}>
                 <div className="font-heading text-sm font-semibold text-primary mb-5 tracking-wide">{item.num}</div>
                 <h3 className="font-heading text-xl md:text-[22px] font-bold text-primary-foreground leading-[1.25] tracking-tight mb-3.5">{item.title}</h3>
-                <p className="text-sm leading-[1.75] text-primary-foreground/82 font-light">{item.desc}</p>
+                <p className="text-sm leading-[1.75] text-primary-foreground font-light">{item.desc}</p>
               </div>
             ))}
           </div>
