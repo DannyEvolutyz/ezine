@@ -140,7 +140,7 @@ const ComparisonPage = () => {
               </tbody>
             </table>
           </div>
-          <p className="text-center mt-6 text-sm text-text-light italic reveal">
+          <p className="text-center mt-6 text-sm text-text-light reveal">
             The first two rows are table stakes. The last four are where the real difference is.
           </p>
         </div>
