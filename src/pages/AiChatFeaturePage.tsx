@@ -213,12 +213,12 @@ const AiChatFeaturePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 bg-primary-foreground/8 rounded-2xl overflow-hidden border border-primary-foreground/8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 bg-primary-foreground/12 rounded-2xl overflow-hidden border border-primary-foreground/12">
             {whatChanges.map((item) => (
-              <div key={item.num} className={`bg-ink-2 p-10 md:p-11 hover:bg-[hsl(var(--ink)/0.7)] transition-colors reveal ${item.num === "03" ? "md:col-span-2" : ""}`}>
+              <div key={item.num} className={`bg-primary-foreground/[0.03] p-10 md:p-11 hover:bg-primary-foreground/[0.06] transition-colors reveal ${item.num === "03" ? "md:col-span-2" : ""}`}>
                 <div className="font-heading text-sm font-semibold text-primary mb-5 tracking-wide">{item.num}</div>
                 <h3 className="font-heading text-xl md:text-[22px] font-bold text-primary-foreground leading-[1.25] tracking-tight mb-3.5">{item.title}</h3>
-                <p className="text-sm leading-[1.75] text-primary-foreground/62 font-light">{item.desc}</p>
+                <p className="text-sm leading-[1.75] text-primary-foreground/82 font-light">{item.desc}</p>
               </div>
             ))}
           </div>
