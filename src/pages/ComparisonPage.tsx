@@ -57,7 +57,7 @@ const ComparisonPage = () => {
             <div className="absolute -top-16 -right-16 w-[200px] h-[200px] bg-[radial-gradient(circle,hsl(var(--primary)/0.2)_0%,transparent_65%)] pointer-events-none" />
             <div className="text-[10px] font-bold tracking-[2px] uppercase text-primary mb-4">The Short Version</div>
             <h3 className="font-heading text-[22px] font-bold leading-[1.3] tracking-tight text-primary-foreground mb-5">
-              If you need more than a<br /><em className="italic text-primary">pretty PDF,</em> read on.
+              If you need more than a<br /><em className="text-primary">pretty PDF,</em> read on.
             </h3>
             <div className="flex flex-col gap-3 mb-7">
               {["Both tools convert PDFs to flipbooks", "Both let you share via link"].map((text) => (
@@ -140,7 +140,7 @@ const ComparisonPage = () => {
               </tbody>
             </table>
           </div>
-          <p className="text-center mt-6 text-sm text-text-light italic reveal">
+          <p className="text-center mt-6 text-sm text-text-light reveal">
             The first two rows are table stakes. The last four are where the real difference is.
           </p>
         </div>
@@ -169,7 +169,7 @@ const ComparisonPage = () => {
             <div className="bg-ink md:col-span-2 p-10 md:p-12 hover:bg-ink-2 transition-colors reveal">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <h3 className="font-heading text-2xl md:text-[28px] font-bold leading-[1.25] text-primary-foreground tracking-tight">
-                  Ezine takes a <em className="italic text-primary">different approach.</em>
+                  Ezine takes a <em className="text-primary">different approach.</em>
                 </h3>
                 <p className="text-[15px] leading-[1.78] text-primary-foreground/55 font-light">
                   Instead of just converting PDFs into flipbooks, it adds an interactive layer — so users can navigate efficiently, find what they need instantly, and ask questions directly within the document when needed.

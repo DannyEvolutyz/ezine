@@ -40,7 +40,7 @@ const HeroSection = () => {
                 <div className="w-14 h-14 rounded-full bg-off-white flex items-center justify-center mb-5">
                   <Upload size={24} className="text-primary" />
                 </div>
-                <p className="font-heading text-xl font-extrabold text-text-dark italic mb-1">Drag & Drop</p>
+                <p className="font-heading text-xl font-extrabold text-text-dark mb-1">Drag & Drop</p>
                 <p className="text-sm text-text-mid font-light">or select files from device</p>
                 <p className="text-[11px] text-text-light mt-5">Let it be PDFs, Images or docs, documents</p>
               </div>

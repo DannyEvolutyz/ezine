@@ -50,7 +50,7 @@ const ThreeSteps = () => {
                     <div className="w-10 h-10 mx-auto bg-off-white rounded-full flex items-center justify-center mb-3">
                       <svg viewBox="0 0 24 24" className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" /></svg>
                     </div>
-                    <p className="font-heading text-sm font-bold text-text-dark italic">Drag & Drop</p>
+                    <p className="font-heading text-sm font-bold text-text-dark">Drag & Drop</p>
                     <p className="text-xs text-text-light mt-0.5">or select files from device</p>
                   </div>
                   <div className="flex gap-2 mt-3 text-[9px] text-text-light">

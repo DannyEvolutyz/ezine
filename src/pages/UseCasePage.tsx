@@ -282,7 +282,7 @@ const UseCasePage = () => {
               {data.whyTitle}
             </h2>
             <p className="text-[17px] leading-[1.75] text-text-mid font-light mb-8">{data.whyDesc}</p>
-            <div className="mt-8 p-6 bg-red-bg/60 border-l-[3px] border-primary rounded-r-xl text-[15px] leading-[1.7] text-text-dark italic">
+            <div className="mt-8 p-6 bg-red-bg/60 border-l-[3px] border-primary rounded-r-xl text-[15px] leading-[1.7] text-text-dark">
               "{data.quote}"
             </div>
           </div>
