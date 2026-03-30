@@ -56,7 +56,7 @@ const AiChatFeaturePage = () => {
 
             <h1 className="font-heading text-4xl md:text-5xl leading-none tracking-tighter text-foreground mb-6 font-semibold">
               Ask questions.<br />Get answers.<br />
-              <em className="text-primary">No scrolling, no guessing.</em>
+              <span className="text-primary">No scrolling, no guessing.</span>
             </h1>
 
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground font-light max-w-[480px] mb-10">
@@ -168,7 +168,7 @@ const AiChatFeaturePage = () => {
           <div className="reveal">
             <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-5">The Problem</div>
             <h2 className="font-heading text-3xl md:text-[40px] font-bold leading-[1.15] tracking-tight text-text-dark mb-6">
-              Nobody reads documents.<br />They <em className="not-italic text-primary">search</em> them.
+              Nobody reads documents.<br />They <span className="text-primary">search</span> them.
             </h2>
             <p className="text-[17px] leading-[1.8] text-text-mid font-light mb-4">
               No one opens a document planning to read everything. Most people are looking for one specific answer, but documents make that harder than it should be. You scroll, search, skim, and still end up missing what you need.
@@ -178,7 +178,7 @@ const AiChatFeaturePage = () => {
             <div className="relative p-8 md:p-9 bg-ink rounded-2xl overflow-hidden">
               <div className="absolute -top-2.5 left-6 font-heading text-[120px] text-primary/15 leading-none pointer-events-none">"</div>
               <p className="font-heading text-xl md:text-[22px] font-semibold leading-[1.4] text-primary-foreground tracking-tight mb-5 relative z-10">
-                "Type a question. Get the answer. <em className="text-primary">Skip the scroll.</em>"
+                "Type a question. Get the answer. <span className="text-primary">Skip the scroll.</span>"
               </p>
               <p className="text-sm leading-relaxed text-primary-foreground font-light relative z-10">
                 Instead of digging through pages, users simply ask. Type a question directly inside the document. Ezine pulls the answer from the content instantly.
@@ -195,7 +195,7 @@ const AiChatFeaturePage = () => {
           <div className="text-center mb-16">
             <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-4">What You Can Do</div>
             <h2 className="font-heading text-3xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-primary-foreground mb-4">
-              From digging through pages<br />to <em className="text-primary">simply asking</em>
+              From digging through pages<br />to <span className="text-primary">simply asking</span>
             </h2>
             <p className="text-base leading-relaxed text-primary-foreground font-light max-w-[500px] mx-auto">
               Works across onboarding documents, training materials, and any internal resource your team relies on daily.
@@ -221,7 +221,7 @@ const AiChatFeaturePage = () => {
             <div className="reveal">
               <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-5">Where This Makes the Biggest Difference</div>
               <h2 className="font-heading text-3xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-text-dark">
-                Three places where<br />AI chat <em className="not-italic text-primary">changes everything</em>
+                Three places where<br />AI chat <span className="text-primary">changes everything</span>
               </h2>
             </div>
             <p className="text-base leading-[1.7] text-text-mid font-light self-end reveal">
@@ -252,7 +252,7 @@ const AiChatFeaturePage = () => {
 
       {/* CTA */}
       <CtaSection
-        title={<>Stop scrolling.<br /><em className="not-italic text-primary">Start asking.</em></>}
+        title={<>Stop scrolling.<br /><span className="text-primary">Start asking.</span></>}
         body="Upload any document and ask your first question in under a minute. No setup, no configuration — just answers."
         buttonText="Try it on your document"
       />
