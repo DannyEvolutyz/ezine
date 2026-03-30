@@ -4,12 +4,12 @@ import { Check, X, ArrowRight } from "lucide-react";
 
 const ComparisonPage = () => {
   const features = [
-    { name: "Convert PDF to flipbook", typical: true, ezine: true },
-    { name: "Share via a link", typical: true, ezine: true },
-    { name: "Navigate without scrolling", typical: false, ezine: true },
-    { name: "Search inside the document", typical: false, ezine: true },
-    { name: "Ask questions, get instant answers", typical: false, ezine: true },
-    { name: "Built-in AI layer", typical: false, ezine: true },
+    { name: "Convert PDF to flipbook", typical: true, ezine: true, note: "" },
+    { name: "Share via a link", typical: true, ezine: true, note: "" },
+    { name: "Navigate without scrolling", typical: false, ezine: true, note: "" },
+    { name: "Search inside the document", typical: false, ezine: true, note: "" },
+    { name: "Ask questions, get instant answers", typical: false, ezine: true, note: "" },
+    { name: "Built-in AI layer", typical: false, ezine: true, note: "" },
   ];
 
   const matters = [
@@ -73,13 +73,13 @@ const ComparisonPage = () => {
                 <div className="w-[18px] h-[18px] bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <X size={10} className="text-primary" />
                 </div>
-                Typical tools stop there
+                Most tools focus on presentation — they make documents look better but don't change how people interact with them
               </div>
               <div className="flex items-start gap-2.5 text-sm text-primary-foreground/60">
                 <div className="w-[18px] h-[18px] bg-green-status/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check size={10} className="text-green-400" />
                 </div>
-                Ezine adds AI chat, search, and interactive navigation
+                Ezine adds an interactive layer — AI chat, search, and navigation
               </div>
             </div>
             <div className="h-px bg-primary-foreground/8 mb-5" />
@@ -166,14 +166,13 @@ const ComparisonPage = () => {
               </div>
             ))}
 
-            {/* Dark wide cell */}
             <div className="bg-ink md:col-span-2 p-10 md:p-12 hover:bg-ink-2 transition-colors reveal">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <h3 className="font-heading text-2xl md:text-[28px] font-bold leading-[1.25] text-primary-foreground tracking-tight">
-                  Ezine adds an <em className="italic text-primary">interactive layer</em> — not just a visual one.
+                  Ezine takes a <em className="italic text-primary">different approach.</em>
                 </h3>
                 <p className="text-[15px] leading-[1.78] text-primary-foreground/55 font-light">
-                  Instead of just converting PDFs into flipbooks, Ezine lets users navigate efficiently, find what they need instantly, and ask questions directly within the document when needed. Works across onboarding documents, training materials, and internal resources your team relies on daily.
+                  Instead of just converting PDFs into flipbooks, it adds an interactive layer — so users can navigate efficiently, find what they need instantly, and ask questions directly within the document when needed.
                 </p>
               </div>
             </div>

@@ -4,14 +4,14 @@ import { ArrowRight, Check, Users, BookOpen, FileText } from "lucide-react";
 
 const AiChatFeaturePage = () => {
   const whatChanges = [
-    { num: "01", title: "Find what they need, any time they need it", desc: "Employees can navigate directly to any section, revisit specific policies without starting from page one, and use the document the way it was meant to be used — as a reference, not a one-time read." },
-    { num: "02", title: "Ask questions, get answers instantly", desc: "The built-in AI chat lets employees type any question and get a precise answer pulled directly from the document — without waiting for an HR response or scrolling through 40 pages to find it." },
-    { num: "03", title: "Share with anyone, instantly", desc: "Copy a link and send it anywhere — email, WhatsApp, Slack, or embed it on your intranet. No attachments, no downloads, no inbox clutter. Anyone with the link can open and read it immediately." },
+    { num: "01", title: "Ask questions directly within documents", desc: "Users can type a question directly inside the document. Ezine pulls the answer from the content instantly — no scrolling, no searching, no guessing." },
+    { num: "02", title: "Get clear answers instantly", desc: "The built-in AI processes the document and returns precise, contextual answers. No waiting for someone to respond, no reading through pages to find what you need." },
+    { num: "03", title: "Works across all your documents", desc: "Use this across onboarding documents, training materials, and any internal resource your team relies on daily — without needing to manually search through content." },
   ];
 
   const useCases = [
-    { icon: Users, label: "Onboarding Documents", title: "New hires get answers on day one", desc: "Without waiting for HR. Instead of raising a query or rereading the whole handbook, they ask and move on.", link: "/use-cases/onboarding" },
-    { icon: BookOpen, label: "Training Materials", title: "Employees find it in seconds, not minutes", desc: "Employees revisit training content often — usually to find one specific thing. AI chat means they find it fast, every time." },
+    { icon: Users, label: "Onboarding", title: "New hires get answers on day one", desc: "Without waiting for HR. Instead of raising a query or rereading the whole handbook, they ask and move on.", link: "/use-cases/hr-people-ops" },
+    { icon: BookOpen, label: "Training Materials", title: "Employees revisit and actually find what they need", desc: "Employees revisit training content often — usually to find one specific thing. AI chat means they find it fast, every time." },
     { icon: FileText, label: "Internal Documents", title: "Teams stop asking questions that are already documented", desc: "The document becomes the first place people go, not the last resort. Fewer Slack messages, fewer meetings about meetings." },
   ];
 
@@ -46,7 +46,7 @@ const AiChatFeaturePage = () => {
         </h1>
 
         <p className="text-base md:text-lg leading-relaxed text-primary-foreground/80 font-light max-w-[560px] mx-auto mb-12 relative z-10">
-          Chat with your documents using built-in AI — get precise answers instantly, without reading through everything.
+          Chat with your documents using built-in AI and get precise answers instantly, without reading through everything.
         </p>
 
         <div className="flex items-center gap-4 relative z-10">
@@ -68,7 +68,6 @@ const AiChatFeaturePage = () => {
       <section className="bg-off-white px-5 md:px-12 pb-20 md:pb-24 pt-16">
         <div className="max-w-[900px] mx-auto">
           <div className="bg-background rounded-2xl border border-border overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]">
-            {/* Toolbar */}
             <div className="bg-warm-gray p-3.5 px-5 flex items-center gap-3 border-b border-border">
               <div className="flex gap-[7px]">
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
@@ -79,10 +78,7 @@ const AiChatFeaturePage = () => {
                 <strong className="text-text-dark">Employee Onboarding Handbook.pdf</strong> · AI Chat enabled
               </div>
             </div>
-
-            {/* Body */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] min-h-[420px]">
-              {/* Doc preview */}
               <div className="hidden md:block p-7 border-r border-border relative overflow-hidden">
                 <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-text-light mb-4">Section 4 · Leave Policy</div>
                 <div className="space-y-2.5">
@@ -101,26 +97,18 @@ const AiChatFeaturePage = () => {
                   <div className="h-[7px] w-[65%] bg-warm-gray rounded" />
                 </div>
               </div>
-
-              {/* Chat panel */}
               <div className="p-5 flex flex-col gap-3.5">
                 <div className="text-[11px] font-bold tracking-[1px] uppercase text-text-light pb-3.5 border-b border-border flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-dot" />
                   EzBot · AI Chat
                 </div>
-
                 <div className="flex flex-col gap-3 flex-1">
-                  {/* User message */}
                   <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
                     What's the leave policy for the first 3 months?
                   </div>
-
-                  {/* AI reply */}
                   <div className="self-start flex gap-2 items-start max-w-[95%]">
                     <div className="w-6 h-6 bg-primary rounded-[7px] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                      </svg>
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
                     </div>
                     <div className="bg-off-white border border-border rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-text-mid">
                       During the first 3 months, employees are eligible for <strong className="text-text-dark font-semibold">6 days of sick leave</strong>. Casual leave accrues from month 2 onwards at <strong className="text-text-dark font-semibold">1 day per month</strong>.
@@ -130,18 +118,12 @@ const AiChatFeaturePage = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* User message 2 */}
                   <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
                     When does the probation period end?
                   </div>
-
-                  {/* AI reply 2 */}
                   <div className="self-start flex gap-2 items-start max-w-[95%]">
                     <div className="w-6 h-6 bg-primary rounded-[7px] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                      </svg>
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
                     </div>
                     <div className="bg-off-white border border-border rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-text-mid">
                       The standard probation period is <strong className="text-text-dark font-semibold">90 days</strong> from your date of joining, unless extended in writing by your manager.
@@ -152,16 +134,12 @@ const AiChatFeaturePage = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Chat input */}
                 <div className="flex gap-2 items-center pt-2.5 border-t border-border">
                   <div className="flex-1 bg-off-white border border-border rounded-lg px-3 py-2 text-[11px] text-text-light">
                     Ask anything about this document…
                   </div>
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-primary-foreground">
-                      <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" />
-                    </svg>
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-primary-foreground"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z" /></svg>
                   </div>
                 </div>
               </div>
@@ -170,7 +148,7 @@ const AiChatFeaturePage = () => {
         </div>
       </section>
 
-      {/* Intro — light */}
+      {/* Intro */}
       <section className="bg-off-white py-20 md:py-24 px-5 md:px-12">
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
           <div className="reveal">
@@ -179,10 +157,7 @@ const AiChatFeaturePage = () => {
               Nobody reads documents.<br />They <em className="not-italic text-primary">search</em> them.
             </h2>
             <p className="text-[17px] leading-[1.8] text-text-mid font-light mb-4">
-              No one opens a document planning to read everything. Most people are looking for one specific answer — but finding it means scrolling, searching, skimming, and still coming up empty.
-            </p>
-            <p className="text-[17px] leading-[1.8] text-text-mid font-light">
-              Most documents make that harder than it needs to be. Ezine's built-in AI chat changes that entirely.
+              No one opens a document planning to read everything. Most people are looking for one specific answer, but documents make that harder than it should be. You scroll, search, skim, and still end up missing what you need.
             </p>
           </div>
           <div className="reveal">
@@ -192,7 +167,7 @@ const AiChatFeaturePage = () => {
                 "Type a question. Get the answer. <em className="italic text-primary">Skip the scroll.</em>"
               </p>
               <p className="text-sm leading-relaxed text-primary-foreground font-light relative z-10">
-                Instead of digging through pages, users simply ask — and get a precise answer pulled directly from the document's content, instantly.
+                Instead of digging through pages, users simply ask. Type a question directly inside the document. Ezine pulls the answer from the content instantly.
               </p>
             </div>
           </div>
@@ -204,7 +179,7 @@ const AiChatFeaturePage = () => {
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,hsl(var(--primary)/0.07)_0%,transparent_65%)] pointer-events-none" />
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-16">
-            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-4">What Changes Here</div>
+            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-4">What You Can Do</div>
             <h2 className="font-heading text-3xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-primary-foreground mb-4">
               From digging through pages<br />to <em className="italic text-primary">simply asking</em>
             </h2>
@@ -225,7 +200,7 @@ const AiChatFeaturePage = () => {
         </div>
       </section>
 
-      {/* Use Cases — light */}
+      {/* Where This Makes the Biggest Difference */}
       <section className="bg-off-white py-20 md:py-24 px-5 md:px-12">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-16 items-end">
