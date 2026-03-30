@@ -187,7 +187,7 @@ const OnboardingLandingPage = () => {
             <p className="text-[17px] leading-[1.75] text-text-mid font-light mb-8">
               When employees can find answers themselves, HR stops fielding the same questions repeatedly. Engagement with onboarding documents improves, dependency on HR for basic queries drops, and new hires ramp up faster.
             </p>
-            <div className="mt-8 p-6 bg-red-bg/60 border-l-[3px] border-primary rounded-r-xl text-[15px] leading-[1.7] text-text-dark italic">
+            <div className="mt-8 p-6 bg-red-bg/60 border-l-[3px] border-primary rounded-r-xl text-[15px] leading-[1.7] text-text-dark">
               "Your onboarding document stops being something employees 'go through' and becomes something they actually use when they need it."
             </div>
           </div>

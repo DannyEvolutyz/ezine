@@ -56,7 +56,7 @@ const AiChatFeaturePage = () => {
 
             <h1 className="font-heading text-4xl md:text-5xl leading-none tracking-tighter text-foreground mb-6 font-semibold">
               Ask questions.<br />Get answers.<br />
-              <em className="italic text-primary">No scrolling, no guessing.</em>
+              <em className="text-primary">No scrolling, no guessing.</em>
             </h1>
 
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground font-light max-w-[480px] mb-10">
@@ -178,7 +178,7 @@ const AiChatFeaturePage = () => {
             <div className="relative p-8 md:p-9 bg-ink rounded-2xl overflow-hidden">
               <div className="absolute -top-2.5 left-6 font-heading text-[120px] text-primary/15 leading-none pointer-events-none">"</div>
               <p className="font-heading text-xl md:text-[22px] font-semibold leading-[1.4] text-primary-foreground tracking-tight mb-5 relative z-10">
-                "Type a question. Get the answer. <em className="italic text-primary">Skip the scroll.</em>"
+                "Type a question. Get the answer. <em className="text-primary">Skip the scroll.</em>"
               </p>
               <p className="text-sm leading-relaxed text-primary-foreground font-light relative z-10">
                 Instead of digging through pages, users simply ask. Type a question directly inside the document. Ezine pulls the answer from the content instantly.
@@ -195,7 +195,7 @@ const AiChatFeaturePage = () => {
           <div className="text-center mb-16">
             <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-4">What You Can Do</div>
             <h2 className="font-heading text-3xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-primary-foreground mb-4">
-              From digging through pages<br />to <em className="italic text-primary">simply asking</em>
+              From digging through pages<br />to <em className="text-primary">simply asking</em>
             </h2>
             <p className="text-base leading-relaxed text-primary-foreground font-light max-w-[500px] mx-auto">
               Works across onboarding documents, training materials, and any internal resource your team relies on daily.
