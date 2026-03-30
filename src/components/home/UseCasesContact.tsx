@@ -1,9 +1,11 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const UseCasesContact = () => {
   const useCases = [
     {
       label: "HR/People Ops",
+      link: "/use-cases/onboarding",
       icon: (
         <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5">
           <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
@@ -101,23 +103,32 @@ const UseCasesContact = () => {
               Built for <span className="text-primary">Modern Use Cases</span>
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 mt-6">
-              {useCases.map((uc) => (
-                <div
-                  key={uc.label}
-                  className={`rounded-xl p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-md ${
-                    uc.highlight
-                      ? "bg-accent/5 border border-accent/15"
-                      : "bg-background border border-border"
-                  }`}
-                >
-                  <div className={`w-10 h-10 mx-auto rounded-lg flex items-center justify-center mb-3 ${
-                    uc.highlight ? "bg-accent/10" : "bg-red-bg"
-                  }`}>
-                    {uc.icon}
+              {useCases.map((uc) => {
+                const cardContent = (
+                  <>
+                    <div className={`w-10 h-10 mx-auto rounded-lg flex items-center justify-center mb-3 ${
+                      uc.highlight ? "bg-accent/10" : "bg-red-bg"
+                    }`}>
+                      {uc.icon}
+                    </div>
+                    <p className="text-[13px] font-semibold text-text-dark">{uc.label}</p>
+                  </>
+                );
+                const className = `rounded-xl p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-md no-underline ${
+                  uc.highlight
+                    ? "bg-accent/5 border border-accent/15"
+                    : "bg-background border border-border"
+                }`;
+                return uc.link ? (
+                  <Link key={uc.label} to={uc.link} className={className}>
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <div key={uc.label} className={className}>
+                    {cardContent}
                   </div>
-                  <p className="text-[13px] font-semibold text-text-dark">{uc.label}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
