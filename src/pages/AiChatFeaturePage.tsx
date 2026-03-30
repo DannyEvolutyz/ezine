@@ -18,7 +18,7 @@ const AiChatFeaturePage = () => {
   return (
     <MarketingLayout>
       {/* Hero — light with warm gradients */}
-      <section className="bg-background min-h-[85vh] flex flex-col items-center justify-center text-center px-5 md:px-12 py-20 md:py-28 relative overflow-hidden">
+      <section className="bg-background flex flex-col items-center text-center px-5 md:px-12 pt-20 md:pt-28 pb-20 md:pb-24 relative overflow-hidden">
         {/* Warm gradient blobs */}
         <div className="absolute top-[-120px] right-[-80px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,hsl(var(--primary)/0.10)_0%,hsl(var(--accent)/0.06)_40%,transparent_70%)] pointer-events-none blur-[40px]" />
         <div className="absolute bottom-[-100px] left-[-60px] w-[450px] h-[450px] rounded-full bg-[radial-gradient(circle,hsl(var(--accent)/0.08)_0%,hsl(var(--primary)/0.04)_50%,transparent_70%)] pointer-events-none blur-[40px]" />
@@ -60,7 +60,7 @@ const AiChatFeaturePage = () => {
           Chat with your documents using built-in AI and get precise answers instantly, without reading through everything.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 relative z-10">
+        <div className="flex flex-col sm:flex-row items-center gap-4 relative z-10 mb-14">
           <a
             href="https://www.ezine.digital"
             className="font-heading text-[15px] font-semibold text-primary-foreground no-underline px-9 py-3.5 bg-primary rounded-xl inline-flex items-center gap-2 shadow-[0_8px_32px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_hsl(var(--primary)/0.4)] transition-all"
@@ -73,11 +73,9 @@ const AiChatFeaturePage = () => {
             Free to use
           </span>
         </div>
-      </section>
 
-      {/* Chat Demo Window */}
-      <section className="bg-off-white px-5 md:px-12 pb-20 md:pb-24 pt-16">
-        <div className="max-w-[900px] mx-auto">
+        {/* Chat Demo Window — integrated into hero */}
+        <div className="max-w-[900px] w-full mx-auto relative z-10">
           <div className="bg-background rounded-2xl border border-border overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]">
             <div className="bg-warm-gray p-3.5 px-5 flex items-center gap-3 border-b border-border">
               <div className="flex gap-[7px]">
