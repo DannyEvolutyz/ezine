@@ -40,7 +40,7 @@ const AiChatFeaturePage = () => {
           AI Feature
         </div>
 
-        <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold leading-none tracking-tighter text-primary-foreground mb-6 relative z-10 max-w-[840px]">
+        <h1 className="font-heading text-4xl md:text-6xl leading-none tracking-tighter text-primary-foreground mb-6 relative z-10 max-w-[840px] lg:text-5xl font-semibold">
           Ask questions.<br />Get answers.<br />
           <em className="italic text-primary">No scrolling, no guessing.</em>
         </h1>
