@@ -130,9 +130,9 @@ const ComparisonPage = () => {
                         </span>
                       )}
                     </td>
-                    <td className="bg-red-bg/30 group-hover:bg-red-bg/60 p-5 text-center border-b border-primary/10 border-l border-primary/15 transition-colors">
-                      <span className="inline-flex items-center justify-center w-7 h-7 bg-primary/10 border border-primary/25 rounded-full">
-                        <Check size={14} className="text-primary" />
+                    <td className="bg-green-bg/30 group-hover:bg-green-bg/60 p-5 text-center border-b border-green-200/30 border-l border-green-200/30 transition-colors">
+                      <span className="inline-flex items-center justify-center w-7 h-7 bg-green-bg border border-green-200 rounded-full">
+                        <Check size={14} className="text-green-status" />
                       </span>
                     </td>
                   </tr>
