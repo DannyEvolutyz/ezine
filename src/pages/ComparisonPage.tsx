@@ -1,6 +1,7 @@
 import MarketingLayout from "@/components/MarketingLayout";
 import CtaSection from "@/components/CtaSection";
 import { Check, X, ArrowRight } from "lucide-react";
+import ezineWhiteLogo from "@/assets/ezine_white_logo.png";
 
 const ComparisonPage = () => {
   const features = [
