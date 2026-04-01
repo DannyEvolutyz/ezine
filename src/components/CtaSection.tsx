@@ -35,7 +35,7 @@ const CtaSection = ({ eyebrow, title, body, buttonText, buttonHref = "https://ww
         <div className="flex flex-col items-center gap-3.5">
           <a
             href={buttonHref}
-            className="font-heading text-base font-bold text-accent-foreground no-underline px-12 py-4 bg-accent rounded-xl inline-flex items-center gap-2.5 shadow-[0_8px_32px_hsl(var(--accent)/0.45)] hover:-translate-y-0.5 hover:shadow-[0_16px_48px_hsl(var(--accent)/0.55)] transition-all duration-300"
+            className="font-heading text-base font-bold text-accent-foreground no-underline px-12 py-4 bg-accent rounded-xl inline-flex items-center gap-2.5 shadow-[0_4px_16px_hsl(var(--accent)/0.25)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_hsl(var(--accent)/0.35)] transition-all duration-300"
           >
             {buttonText}
             <ArrowRight size={18} />
