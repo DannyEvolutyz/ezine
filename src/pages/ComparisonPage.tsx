@@ -167,7 +167,7 @@ const ComparisonPage = () => {
             <div className="bg-ink md:col-span-2 p-10 md:p-12 hover:bg-ink-2 transition-colors reveal">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <h3 className="font-heading text-2xl md:text-[28px] font-bold leading-[1.25] text-primary-foreground tracking-tight">
-                  Ezine takes a <em className="text-primary">different approach.</em>
+                  Ezine takes a <span className="text-primary">different approach.</span>
                 </h3>
                 <p className="text-[15px] leading-[1.78] text-primary-foreground/55 font-light">
                   Instead of just converting PDFs into flipbooks, it adds an interactive layer — so users can navigate efficiently, find what they need instantly, and ask questions directly within the document when needed.
