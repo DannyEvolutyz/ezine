@@ -37,9 +37,6 @@ const ComparisonPage = () => {
               <span className="text-border-strong">/</span>
               <span className="text-primary font-semibold">Buyer Guide</span>
             </div>
-            <div className="inline-flex items-center gap-2 bg-warm-gray border border-border rounded-md px-3 py-1.5 text-[11px] font-bold text-text-mid tracking-[1.5px] uppercase mb-6">
-              Buyer Guide
-            </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-[54px] font-black leading-[1.08] tracking-tight text-text-dark mb-7">
               Most flipbook tools<br />look the same.<br />Here's what's<br />
               <em className="not-italic text-primary">actually different.</em>
