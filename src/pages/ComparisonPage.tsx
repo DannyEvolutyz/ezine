@@ -157,7 +157,7 @@ const ComparisonPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5 bg-border rounded-2xl overflow-hidden border border-border">
             {matters.map((item) => (
               <div key={item.num} className="bg-background p-10 md:p-12 hover:bg-off-white transition-colors reveal">
-                <div className="font-heading text-6xl font-black text-warm-gray leading-none tracking-[-3px] mb-5">{item.num}</div>
+                <div className="font-heading text-6xl font-black text-accent leading-none tracking-[-3px] mb-5">{item.num}</div>
                 <div className="w-10 h-[3px] bg-primary rounded-sm mb-5" />
                 <h3 className="font-heading text-[22px] font-bold text-text-dark leading-[1.25] tracking-tight mb-3.5">{item.title}</h3>
                 <p className="text-[15px] leading-[1.78] text-text-mid font-light">{item.body}</p>
