@@ -156,7 +156,7 @@ const OnboardingLandingPage = () => {
             {changes.map((item) => (
               <div key={item.num} className="bg-background rounded-2xl p-8 md:p-9 border border-border hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(26,21,18,0.1)] hover:border-transparent transition-all duration-300 relative overflow-hidden group reveal">
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300" />
-                <div className="font-heading text-5xl font-extrabold text-warm-gray leading-none tracking-[-2px] mb-4">{item.num}</div>
+                <div className="font-heading text-5xl font-extrabold text-warm-gray leading-none tracking-[-2px] mb-4 group-hover:text-accent transition-colors duration-300">{item.num}</div>
                 <div className="w-10 h-[3px] bg-primary rounded-sm mb-5" />
                 <h3 className="font-heading text-base font-bold text-text-dark mb-3 leading-[1.3]">{item.title}</h3>
                 <p className="text-sm leading-[1.75] text-text-mid font-light">
