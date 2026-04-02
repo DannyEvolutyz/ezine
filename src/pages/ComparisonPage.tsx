@@ -35,7 +35,7 @@ const ComparisonPage = () => {
             <div className="inline-flex items-center gap-1.5 text-xs text-text-light font-medium mb-7">
               <a href="https://www.ezine.digital" className="text-text-light no-underline hover:text-primary transition-colors">Home</a>
               <span className="text-border-strong">/</span>
-              <span className="text-primary font-semibold">Buyer Guide</span>
+              <span className="text-primary font-semibold">Comparison</span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-[54px] font-black leading-[1.08] tracking-tight text-text-dark mb-7">
               Most flipbook tools<br />look the same.<br />Here's what's<br />
