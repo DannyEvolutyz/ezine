@@ -142,18 +142,29 @@ const Navbar = () => {
 
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-3">
-        <Link
-          to="/login"
-          className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all no-underline"
-        >
-          Log in
-        </Link>
-        <Link
-          to="/signup"
-          className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
-        >
-          Sign up
-        </Link>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all border-none cursor-pointer"
+          >
+            Log out
+          </button>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all no-underline"
+            >
+              Log in
+            </Link>
+            <Link
+              to="/signup"
+              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
+            >
+              Sign up
+            </Link>
+          </>
+        )}
       </div>
 
       {/* Mobile toggle */}
