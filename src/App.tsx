@@ -11,6 +11,7 @@ import OnboardingLandingPage from "./pages/OnboardingLandingPage.tsx";
 import UseCasePage from "./pages/UseCasePage.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
 
 const queryClient = new QueryClient();
 
