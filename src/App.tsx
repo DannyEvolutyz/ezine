@@ -30,6 +30,7 @@ const App = () => (
           <Route path="/use-cases/onboarding" element={<OnboardingLandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
