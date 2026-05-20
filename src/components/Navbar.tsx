@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const useCaseItems = [
   { label: "HR/People Ops", href: "/use-cases/hr-people-ops" },
