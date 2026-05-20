@@ -9,6 +9,8 @@ import ComparisonPage from "./pages/ComparisonPage.tsx";
 import AiChatFeaturePage from "./pages/AiChatFeaturePage.tsx";
 import OnboardingLandingPage from "./pages/OnboardingLandingPage.tsx";
 import UseCasePage from "./pages/UseCasePage.tsx";
+import Login from "./pages/Login.tsx";
+import Signup from "./pages/Signup.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/use-cases/hr-people-ops" element={<OnboardingLandingPage />} />
           <Route path="/use-cases/:slug" element={<UseCasePage />} />
           <Route path="/use-cases/onboarding" element={<OnboardingLandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
