@@ -229,12 +229,20 @@ const Navbar = () => {
             )
           )}
           <div className="flex gap-3 pt-2">
-            <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
-              Log in
-            </Link>
-            <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
-              Sign up
-            </Link>
+            {user ? (
+              <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full border-none cursor-pointer">
+                Log out
+              </button>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
+                  Log in
+                </Link>
+                <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
+                  Sign up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}
