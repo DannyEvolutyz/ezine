@@ -134,18 +134,18 @@ const Navbar = () => {
 
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-3">
-        <a
-          href="https://www.ezine.digital"
+        <Link
+          to="/login"
           className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all no-underline"
         >
           Log in
-        </a>
-        <a
-          href="https://www.ezine.digital"
+        </Link>
+        <Link
+          to="/signup"
           className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
         >
           Sign up
-        </a>
+        </Link>
       </div>
 
       {/* Mobile toggle */}
