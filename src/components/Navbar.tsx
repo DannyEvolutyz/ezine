@@ -210,12 +210,12 @@ const Navbar = () => {
             )
           )}
           <div className="flex gap-3 pt-2">
-            <a href="https://www.ezine.digital" className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
+            <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
               Log in
-            </a>
-            <a href="https://www.ezine.digital" className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
+            </Link>
+            <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       )}
