@@ -14,10 +14,17 @@ const useCaseItems = [
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
   const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+
+  const handleLogout = async () => {
+    await signOut();
+    setMobileOpen(false);
+    navigate("/");
+  };
 
   const links = [
     { label: "Home", href: "/" },
