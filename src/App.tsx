@@ -27,6 +27,8 @@ const App = () => (
           <Route path="/use-cases/hr-people-ops" element={<OnboardingLandingPage />} />
           <Route path="/use-cases/:slug" element={<UseCasePage />} />
           <Route path="/use-cases/onboarding" element={<OnboardingLandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
