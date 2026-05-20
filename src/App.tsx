@@ -9,6 +9,8 @@ import ComparisonPage from "./pages/ComparisonPage.tsx";
 import AiChatFeaturePage from "./pages/AiChatFeaturePage.tsx";
 import OnboardingLandingPage from "./pages/OnboardingLandingPage.tsx";
 import UseCasePage from "./pages/UseCasePage.tsx";
+import Login from "./pages/Login.tsx";
+import Signup from "./pages/Signup.tsx";
 
 const queryClient = new QueryClient();
 
