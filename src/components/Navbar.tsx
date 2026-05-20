@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const useCaseItems = [
   { label: "HR/People Ops", href: "/use-cases/hr-people-ops" },
@@ -13,10 +14,17 @@ const useCaseItems = [
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
   const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+
+  const handleLogout = async () => {
+    await signOut();
+    setMobileOpen(false);
+    navigate("/");
+  };
 
   const links = [
     { label: "Home", href: "/" },
@@ -134,18 +142,29 @@ const Navbar = () => {
 
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-3">
-        <Link
-          to="/login"
-          className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all no-underline"
-        >
-          Log in
-        </Link>
-        <Link
-          to="/signup"
-          className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
-        >
-          Sign up
-        </Link>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all border-none cursor-pointer"
+          >
+            Log out
+          </button>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all no-underline"
+            >
+              Log in
+            </Link>
+            <Link
+              to="/signup"
+              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
+            >
+              Sign up
+            </Link>
+          </>
+        )}
       </div>
 
       {/* Mobile toggle */}
@@ -210,12 +229,20 @@ const Navbar = () => {
             )
           )}
           <div className="flex gap-3 pt-2">
-            <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
-              Log in
-            </Link>
-            <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
-              Sign up
-            </Link>
+            {user ? (
+              <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full border-none cursor-pointer">
+                Log out
+              </button>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
+                  Log in
+                </Link>
+                <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
+                  Sign up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

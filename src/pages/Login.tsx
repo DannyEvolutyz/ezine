@@ -1,10 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { z } from "zod";
 import MarketingLayout from "@/components/MarketingLayout";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
+
+const schema = z.object({
+  email: z.string().trim().email("Invalid email").max(255),
+  password: z.string().min(1, "Password is required").max(128),
+});
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const parsed = schema.safeParse({ email, password });
+    if (!parsed.success) {
+      toast({ title: "Invalid input", description: parsed.error.issues[0].message, variant: "destructive" });
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: parsed.data.email,
+      password: parsed.data.password,
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Login failed", description: error.message, variant: "destructive" });
+      return;
+    }
+    toast({ title: "Welcome back!" });
+    navigate("/");
+  };
 
   return (
     <MarketingLayout>
@@ -20,10 +53,7 @@ const Login = () => {
               </p>
             </div>
 
-            <form
-              className="flex flex-col gap-5"
-              onSubmit={(e) => e.preventDefault()}
-            >
+            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-2">
                 <label htmlFor="email" className="text-sm font-semibold text-text-dark">
                   Email <span className="text-primary">*</span>
@@ -32,6 +62,8 @@ const Login = () => {
                   id="email"
                   type="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-text-dark placeholder:text-text-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                 />
@@ -46,6 +78,8 @@ const Login = () => {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     className="h-11 w-full px-4 pr-11 rounded-lg border border-border bg-background text-sm text-text-dark placeholder:text-text-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                   />
@@ -61,19 +95,17 @@ const Login = () => {
               </div>
 
               <div className="flex justify-start">
-                <Link
-                  to="/forgot-password"
-                  className="text-sm font-medium text-primary hover:underline"
-                >
+                <Link to="/forgot-password" className="text-sm font-medium text-primary hover:underline">
                   Forgot Password?
                 </Link>
               </div>
 
               <button
                 type="submit"
-                className="h-11 mt-2 rounded-full bg-accent text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all shadow-[0_8px_24px_rgba(240,90,40,0.25)]"
+                disabled={loading}
+                className="h-11 mt-2 rounded-full bg-accent text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all shadow-[0_8px_24px_rgba(240,90,40,0.25)] disabled:opacity-60"
               >
-                Log in
+                {loading ? "Logging in..." : "Log in"}
               </button>
 
               <p className="text-sm text-text-mid text-center">
