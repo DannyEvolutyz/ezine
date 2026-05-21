@@ -110,7 +110,7 @@ const Dashboard = () => {
             No documents found.
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6">
             {filtered.map((doc) => (
               <article
                 key={doc.id}
