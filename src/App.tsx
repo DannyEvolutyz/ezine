@@ -17,6 +17,7 @@ import ForgotPassword from "./pages/ForgotPassword.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Library from "./pages/Library.tsx";
 import Profile from "./pages/Profile.tsx";
+import About from "./pages/About.tsx";
 import FlipbookViewer from "./pages/FlipbookViewer.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/library" element={<Library />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/about" element={<About />} />
               <Route path="/viewer/:id" element={<FlipbookViewer />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
