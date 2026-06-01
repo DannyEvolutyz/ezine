@@ -14,6 +14,7 @@ const UseCasesContact = () => {
     },
     {
       label: "Founders & Writers",
+      link: "/use-cases/founders-writers",
       icon: (
         <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5">
           <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
@@ -22,27 +23,37 @@ const UseCasesContact = () => {
     },
     {
       label: "Marketing Teams",
+      link: "/use-cases/marketing-teams",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--accent))" strokeWidth="1.5">
+        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5">
           <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </svg>
       ),
-      highlight: true,
     },
     {
       label: "Sales Reps",
+      link: "/use-cases/sales-reps",
       icon: (
-        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--accent))" strokeWidth="1.5">
+        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5">
           <path d="M18 20V10M12 20V4M6 20v-6" />
         </svg>
       ),
-      highlight: true,
     },
     {
       label: "Educators",
+      link: "/use-cases/educators",
       icon: (
         <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5">
           <path d="M22 10l-10-5L2 10l10 5 10-5zM6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
+        </svg>
+      ),
+    },
+    {
+      label: "Product Teams",
+      link: "/use-cases/product-teams",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5">
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
         </svg>
       ),
     },
@@ -103,33 +114,20 @@ const UseCasesContact = () => {
               Built for <span className="text-primary">Modern Use Cases</span>
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 mt-6">
-              {useCases.map((uc) => {
-                const cardContent = (
-                  <>
-                    <div className={`w-10 h-10 mx-auto rounded-lg flex items-center justify-center mb-3 ${
-                      uc.highlight ? "bg-accent/10" : "bg-red-bg"
-                    }`}>
-                      {uc.icon}
-                    </div>
-                    <p className="text-[13px] font-semibold text-text-dark">{uc.label}</p>
-                  </>
-                );
-                const className = `rounded-xl p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-md no-underline ${
-                  uc.highlight
-                    ? "bg-accent/5 border border-accent/15"
-                    : "bg-background border border-border"
-                }`;
-                return uc.link ? (
-                  <Link key={uc.label} to={uc.link} className={className}>
-                    {cardContent}
-                  </Link>
-                ) : (
-                  <div key={uc.label} className={className}>
-                    {cardContent}
+              {useCases.map((uc) => (
+                <Link
+                  key={uc.label}
+                  to={uc.link}
+                  className="group rounded-xl p-5 text-center bg-background border border-border transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/30 no-underline flex flex-col items-center justify-center min-h-[120px]"
+                >
+                  <div className="w-10 h-10 mx-auto rounded-lg flex items-center justify-center mb-3 bg-red-bg group-hover:bg-primary/10 transition-colors">
+                    {uc.icon}
                   </div>
-                );
-              })}
+                  <p className="text-[13px] font-semibold text-text-dark">{uc.label}</p>
+                </Link>
+              ))}
             </div>
+
           </div>
         </div>
       </div>
