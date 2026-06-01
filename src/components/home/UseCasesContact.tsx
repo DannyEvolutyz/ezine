@@ -114,33 +114,20 @@ const UseCasesContact = () => {
               Built for <span className="text-primary">Modern Use Cases</span>
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 mt-6">
-              {useCases.map((uc) => {
-                const cardContent = (
-                  <>
-                    <div className={`w-10 h-10 mx-auto rounded-lg flex items-center justify-center mb-3 ${
-                      uc.highlight ? "bg-accent/10" : "bg-red-bg"
-                    }`}>
-                      {uc.icon}
-                    </div>
-                    <p className="text-[13px] font-semibold text-text-dark">{uc.label}</p>
-                  </>
-                );
-                const className = `rounded-xl p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-md no-underline ${
-                  uc.highlight
-                    ? "bg-accent/5 border border-accent/15"
-                    : "bg-background border border-border"
-                }`;
-                return uc.link ? (
-                  <Link key={uc.label} to={uc.link} className={className}>
-                    {cardContent}
-                  </Link>
-                ) : (
-                  <div key={uc.label} className={className}>
-                    {cardContent}
+              {useCases.map((uc) => (
+                <Link
+                  key={uc.label}
+                  to={uc.link}
+                  className="group rounded-xl p-5 text-center bg-background border border-border transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-primary/30 no-underline flex flex-col items-center justify-center min-h-[120px]"
+                >
+                  <div className="w-10 h-10 mx-auto rounded-lg flex items-center justify-center mb-3 bg-red-bg group-hover:bg-primary/10 transition-colors">
+                    {uc.icon}
                   </div>
-                );
-              })}
+                  <p className="text-[13px] font-semibold text-text-dark">{uc.label}</p>
+                </Link>
+              ))}
             </div>
+
           </div>
         </div>
       </div>
