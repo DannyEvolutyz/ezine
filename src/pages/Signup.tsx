@@ -53,7 +53,7 @@ const Signup = () => {
       email: parsed.data.email,
       password: parsed.data.password,
       options: {
-        emailRedirectTo: `${window.location.origin}/`,
+        emailRedirectTo: `${window.location.origin}/dashboard`,
         data: {
           first_name: parsed.data.firstName,
           last_name: parsed.data.lastName,
@@ -66,7 +66,7 @@ const Signup = () => {
       return;
     }
     toast({ title: "Account created!", description: "Welcome to eZine." });
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
