@@ -66,7 +66,7 @@ const Signup = () => {
       return;
     }
     toast({ title: "Account created!", description: "Welcome to eZine." });
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
