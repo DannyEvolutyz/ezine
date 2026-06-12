@@ -105,15 +105,16 @@ const Library = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-5">
-          {items.map((doc) => (
+          {items.map((doc, idx) => (
             <article
               key={doc.id}
-              className="group relative flex gap-6 rounded-2xl border border-border/70 bg-background p-5 transition-all hover:border-accent/40 hover:shadow-[0_18px_40px_-20px_rgba(35,31,32,0.25)]"
+              style={{ animationDelay: `${idx * 60}ms` }}
+              className="group relative flex flex-col sm:flex-row gap-4 sm:gap-6 rounded-2xl border border-border/70 bg-background p-4 sm:p-5 transition-all hover:border-accent/40 hover:shadow-[0_18px_40px_-20px_rgba(35,31,32,0.25)] animate-fade-in-up"
             >
               {/* Thumbnail */}
               <Link
                 to={`/viewer/${doc.id}`}
-                className="flex h-56 w-44 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
+                className="flex h-40 sm:h-56 w-full sm:w-44 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
               >
                 <FileText size={48} strokeWidth={1.25} />
               </Link>
@@ -122,7 +123,7 @@ const Library = () => {
               <div className="flex flex-1 min-w-0 flex-col">
                 <Link
                   to={`/viewer/${doc.id}`}
-                  className="break-all font-heading text-xl font-bold text-primary hover:underline"
+                  className="break-all font-heading text-lg sm:text-xl font-bold text-primary hover:underline pr-8"
                 >
                   {doc.name}
                 </Link>
@@ -131,14 +132,23 @@ const Library = () => {
                   {doc.pages} pages
                 </p>
 
-                <div className="mt-4 inline-flex w-fit items-center gap-2 rounded-md border border-accent/40 bg-background px-3 py-2">
-                  <span className="font-mono text-sm font-medium text-text-dark">{doc.shortUrl}</span>
+                <div className="mt-4 inline-flex w-fit max-w-full items-center gap-2 rounded-md border border-accent/40 bg-background px-3 py-2">
+                  <span className="font-mono text-xs sm:text-sm font-medium text-text-dark truncate">{doc.shortUrl}</span>
                   <button
                     onClick={() => handleCopy(doc)}
                     aria-label="Copy link"
-                    className="text-text-light transition-colors hover:text-accent"
+                    className="text-text-light transition-colors hover:text-accent shrink-0"
                   >
                     {copiedId === doc.id ? <Check size={15} /> : <Copy size={15} />}
+                  </button>
+                </div>
+
+                <div className="mt-4 sm:mt-auto flex items-center gap-3 sm:justify-end">
+                  <button aria-label="Chat" className="text-primary transition-colors hover:text-accent">
+                    <MessageSquare size={18} />
+                  </button>
+                  <button aria-label="Share" className="text-primary transition-colors hover:text-accent">
+                    <Share2 size={18} />
                   </button>
                 </div>
               </div>
@@ -146,29 +156,14 @@ const Library = () => {
               {/* Top-right menu */}
               <button
                 aria-label="More options"
-                className="absolute right-5 top-5 text-text-light transition-colors hover:text-text-dark"
+                className="absolute right-4 top-4 text-text-light transition-colors hover:text-text-dark"
               >
                 <MoreVertical size={20} />
               </button>
-
-              {/* Bottom-right actions */}
-              <div className="absolute bottom-5 right-5 flex items-center gap-3">
-                <button
-                  aria-label="Chat"
-                  className="text-primary transition-colors hover:text-accent"
-                >
-                  <MessageSquare size={18} />
-                </button>
-                <button
-                  aria-label="Share"
-                  className="text-primary transition-colors hover:text-accent"
-                >
-                  <Share2 size={18} />
-                </button>
-              </div>
             </article>
           ))}
         </div>
+
       )}
     </AppShell>
   );
