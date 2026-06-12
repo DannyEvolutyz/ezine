@@ -78,12 +78,13 @@ const Profile = () => {
   return (
     <AppShell>
       {/* Banner */}
-      <div className="relative -mx-10 -mt-10 mb-8 bg-gradient-to-b from-primary/10 via-accent/5 to-transparent px-10 pt-10 pb-8">
-        <h1 className="font-heading text-3xl font-bold text-primary">Profile</h1>
+      <div className="relative -mx-5 md:-mx-10 -mt-6 md:-mt-10 mb-6 md:mb-8 bg-gradient-to-b from-primary/10 via-accent/5 to-transparent px-5 md:px-10 pt-6 md:pt-10 pb-6 md:pb-8 animate-fade-in-up">
+        <h1 className="font-heading text-2xl md:text-3xl font-bold text-primary">Profile</h1>
       </div>
 
       {/* Card */}
-      <section className="rounded-2xl border-2 border-accent/30 bg-background p-8 md:p-10">
+      <section className="rounded-2xl border-2 border-accent/30 bg-background p-5 sm:p-8 md:p-10 animate-fade-in-up">
+
         {/* Avatar + name */}
         <div className="mb-8 flex items-center gap-5">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-accent font-heading text-xl font-bold text-white shadow-[0_10px_25px_-8px_rgba(240,90,40,0.45)]">
