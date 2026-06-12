@@ -67,17 +67,17 @@ const Dashboard = () => {
           handleFiles(e.dataTransfer.files);
         }}
         onClick={() => inputRef.current?.click()}
-        className={`group relative cursor-pointer rounded-3xl border-2 border-dashed bg-background p-12 text-center transition-all ${
+        className={`group relative cursor-pointer rounded-3xl border-2 border-dashed bg-background p-6 sm:p-10 md:p-12 text-center transition-all animate-fade-in-up ${
           dragOver
-            ? "border-accent bg-accent/5"
+            ? "border-accent bg-accent/5 scale-[1.01]"
             : "border-border-strong hover:border-accent hover:bg-accent/5"
         }`}
       >
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-white shadow-[0_10px_25px_-8px_rgba(240,90,40,0.5)] transition-transform group-hover:scale-110">
-          <UploadCloud size={30} />
+        <div className="mx-auto mb-5 sm:mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground shadow-[0_10px_25px_-8px_rgba(240,90,40,0.5)] transition-transform group-hover:scale-110 group-hover:-rotate-3">
+          <UploadCloud size={28} />
         </div>
-        <h2 className="font-heading text-2xl font-bold text-text-dark">Drag &amp; Drop</h2>
-        <p className="mt-1 font-medium text-text-mid">
+        <h2 className="font-heading text-xl sm:text-2xl font-bold text-text-dark">Drag &amp; Drop</h2>
+        <p className="mt-1 text-sm sm:text-base font-medium text-text-mid">
           or <span className="text-accent border-b border-accent">select files from device</span>
         </p>
         <p className="mt-4 text-[10px] font-semibold uppercase tracking-widest text-text-light">
@@ -92,6 +92,7 @@ const Dashboard = () => {
           onChange={(e) => handleFiles(e.target.files)}
         />
       </section>
+
 
       {/* History */}
       <section className="mt-12">
