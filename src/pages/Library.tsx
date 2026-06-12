@@ -50,26 +50,26 @@ const Library = () => {
   return (
     <AppShell search={{ value: search, onChange: setSearch, placeholder: "Search your flipbook" }}>
       {/* Banner */}
-      <div className="relative -mx-10 -mt-10 mb-8 bg-gradient-to-b from-primary/10 via-accent/5 to-transparent px-10 pt-10 pb-8">
-        <h1 className="font-heading text-3xl font-bold text-primary">My Library</h1>
+      <div className="relative -mx-5 md:-mx-10 -mt-6 md:-mt-10 mb-6 md:mb-8 bg-gradient-to-b from-primary/10 via-accent/5 to-transparent px-5 md:px-10 pt-6 md:pt-10 pb-6 md:pb-8 animate-fade-in-up">
+        <h1 className="font-heading text-2xl md:text-3xl font-bold text-primary">My Library</h1>
       </div>
 
       {/* Tabs + create */}
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-border/70">
-        <div className="flex items-end gap-8">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-border/70">
+        <div className="flex items-end gap-5 md:gap-8 overflow-x-auto">
           {TABS.map((t) => {
             const active = tab === t;
             return (
               <button
                 key={t}
                 onClick={() => setTab(t)}
-                className={`relative pb-3 text-base font-semibold transition-colors ${
+                className={`relative pb-3 text-sm md:text-base font-semibold transition-colors whitespace-nowrap ${
                   active ? "text-accent" : "text-text-mid hover:text-text-dark"
                 }`}
               >
                 {t}
                 {active && (
-                  <span className="absolute -bottom-px left-0 right-0 h-[3px] rounded-full bg-accent" />
+                  <span className="absolute -bottom-px left-0 right-0 h-[3px] rounded-full bg-accent animate-scale-in" />
                 )}
               </button>
             );
@@ -77,10 +77,11 @@ const Library = () => {
         </div>
         <button
           onClick={() => inputRef.current?.click()}
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(240,90,40,0.6)] transition-transform hover:scale-[1.02]"
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-4 md:px-5 py-2 md:py-2.5 text-sm font-semibold text-primary-foreground shadow-[0_8px_20px_-8px_rgba(240,90,40,0.6)] transition-all hover:scale-[1.03] active:scale-95"
         >
           <Plus size={16} />
-          Create new
+          <span className="hidden sm:inline">Create new</span>
+          <span className="sm:hidden">New</span>
         </button>
         <input
           ref={inputRef}
@@ -91,6 +92,7 @@ const Library = () => {
           onChange={(e) => handleFiles(e.target.files)}
         />
       </div>
+
 
       {/* List */}
       {tab !== "Publications" ? (
