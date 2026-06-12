@@ -111,11 +111,12 @@ const Dashboard = () => {
             No documents found.
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6">
-            {filtered.map((doc) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filtered.map((doc, idx) => (
               <article
                 key={doc.id}
-                className="group rounded-2xl border border-border/70 bg-background p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_18px_40px_-20px_rgba(35,31,32,0.25)]"
+                style={{ animationDelay: `${idx * 70}ms` }}
+                className="group rounded-2xl border border-border/70 bg-background p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_40px_-20px_rgba(35,31,32,0.25)] animate-fade-in-up"
               >
                 <div className="mb-4 flex items-start justify-between">
                   <Link
