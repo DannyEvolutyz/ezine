@@ -145,7 +145,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all border-none cursor-pointer"
+            className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all border-none cursor-pointer"
           >
             Log out
           </button>
@@ -153,15 +153,15 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full hover:bg-ink-2 transition-all no-underline"
+              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
             >
               Log in
             </Link>
             <Link
               to="/signup"
-              className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
+              className="text-sm font-semibold text-text-dark px-6 py-2 bg-[#F5F3F1] border border-[#BE1E2D] rounded-full hover:bg-[#EBE8E5] transition-all no-underline"
             >
-              Sign up
+              Get Started for Free
             </Link>
           </>
         )}
@@ -230,16 +230,16 @@ const Navbar = () => {
           )}
           <div className="flex gap-3 pt-2">
             {user ? (
-              <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full border-none cursor-pointer">
+              <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full border-none cursor-pointer">
                 Log out
               </button>
             ) : (
               <>
-                <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-ink rounded-full no-underline">
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
                   Log in
                 </Link>
-                <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
-                  Sign up
+                <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-text-dark px-6 py-2 bg-[#F5F3F1] border border-[#BE1E2D] rounded-full no-underline">
+                  Get Started for Free
                 </Link>
               </>
             )}
