@@ -232,7 +232,7 @@ const HeroSection = () => {
               to="/signup"
               className="font-heading text-sm font-bold text-primary-foreground px-7 py-3 bg-primary rounded-full inline-flex items-center justify-center gap-2 hover:opacity-90 transition-all uppercase tracking-wide shadow-md"
             >
-              Get Started Free
+              MAKE YOUR FIRST FLIPBOOK
             </Link>
             <a
               href="#what-is-ezine"
