@@ -107,7 +107,7 @@ const About = () => {
                 to="/compare"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
               >
-                See how we compare
+                See How We Compare
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -147,7 +147,7 @@ const About = () => {
         eyebrow="Join us"
         title={<>Ready to bring your documents <span className="text-accent">to life</span>?</>}
         body="Start with your first flipbook in under two minutes. No credit card, no learning curve — just upload and share."
-        buttonText="Get started free"
+        buttonText="Get Started Free"
         buttonHref="/signup"
       />
     </MarketingLayout>

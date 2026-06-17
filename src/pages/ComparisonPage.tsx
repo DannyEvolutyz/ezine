@@ -183,7 +183,7 @@ const ComparisonPage = () => {
         eyebrow="Ready to try it?"
         title={<>See it with your<br /><em className="not-italic text-primary">own document.</em></>}
         body="Upload any PDF and experience the difference in under a minute. No setup, no credit card required."
-        buttonText="See it with your own document"
+        buttonText="See It With Your Own Document"
       />
     </MarketingLayout>
   );

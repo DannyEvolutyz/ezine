@@ -250,9 +250,9 @@ const ContactSection = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full font-heading text-sm font-bold text-primary-foreground px-8 py-3.5 bg-primary rounded-lg inline-flex items-center justify-center gap-2 hover:opacity-90 transition-all uppercase tracking-wide disabled:opacity-60"
+                className="w-full font-heading text-sm font-bold text-primary-foreground px-8 py-3.5 bg-primary rounded-lg inline-flex items-center justify-center gap-2 hover:opacity-90 transition-all tracking-wide disabled:opacity-60"
               >
-                {submitting ? "Sending…" : "Request a Demo"}
+                {submitting ? "Sending…" : "Request A Demo"}
               </button>
               <p className="text-[11px] text-text-light text-center">
                 By submitting, you agree to our Privacy Policy.

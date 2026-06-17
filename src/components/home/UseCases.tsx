@@ -137,9 +137,9 @@ const UseCases = () => {
                     <p className="text-sm leading-[1.7] text-text-mid font-light mb-3">{uc.body}</p>
                     <Link
                       to={uc.link}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all uppercase tracking-wide"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all tracking-wide"
                     >
-                      Learn more <ArrowRight className="w-3.5 h-3.5" />
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </AccordionContent>
                 </AccordionItem>

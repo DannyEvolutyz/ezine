@@ -164,7 +164,7 @@ const Contact = () => {
                 disabled={submitting}
                 className="inline-flex items-center justify-center gap-2.5 font-heading font-bold text-base text-accent-foreground bg-accent px-8 py-4 rounded-xl shadow-[0_4px_16px_hsl(var(--accent)/0.25)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_hsl(var(--accent)/0.35)] transition-all duration-300 disabled:opacity-60 disabled:hover:translate-y-0"
               >
-                {submitting ? "Sending…" : "Send message"}
+                {submitting ? "Sending…" : "Send Message"}
                 <Send size={16} />
               </button>
             </form>

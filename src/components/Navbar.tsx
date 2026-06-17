@@ -147,7 +147,7 @@ const Navbar = () => {
             onClick={handleLogout}
             className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all border-none cursor-pointer"
           >
-            Log out
+            Log Out
           </button>
         ) : (
           <>
@@ -155,13 +155,13 @@ const Navbar = () => {
               to="/login"
               className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all no-underline"
             >
-              Log in
+              Log In
             </Link>
             <Link
               to="/signup"
               className="text-sm font-semibold text-text-dark px-6 py-2 bg-[#F5F3F1] border border-[#BE1E2D] rounded-full hover:bg-[#EBE8E5] transition-all no-underline"
             >
-              Get Started for Free
+              Get Started For Free
             </Link>
           </>
         )}
@@ -231,15 +231,15 @@ const Navbar = () => {
           <div className="flex gap-3 pt-2">
             {user ? (
               <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full border-none cursor-pointer">
-                Log out
+                Log Out
               </button>
             ) : (
               <>
                 <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
-                  Log in
+                  Log In
                 </Link>
                 <Link to="/signup" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-text-dark px-6 py-2 bg-[#F5F3F1] border border-[#BE1E2D] rounded-full no-underline">
-                  Get Started for Free
+                  Get Started For Free
                 </Link>
               </>
             )}

@@ -47,7 +47,7 @@ const useCaseData: Record<string, {
     ],
     ctaTitle: <>Make sure your writing<br /><em className="not-italic text-primary">actually gets read</em></>,
     ctaBody: "Upload your next piece and turn it into something readers explore, revisit, and act on.",
-    ctaButton: "Try it with your next document",
+    ctaButton: "Try It With Your Next Document",
   },
   "marketing-teams": {
     badge: "For Marketing Teams",
@@ -76,7 +76,7 @@ const useCaseData: Record<string, {
     ],
     ctaTitle: <>Fix how your content<br /><em className="not-italic text-primary">performs</em></>,
     ctaBody: "Upload your next campaign asset and turn it into an interactive experience prospects can navigate, search, and act on.",
-    ctaButton: "Try it with your next campaign",
+    ctaButton: "Try It With Your Next Campaign",
   },
   "sales-reps": {
     badge: "For Sales Reps",
@@ -105,7 +105,7 @@ const useCaseData: Record<string, {
     ],
     ctaTitle: <>Make your next deck<br /><em className="not-italic text-primary">do the selling</em></>,
     ctaBody: "Upload your sales deck and turn it into an interactive experience prospects can navigate, search, and revisit on their own.",
-    ctaButton: "Try it with your next sales deck",
+    ctaButton: "Try It With Your Next Sales Deck",
   },
   "educators": {
     badge: "For Educators",
@@ -134,7 +134,7 @@ const useCaseData: Record<string, {
     ],
     ctaTitle: <>Help students learn<br /><em className="not-italic text-primary">without friction</em></>,
     ctaBody: "Upload your learning material and turn it into an interactive, AI-powered resource students will actually return to.",
-    ctaButton: "Try it with your learning material",
+    ctaButton: "Try It With Your Learning Material",
   },
 };
 
