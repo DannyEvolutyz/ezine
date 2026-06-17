@@ -14,7 +14,10 @@ const HeroSection = () => {
 
           <h1 className="font-heading text-3xl md:text-5xl lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-text-dark mb-5 reveal">
             Turn Any PDF into a Stunning,{" "}
-            <span className="text-primary">Interactive Flipbook</span>
+            <span className="text-primary">
+              <br />
+              Interactive Flipbook
+            </span>
           </h1>
 
           <p className="text-base leading-[1.7] text-text-mid font-light mb-8 max-w-[540px] mx-auto lg:mx-0 reveal">
