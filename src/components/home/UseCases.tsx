@@ -118,8 +118,9 @@ const UseCases = () => {
           {/* Right: accordion */}
           <div className="reveal">
             <Accordion
-              type="multiple"
-              defaultValue={useCases.map((u) => u.id)}
+              type="single"
+              defaultValue="hr"
+              collapsible
               className="rounded-2xl bg-background border border-border overflow-hidden divide-y divide-border"
             >
               {useCases.map((uc) => (
