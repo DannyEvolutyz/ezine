@@ -48,13 +48,17 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          <path d="M24 8v32" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M8 24h32" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="14" cy="14" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="34" cy="14" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="14" cy="34" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="34" cy="34" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M18 10l12 0M18 38l12 0M10 18v12M38 18v12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 3" />
+          {/* Document being scanned */}
+          <rect x="12" y="8" width="24" height="32" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M17 16h14M17 22h14M17 28h10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Scanner viewfinder corners */}
+          <path d="M6 12V8a2 2 0 012-2h4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M42 12V8a2 2 0 00-2-2h-4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M6 36v4a2 2 0 002 2h4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M42 36v4a2 2 0 01-2 2h-4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          {/* Scan beam */}
+          <path d="M4 24h40" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M8 24h32" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" opacity="0.35" />
         </svg>
       ),
       title: "Seamless Document Sharing",
