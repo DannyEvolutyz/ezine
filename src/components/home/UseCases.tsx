@@ -92,9 +92,9 @@ const UseCases = () => {
       <div className="absolute bottom-16 right-12 w-3 h-3 bg-primary/10 rounded-full" />
 
       <div className="max-w-[1100px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-center">
           {/* Left: heading */}
-          <div className="reveal lg:sticky lg:top-28">
+          <div className="reveal self-center">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span className="text-xs font-semibold tracking-[0.18em] text-text-mid uppercase">Use Cases</span>
@@ -118,8 +118,9 @@ const UseCases = () => {
           {/* Right: accordion */}
           <div className="reveal">
             <Accordion
-              type="multiple"
-              defaultValue={useCases.map((u) => u.id)}
+              type="single"
+              defaultValue="hr"
+              collapsible
               className="rounded-2xl bg-background border border-border overflow-hidden divide-y divide-border"
             >
               {useCases.map((uc) => (
