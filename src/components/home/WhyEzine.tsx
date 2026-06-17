@@ -3,10 +3,13 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          <rect x="4" y="6" width="16" height="20" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <rect x="24" y="6" width="20" height="20" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M8 30h32v12H8z" stroke="hsl(var(--primary))" strokeWidth="2" rx="2" />
-          <path d="M14 12h2M14 16h4" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Open flipbook spread */}
+          <path d="M24 12v28" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M24 12C20 9 12 8 6 9v26c6-1 14 0 18 3" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M24 12c4-3 12-4 18-3v26c-6-1-14 0-18 3" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          {/* Curling page turn */}
+          <path d="M24 14c3 4 6 14 3 22" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+          <path d="M30 16l3-1M32 22l3-1M30 28l3-1" stroke="hsl(var(--primary))" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
         </svg>
       ),
       title: "PDF to Interactive Flipbook Converter",
@@ -15,10 +18,14 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          <rect x="8" y="4" width="32" height="40" rx="3" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M14 14h20M14 20h16M14 26h12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
-          <circle cx="36" cy="36" r="8" fill="hsl(var(--primary))" opacity="0.15" />
-          <path d="M33 36h6M36 33v6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Document */}
+          <path d="M10 6h18l8 8v22a2 2 0 01-2 2H10a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M28 6v8h8" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M14 20h12M14 25h10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* AI chat bubble overlay */}
+          <path d="M28 28h12a2 2 0 012 2v8a2 2 0 01-2 2h-3l-3 4-3-4h-1a2 2 0 01-2-2v-8a2 2 0 012-2z" fill="hsl(var(--background))" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          {/* Sparkle = AI */}
+          <path d="M34 32l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="hsl(var(--primary))" />
         </svg>
       ),
       title: "AI Chat for Your Documents",
@@ -41,13 +48,17 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          <path d="M24 8v32" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M8 24h32" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="14" cy="14" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="34" cy="14" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="14" cy="34" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <circle cx="34" cy="34" r="6" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M18 10l12 0M18 38l12 0M10 18v12M38 18v12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 3" />
+          {/* Document being scanned */}
+          <rect x="12" y="8" width="24" height="32" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
+          <path d="M17 16h14M17 22h14M17 28h10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Scanner viewfinder corners */}
+          <path d="M6 12V8a2 2 0 012-2h4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M42 12V8a2 2 0 00-2-2h-4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M6 36v4a2 2 0 002 2h4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M42 36v4a2 2 0 01-2 2h-4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          {/* Scan beam */}
+          <path d="M4 24h40" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M8 24h32" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" opacity="0.35" />
         </svg>
       ),
       title: "Seamless Document Sharing",
