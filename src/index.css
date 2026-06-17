@@ -133,8 +133,18 @@
 .reveal:nth-child(5) { transition-delay: 0.32s; }
 .reveal:nth-child(6) { transition-delay: 0.40s; }
 
+/* WhatIsEzine text reveal */
+.whatis-text {
+  opacity: 0.1;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+.reveal.in .whatis-text {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal.in { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .whatis-text { opacity: 1 !important; transition: none !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
