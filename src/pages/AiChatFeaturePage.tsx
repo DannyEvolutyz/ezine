@@ -68,7 +68,7 @@ const AiChatFeaturePage = () => {
                 href="https://www.ezine.digital"
                 className="font-heading text-[15px] font-semibold text-primary-foreground no-underline px-9 py-3.5 bg-primary rounded-xl inline-flex items-center gap-2 shadow-[0_8px_32px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_hsl(var(--primary)/0.4)] transition-all"
               >
-                Try it on your document
+                Try It On Your Document
                 <ArrowRight size={16} />
               </a>
               <span className="text-sm text-muted-foreground flex items-center gap-1.5 py-3.5">
@@ -241,7 +241,7 @@ const AiChatFeaturePage = () => {
                 <p className="text-sm leading-[1.75] text-text-mid font-light">{uc.desc}</p>
                 {uc.link && (
                   <a href={uc.link} className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary no-underline border-b border-primary/25 hover:border-primary transition-colors">
-                    See onboarding use case <ArrowRight size={12} />
+                    See Onboarding Use Case <ArrowRight size={12} />
                   </a>
                 )}
               </div>
@@ -254,7 +254,7 @@ const AiChatFeaturePage = () => {
       <CtaSection
         title={<>Stop scrolling.<br /><span className="text-primary">Start asking.</span></>}
         body="Upload any document and ask your first question in under a minute. No setup, no configuration — just answers."
-        buttonText="Try it on your document"
+        buttonText="Try It On Your Document"
       />
     </MarketingLayout>
   );

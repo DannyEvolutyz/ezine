@@ -211,7 +211,7 @@ const OnboardingLandingPage = () => {
       <CtaSection
         title={<>Make onboarding <em className="not-italic text-primary">easier</em> —<br />for everyone</>}
         body="Upload your onboarding document and turn it into an interactive, AI-powered experience your new hires will actually use."
-        buttonText="Try it with your onboarding doc"
+        buttonText="Try It With Your Onboarding Doc"
         disclaimer="Free to use · No signup required to try"
       />
     </MarketingLayout>
