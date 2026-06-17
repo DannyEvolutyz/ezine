@@ -18,7 +18,8 @@ const Index = () => {
       <WhyEzine />
       <ThreeSteps />
       <SmartWithAI />
-      <UseCasesContact />
+      <UseCases />
+      <ContactSection />
       <Testimonials />
       <FaqSection />
       <OtherProducts />
