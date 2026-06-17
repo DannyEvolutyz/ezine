@@ -48,17 +48,15 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          {/* Document being scanned */}
-          <rect x="12" y="8" width="24" height="32" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M17 16h14M17 22h14M17 28h10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Scanner viewfinder corners */}
-          <path d="M6 12V8a2 2 0 012-2h4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
-          <path d="M42 12V8a2 2 0 00-2-2h-4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
-          <path d="M6 36v4a2 2 0 002 2h4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
-          <path d="M42 36v4a2 2 0 01-2 2h-4" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
-          {/* Scan beam */}
-          <path d="M4 24h40" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
-          <path d="M8 24h32" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" opacity="0.35" />
+          {/* Document */}
+          <path d="M10 6h18l8 8v22a2 2 0 01-2 2H10a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M28 6v8h8" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M14 20h12M14 25h10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Share icon overlay */}
+          <circle cx="34" cy="34" r="3" stroke="hsl(var(--primary))" strokeWidth="2" fill="hsl(var(--background))" />
+          <circle cx="26" cy="28" r="2.5" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="hsl(var(--background))" />
+          <circle cx="26" cy="40" r="2.5" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="hsl(var(--background))" />
+          <path d="M28.5 29.5l4 3.5M28.5 38.5l4-3.5" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       ),
       title: "Seamless Document Sharing",
