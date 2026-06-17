@@ -5,7 +5,7 @@ const WhatIsEzine = () => {
         <h2 className="font-heading text-[18px] font-medium tracking-tight leading-[1.1] text-text-dark mb-8">
           What is <span className="uppercase tracking-wider">EZINE</span>?
         </h2>
-        <p className="whatis-text text-[24px] md:text-[32px] leading-[1.35] text-text-mid font-light">
+        <p className="whatis-text text-[24px] md:text-[32px] leading-[1.65] text-text-mid font-light">
           Ezine helps you turn static documents and PDFs into <span className="font-semibold text-text-dark">interactive</span>, <span className="font-semibold text-text-dark">AI-powered</span> experiences. With built-in AI chat, users can ask questions, generate <span className="font-semibold text-text-dark">instant summaries</span>, and <span className="font-semibold text-text-dark">track</span> how your audience <span className="font-semibold text-text-dark">engages</span> — all without changing how you create or share your content.
         </p>
       </div>
