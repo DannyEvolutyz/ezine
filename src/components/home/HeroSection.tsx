@@ -39,7 +39,7 @@ const HeroSection = () => {
 
         {/* Right: animated demo */}
         <div className="reveal">
-          <HeroDemo />
+          <FlipbookDemo />
         </div>
       </div>
     </section>
