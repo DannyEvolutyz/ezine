@@ -3,10 +3,13 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          <rect x="4" y="6" width="16" height="20" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <rect x="24" y="6" width="20" height="20" rx="2" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M8 30h32v12H8z" stroke="hsl(var(--primary))" strokeWidth="2" rx="2" />
-          <path d="M14 12h2M14 16h4" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Open flipbook spread */}
+          <path d="M24 12v28" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" />
+          <path d="M24 12C20 9 12 8 6 9v26c6-1 14 0 18 3" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M24 12c4-3 12-4 18-3v26c-6-1-14 0-18 3" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          {/* Curling page turn */}
+          <path d="M24 14c3 4 6 14 3 22" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+          <path d="M30 16l3-1M32 22l3-1M30 28l3-1" stroke="hsl(var(--primary))" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
         </svg>
       ),
       title: "PDF to Interactive Flipbook Converter",
