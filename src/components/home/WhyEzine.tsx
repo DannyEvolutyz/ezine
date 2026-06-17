@@ -18,10 +18,14 @@ const WhyEzine = () => {
     {
       icon: (
         <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-          <rect x="8" y="4" width="32" height="40" rx="3" stroke="hsl(var(--primary))" strokeWidth="2" />
-          <path d="M14 14h20M14 20h16M14 26h12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
-          <circle cx="36" cy="36" r="8" fill="hsl(var(--primary))" opacity="0.15" />
-          <path d="M33 36h6M36 33v6" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Document */}
+          <path d="M10 6h18l8 8v22a2 2 0 01-2 2H10a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M28 6v8h8" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M14 20h12M14 25h10" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" />
+          {/* AI chat bubble overlay */}
+          <path d="M28 28h12a2 2 0 012 2v8a2 2 0 01-2 2h-3l-3 4-3-4h-1a2 2 0 01-2-2v-8a2 2 0 012-2z" fill="hsl(var(--background))" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          {/* Sparkle = AI */}
+          <path d="M34 32l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="hsl(var(--primary))" />
         </svg>
       ),
       title: "AI Chat for Your Documents",
