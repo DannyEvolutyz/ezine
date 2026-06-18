@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="text-center lg:text-left">
           <div className="inline-flex items-center gap-2 bg-red-bg border border-primary/15 rounded-full px-4 py-1.5 text-[11px] font-medium text-text-mid tracking-wide mb-6 reveal">
             <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse-dot" />
-            Save 90% of document prep time — instantly
+            From static PDF to living document in seconds
           </div>
 
           <h1 className="font-heading text-3xl md:text-5xl lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-text-dark mb-5 reveal">
