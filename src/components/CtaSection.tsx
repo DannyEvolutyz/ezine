@@ -13,7 +13,7 @@ const CtaSection = ({ eyebrow, title, body, buttonText, buttonHref = "https://ww
   return (
     <section className="bg-ink py-24 md:py-32 px-5 md:px-12 text-center relative overflow-hidden">
       {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse,hsl(var(--primary)/0.15)_0%,transparent_65%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse,hsl(var(--accent)/0.15)_0%,transparent_65%)] pointer-events-none" />
       {/* Dot grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
         backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)',
@@ -24,9 +24,9 @@ const CtaSection = ({ eyebrow, title, body, buttonText, buttonHref = "https://ww
 
       <div className="max-w-[620px] mx-auto relative z-10">
         {eyebrow && (
-          <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-5">{eyebrow}</div>
+          <div className="text-xs font-bold tracking-[2px] uppercase text-accent mb-5">{eyebrow}</div>
         )}
-        <h2 className="font-heading text-3xl md:text-5xl font-black tracking-tight leading-[1.05] text-primary-foreground mb-5">
+        <h2 className="font-heading text-3xl md:text-5xl font-medium tracking-tight leading-[1.05] text-primary-foreground mb-5">
           {title}
         </h2>
         <p className="text-base md:text-lg leading-relaxed text-primary-foreground/50 font-light mb-11">

@@ -4,7 +4,7 @@ const OtherProducts = () => {
   const products = [
     {
       name: "Ezconnect",
-      logo: <>e<span className="text-primary">Z</span>connect</>,
+      logo: <>e<span className="text-accent">Z</span>connect</>,
       tagline: "by Evolutyz",
       desc: "One should not be horrific to look for the ordinary as they might think.",
       bg: "bg-ink",

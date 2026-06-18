@@ -52,10 +52,10 @@ const ComparisonPage = () => {
 
           {/* Verdict card */}
           <div className="hidden md:block bg-ink rounded-2xl p-9 relative overflow-hidden">
-            <div className="absolute -top-16 -right-16 w-[200px] h-[200px] bg-[radial-gradient(circle,hsl(var(--primary)/0.2)_0%,transparent_65%)] pointer-events-none" />
-            <div className="text-[10px] font-bold tracking-[2px] uppercase text-primary mb-4">The Short Version</div>
+            <div className="absolute -top-16 -right-16 w-[200px] h-[200px] bg-[radial-gradient(circle,hsl(var(--accent)/0.2)_0%,transparent_65%)] pointer-events-none" />
+            <div className="text-[10px] font-bold tracking-[2px] uppercase text-accent mb-4">The Short Version</div>
             <h3 className="font-heading text-[22px] font-bold leading-[1.3] tracking-tight text-primary-foreground mb-5">
-              If you need more than a<br /><em className="text-primary">pretty PDF,</em> read on.
+              If you need more than a<br /><em className="text-accent">pretty PDF,</em> read on.
             </h3>
             <div className="flex flex-col gap-3 mb-7">
               {["Both tools convert PDFs to flipbooks", "Both let you share via link"].map((text) => (
@@ -68,8 +68,8 @@ const ComparisonPage = () => {
               ))}
               <div className="h-px bg-primary-foreground/8 my-2" />
               <div className="flex items-start gap-2.5 text-sm text-primary-foreground/60">
-                <div className="w-[18px] h-[18px] bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <X size={10} className="text-primary" />
+                <div className="w-[18px] h-[18px] bg-accent/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <X size={10} className="text-accent" />
                 </div>
                 Most tools focus on presentation — they make documents look better but don't change how people interact with them
               </div>
@@ -167,7 +167,7 @@ const ComparisonPage = () => {
             <div className="bg-ink md:col-span-2 p-10 md:p-12 hover:bg-ink-2 transition-colors reveal">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <h3 className="font-heading text-2xl md:text-[28px] font-bold leading-[1.25] text-primary-foreground tracking-tight">
-                  Ezine takes a <span className="text-primary">different approach.</span>
+                  Ezine takes a <span className="text-accent">different approach.</span>
                 </h3>
                 <p className="text-[15px] leading-[1.78] text-primary-foreground/55 font-light">
                   Instead of just converting PDFs into flipbooks, it adds an interactive layer — so users can navigate efficiently, find what they need instantly, and ask questions directly within the document when needed.
@@ -181,7 +181,7 @@ const ComparisonPage = () => {
       {/* CTA */}
       <CtaSection
         eyebrow="Ready to try it?"
-        title={<>See it with your<br /><em className="not-italic text-primary">own document.</em></>}
+        title={<>See it with your<br /><em className="not-italic text-accent">own document.</em></>}
         body="Upload any PDF and experience the difference in under a minute. No setup, no credit card required."
         buttonText="See It With Your Own Document"
       />
