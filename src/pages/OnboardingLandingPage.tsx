@@ -115,7 +115,7 @@ const OnboardingLandingPage = () => {
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
             <div className="text-xs font-bold tracking-[2px] uppercase text-accent mb-5">The Real Problem</div>
-            <h2 className="font-heading text-3xl md:text-[38px] font-bold leading-[1.2] tracking-tight text-primary-foreground mb-5">
+            <h2 className="font-heading text-3xl md:text-[38px] font-medium leading-[1.2] tracking-tight text-primary-foreground mb-5">
               The issue isn't what you've created.{"\n"}
               <em className="not-italic text-accent">It's how people interact with it.</em>
             </h2>

@@ -278,7 +278,7 @@ const AiChatFeaturePage = () => {
 
       {/* Final CTA — dark, with two actions and risk reducer */}
       <section className="bg-ink py-24 md:py-32 px-5 md:px-12 text-center relative overflow-hidden">
-        <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse,hsl(var(--primary)/0.15)_0%,transparent_65%)] pointer-events-none" />
+        <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse,hsl(var(--accent)/0.15)_0%,transparent_65%)] pointer-events-none" />
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
@@ -287,8 +287,8 @@ const AiChatFeaturePage = () => {
         }} />
 
         <div className="max-w-[680px] mx-auto relative z-10">
-          <h2 className="font-heading text-3xl md:text-5xl font-black tracking-tight leading-[1.05] text-primary-foreground mb-5">
-            Turn your next document<br /><span className="text-primary">into a conversation.</span>
+          <h2 className="font-heading text-3xl md:text-5xl font-medium tracking-tight leading-[1.05] text-primary-foreground mb-5">
+            Turn your next document<br /><span className="text-accent">into a conversation.</span>
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-primary-foreground/60 font-light mb-11">
             Upload a PDF, ask your first question in under a minute. No setup, no credit card.

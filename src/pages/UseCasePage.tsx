@@ -219,7 +219,7 @@ const UseCasePage = () => {
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
             <div className="text-xs font-bold tracking-[2px] uppercase text-accent mb-5">The Real Problem</div>
-            <h2 className="font-heading text-3xl md:text-[38px] font-bold leading-[1.2] tracking-tight text-primary-foreground mb-5">
+            <h2 className="font-heading text-3xl md:text-[38px] font-medium leading-[1.2] tracking-tight text-primary-foreground mb-5">
               {data.problemTitle}
             </h2>
             <p className="text-base leading-[1.7] text-primary-foreground/55 font-light">{data.problemDesc}</p>
