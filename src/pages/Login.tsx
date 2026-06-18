@@ -55,57 +55,69 @@ const Login = () => {
               </p>
             </div>
 
-            <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-sm font-semibold text-text-dark">
-                  Email <span className="text-primary">*</span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-text-dark placeholder:text-text-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label htmlFor="password" className="text-sm font-semibold text-text-dark">
-                  Password <span className="text-primary">*</span>
-                </label>
-                <div className="relative">
+            <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-sm font-semibold text-text-dark">
+                    Email <span className="text-primary">*</span>
+                  </label>
                   <input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
+                    id="email"
+                    type="email"
                     required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter your password"
-                    className="h-11 w-full px-4 pr-11 rounded-lg border border-border bg-background text-sm text-text-dark placeholder:text-text-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-text-dark placeholder:text-text-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                   />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((v) => !v)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-text-light hover:text-text-mid transition-colors"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
-                  >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                  </button>
                 </div>
-              </div>
 
-              <div className="flex justify-start">
-                <Link to="/forgot-password" className="text-sm font-medium text-primary hover:underline">
-                  Forgot Password?
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="password" className="text-sm font-semibold text-text-dark">
+                    Password <span className="text-primary">*</span>
+                  </label>
+                  <div className="relative">
+                    <input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter your password"
+                      className="h-11 w-full px-4 pr-11 rounded-lg border border-border bg-background text-sm text-text-dark placeholder:text-text-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((v) => !v)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-text-light hover:text-text-mid transition-colors"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Checkbox
+                      id="remember-me"
+                      checked={rememberMe}
+                      onCheckedChange={(checked) => setRememberMe(checked === true)}
+                    />
+                    <label htmlFor="remember-me" className="text-sm font-medium text-text-dark cursor-pointer">
+                      Remember Me
+                    </label>
+                  </div>
+                  <Link to="/forgot-password" className="text-sm font-medium text-primary hover:underline">
+                    Forgot Password?
+                  </Link>
+                </div>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="h-11 mt-2 rounded-full bg-accent text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all shadow-[0_8px_24px_rgba(240,90,40,0.25)] disabled:opacity-60"
+                className="h-11 rounded-full bg-accent text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all shadow-[0_8px_24px_rgba(240,90,40,0.25)] disabled:opacity-60"
               >
                 {loading ? "Logging in..." : "Log in"}
               </button>
