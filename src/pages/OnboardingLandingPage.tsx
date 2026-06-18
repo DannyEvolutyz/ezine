@@ -116,7 +116,7 @@ const OnboardingLandingPage = () => {
           <div>
             <div className="text-xs font-bold tracking-[2px] uppercase text-accent mb-5">The Real Problem</div>
             <h2 className="font-heading text-3xl md:text-[38px] font-bold leading-[1.2] tracking-tight text-primary-foreground mb-5">
-              The issue isn't what you've created.<br />
+              The issue isn't what you've created.{"\n"}
               <em className="not-italic text-accent">It's how people interact with it.</em>
             </h2>
             <p className="text-base leading-[1.7] text-primary-foreground/55 font-light">
