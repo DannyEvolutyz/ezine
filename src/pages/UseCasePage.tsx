@@ -215,10 +215,10 @@ const UseCasePage = () => {
 
       {/* Problem */}
       <section className="bg-text-dark py-20 md:py-24 px-5 md:px-12 relative overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-[400px] h-[400px] bg-[radial-gradient(circle,hsl(var(--primary)/0.15)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-[400px] h-[400px] bg-[radial-gradient(circle,hsl(var(--accent)/0.15)_0%,transparent_70%)] pointer-events-none" />
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
-            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-5">The Real Problem</div>
+            <div className="text-xs font-bold tracking-[2px] uppercase text-accent mb-5">The Real Problem</div>
             <h2 className="font-heading text-3xl md:text-[38px] font-bold leading-[1.2] tracking-tight text-primary-foreground mb-5">
               {data.problemTitle}
             </h2>
@@ -226,10 +226,11 @@ const UseCasePage = () => {
           </div>
           <div className="flex flex-col gap-5">
             {data.problems.map((item) => (
-              <div key={item.title} className="flex gap-4 items-start p-5 md:p-6 rounded-xl border border-primary-foreground/8 bg-primary-foreground/4 hover:border-primary/30 hover:bg-primary/6 hover:translate-x-1 transition-all reveal">
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
-                  <item.icon size={20} className="text-primary" />
+              <div key={item.title} className="flex gap-4 items-start p-5 md:p-6 rounded-xl border border-primary-foreground/8 bg-primary-foreground/4 hover:border-accent/30 hover:bg-accent/6 hover:translate-x-1 transition-all reveal">
+                <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
+                  <item.icon size={20} className="text-accent" />
                 </div>
+
                 <div>
                   <div className="font-heading text-sm font-semibold text-primary-foreground mb-1">{item.title}</div>
                   <p className="text-sm leading-relaxed text-primary-foreground/50">{item.desc}</p>
