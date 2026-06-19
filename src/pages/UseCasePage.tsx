@@ -187,27 +187,98 @@ const UseCasePage = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
                 </div>
                 <div className="flex-1 bg-background rounded-md px-3 py-1.5 text-[11px] text-text-light font-medium border border-border text-center">
-                  Document Preview · Ezine
+                  {slug === "founders-writers" ? "Founders Agreement · Ezine" : "Document Preview · Ezine"}
                 </div>
               </div>
-              <div className="p-6">
-                <div className="bg-background border border-border rounded-xl p-5 mb-3">
-                  <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light mb-2.5">Interactive Document</div>
-                  <div className="space-y-2">
-                    <div className="h-2 w-3/4 bg-warm-gray rounded" />
-                    <div className="h-1.5 w-full bg-warm-gray rounded" />
-                    <div className="h-1.5 w-full bg-warm-gray rounded" />
-                    <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
-                    <div className="h-2.5" />
-                    <div className="h-1.5 w-full bg-warm-gray rounded" />
-                    <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
+
+              {slug === "founders-writers" ? (
+                <div className="p-6 space-y-3">
+                  {/* Flipbook preview */}
+                  <div className="bg-off-white border border-border rounded-xl p-4">
+                    <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light mb-3">Flipbook Preview</div>
+                    <div className="relative grid grid-cols-2 gap-0 rounded-lg overflow-hidden border border-border bg-background">
+                      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
+                      <div className="p-3.5">
+                        <div className="text-[9px] font-bold uppercase tracking-[1px] text-text-mid mb-2">Founders Agreement</div>
+                        <div className="space-y-1.5">
+                          <div className="h-1.5 w-full bg-warm-gray rounded" />
+                          <div className="h-1.5 w-5/6 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-full bg-warm-gray rounded" />
+                        </div>
+                      </div>
+                      <div className="p-3.5">
+                        <div className="text-[9px] font-bold uppercase tracking-[1px] text-text-mid mb-2">Section 3 · Vesting</div>
+                        <div className="space-y-1.5">
+                          <div className="h-1.5 w-full bg-warm-gray rounded" />
+                          <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-5/6 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-1/2 bg-warm-gray rounded" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Interactive document */}
+                  <div className="bg-background border border-border rounded-xl p-5">
+                    <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light mb-2.5">Interactive Document</div>
+                    <div className="space-y-2">
+                      <div className="h-2 w-3/4 bg-warm-gray rounded" />
+                      <div className="h-1.5 w-full bg-warm-gray rounded" />
+                      <div className="h-1.5 w-full bg-warm-gray rounded" />
+                      <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
+                      <div className="h-2.5" />
+                      <div className="h-1.5 w-full bg-warm-gray rounded" />
+                      <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
+                    </div>
+                    <div className="flex gap-2 mt-4">
+                      <div className="flex-1 h-[5px] bg-primary rounded-full" />
+                      <div className="flex-[3] h-[5px] bg-warm-gray rounded-full" />
+                    </div>
+                  </div>
+
+                  {/* Chat Q&A */}
+                  <div className="bg-off-white border border-border rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-6 h-6 rounded-md bg-primary/10 flex items-center justify-center">
+                        <MessageSquare size={12} className="text-primary" />
+                      </div>
+                      <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light">Ask this document</div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex justify-end">
+                        <div className="max-w-[80%] bg-primary text-primary-foreground text-[11px] leading-snug px-3 py-2 rounded-xl rounded-br-sm">
+                          What's the vesting schedule for founders?
+                        </div>
+                      </div>
+                      <div className="flex justify-start">
+                        <div className="max-w-[85%] bg-background border border-border text-text-dark text-[11px] leading-snug px-3 py-2 rounded-xl rounded-bl-sm">
+                          Standard 4-year vest with a 1-year cliff. Equity vests monthly after the cliff — see Section 3.2 for details.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-2 mt-1">
-                  <div className="flex-1 h-[5px] bg-primary rounded-full" />
-                  <div className="flex-[3] h-[5px] bg-warm-gray rounded-full" />
+              ) : (
+                <div className="p-6">
+                  <div className="bg-background border border-border rounded-xl p-5 mb-3">
+                    <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light mb-2.5">Interactive Document</div>
+                    <div className="space-y-2">
+                      <div className="h-2 w-3/4 bg-warm-gray rounded" />
+                      <div className="h-1.5 w-full bg-warm-gray rounded" />
+                      <div className="h-1.5 w-full bg-warm-gray rounded" />
+                      <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
+                      <div className="h-2.5" />
+                      <div className="h-1.5 w-full bg-warm-gray rounded" />
+                      <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
+                    </div>
+                  </div>
+                  <div className="flex gap-2 mt-1">
+                    <div className="flex-1 h-[5px] bg-primary rounded-full" />
+                    <div className="flex-[3] h-[5px] bg-warm-gray rounded-full" />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
