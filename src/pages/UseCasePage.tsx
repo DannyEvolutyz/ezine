@@ -1,7 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import MarketingLayout from "@/components/MarketingLayout";
 import CtaSection from "@/components/CtaSection";
-import { ArrowRight, Check, FileText, HelpCircle, Clock, Share2, Zap, MessageSquare } from "lucide-react";
+import { ArrowRight, Check, FileText, HelpCircle, Clock, Share2, Zap, MessageSquare, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const useCaseData: Record<string, {
