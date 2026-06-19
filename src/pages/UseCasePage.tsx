@@ -196,44 +196,51 @@ const UseCasePage = () => {
                   {/* Flipbook preview */}
                   <div className="bg-off-white border border-border rounded-xl p-4">
                     <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light mb-3">Flipbook Preview</div>
-                    <div className="relative grid grid-cols-2 gap-0 rounded-lg overflow-hidden border border-border bg-background">
+                    <div className="relative grid grid-cols-2 gap-0 rounded-lg overflow-hidden border border-border bg-background min-h-[320px]">
                       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
-                      <div className="p-3.5">
-                        <div className="text-[9px] font-bold uppercase tracking-[1px] text-text-mid mb-2">Founders Agreement</div>
+                      <div className="p-4">
+                        <div className="text-[9px] font-bold uppercase tracking-[1px] text-text-mid mb-3">Founders Agreement</div>
                         <div className="space-y-1.5">
                           <div className="h-1.5 w-full bg-warm-gray rounded" />
                           <div className="h-1.5 w-5/6 bg-warm-gray rounded" />
                           <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
                           <div className="h-1.5 w-full bg-warm-gray rounded" />
+                          <div className="h-1.5 w-11/12 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-4/5 bg-warm-gray rounded" />
+                          <div className="h-2" />
+                          <div className="h-1.5 w-full bg-warm-gray rounded" />
+                          <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-5/6 bg-warm-gray rounded" />
                         </div>
                       </div>
-                      <div className="p-3.5">
-                        <div className="text-[9px] font-bold uppercase tracking-[1px] text-text-mid mb-2">Section 3 · Vesting</div>
+                      <div className="p-4">
+                        <div className="text-[9px] font-bold uppercase tracking-[1px] text-text-mid mb-3">Section 3 · Vesting</div>
                         <div className="space-y-1.5">
                           <div className="h-1.5 w-full bg-warm-gray rounded" />
                           <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
                           <div className="h-1.5 w-5/6 bg-warm-gray rounded" />
                           <div className="h-1.5 w-1/2 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-11/12 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
+                          <div className="h-2" />
+                          <div className="h-1.5 w-full bg-warm-gray rounded" />
+                          <div className="h-1.5 w-4/5 bg-warm-gray rounded" />
+                          <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Interactive document */}
-                  <div className="bg-background border border-border rounded-xl p-5">
-                    <div className="text-[10px] font-bold uppercase tracking-[1px] text-text-light mb-2.5">Interactive Document</div>
-                    <div className="space-y-2">
-                      <div className="h-2 w-3/4 bg-warm-gray rounded" />
-                      <div className="h-1.5 w-full bg-warm-gray rounded" />
-                      <div className="h-1.5 w-full bg-warm-gray rounded" />
-                      <div className="h-1.5 w-2/3 bg-warm-gray rounded" />
-                      <div className="h-2.5" />
-                      <div className="h-1.5 w-full bg-warm-gray rounded" />
-                      <div className="h-1.5 w-3/4 bg-warm-gray rounded" />
-                    </div>
-                    <div className="flex gap-2 mt-4">
-                      <div className="flex-1 h-[5px] bg-primary rounded-full" />
-                      <div className="flex-[3] h-[5px] bg-warm-gray rounded-full" />
+                    {/* Pager */}
+                    <div className="flex items-center gap-3 mt-4">
+                      <button className="w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center text-text-mid hover:text-text-dark transition-colors shrink-0" aria-label="Previous pages">
+                        <ChevronLeft size={14} />
+                      </button>
+                      <div className="flex-1 h-1 bg-warm-gray rounded-full overflow-hidden">
+                        <div className="h-full w-1/4 bg-primary rounded-full" />
+                      </div>
+                      <div className="text-[10px] font-medium text-text-mid tabular-nums shrink-0">3–4 / 12</div>
+                      <button className="w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center text-text-mid hover:text-text-dark transition-colors shrink-0" aria-label="Next pages">
+                        <ChevronRight size={14} />
+                      </button>
                     </div>
                   </div>
 
