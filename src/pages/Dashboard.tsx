@@ -27,7 +27,7 @@ import {
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 
 const Dashboard = () => {
-  const { documents, addDocument } = useDocuments();
+  const { documents, addDocument, removeDocument } = useDocuments();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
