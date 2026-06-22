@@ -187,16 +187,38 @@ const Dashboard = () => {
                         Copy link
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem
-                        onClick={() => {
-                          removeDocument(doc.id);
-                          toast({ title: "Deleted", description: `${doc.name} removed.` });
-                        }}
-                        className="flex items-center gap-2 text-destructive focus:text-destructive"
-                      >
-                        <Trash2 size={14} />
-                        Delete flipbook
-                      </DropdownMenuItem>
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <DropdownMenuItem
+                            onSelect={(e) => e.preventDefault()}
+                            aria-label={`Delete flipbook ${doc.name}`}
+                            className="flex items-center gap-2 text-destructive focus:text-destructive"
+                          >
+                            <Trash2 size={14} aria-hidden="true" />
+                            Delete flipbook
+                          </DropdownMenuItem>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>Delete this flipbook?</AlertDialogTitle>
+                            <AlertDialogDescription>
+                              This will permanently remove “{doc.name}”. This action cannot be undone.
+                            </AlertDialogDescription>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction
+                              onClick={() => {
+                                removeDocument(doc.id);
+                                toast({ title: "Deleted", description: `${doc.name} removed.` });
+                              }}
+                              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                            >
+                              Delete flipbook
+                            </AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
