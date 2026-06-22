@@ -131,16 +131,63 @@ const Dashboard = () => {
                 <div className="mb-4 flex items-start justify-between">
                   <Link
                     to={`/viewer/${doc.id}`}
-                    className="flex h-16 w-12 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
+                    className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
                   >
                     <FileText size={22} />
                   </Link>
-                  <button
-                    aria-label="More options"
-                    className="p-1 text-text-light transition-colors hover:text-text-dark"
-                  >
-                    <MoreVertical size={18} />
-                  </button>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        aria-label="More options"
+                        className="p-1 text-text-light transition-colors hover:text-text-dark"
+                      >
+                        <MoreVertical size={18} />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-52">
+                      <DropdownMenuItem asChild>
+                        <a
+                          href={`/viewer/${doc.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink size={14} />
+                          Open in new tab
+                        </a>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() =>
+                          toast({ title: "Share", description: `Share ${doc.name}` })
+                        }
+                        className="flex items-center gap-2"
+                      >
+                        <Share2 size={14} />
+                        Share
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => {
+                          handleCopy(doc);
+                          toast({ title: "Link copied", description: doc.shortUrl });
+                        }}
+                        className="flex items-center gap-2"
+                      >
+                        <Link2 size={14} />
+                        Copy link
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                        onClick={() => {
+                          removeDocument(doc.id);
+                          toast({ title: "Deleted", description: `${doc.name} removed.` });
+                        }}
+                        className="flex items-center gap-2 text-destructive focus:text-destructive"
+                      >
+                        <Trash2 size={14} />
+                        Delete flipbook
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 <Link
