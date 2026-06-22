@@ -84,7 +84,7 @@ const Dashboard = () => {
         }`}
       >
         <div className="mx-auto mb-5 sm:mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground shadow-[0_10px_25px_-8px_rgba(240,90,40,0.5)] transition-transform group-hover:scale-110 group-hover:-rotate-3">
-          <UploadCloud size={28} />
+          <ArrowDownToLine size={28} />
         </div>
         <h2 className="font-heading text-xl sm:text-2xl font-bold text-text-dark">Drag &amp; Drop</h2>
         <p className="mt-1 text-sm sm:text-base font-medium text-text-mid">
