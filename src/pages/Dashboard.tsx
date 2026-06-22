@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  UploadCloud,
+  ArrowDownToLine,
   BookOpen,
   Copy,
   MoreVertical,
@@ -9,15 +9,25 @@ import {
   Share2,
   FileText,
   Check,
+  ExternalLink,
+  Link2,
+  Trash2,
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
 import { toast } from "@/hooks/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 
 const Dashboard = () => {
-  const { documents, addDocument } = useDocuments();
+  const { documents, addDocument, removeDocument } = useDocuments();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
@@ -74,7 +84,7 @@ const Dashboard = () => {
         }`}
       >
         <div className="mx-auto mb-5 sm:mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground shadow-[0_10px_25px_-8px_rgba(240,90,40,0.5)] transition-transform group-hover:scale-110 group-hover:-rotate-3">
-          <UploadCloud size={28} />
+          <ArrowDownToLine size={28} />
         </div>
         <h2 className="font-heading text-xl sm:text-2xl font-bold text-text-dark">Drag &amp; Drop</h2>
         <p className="mt-1 text-sm sm:text-base font-medium text-text-mid">
@@ -121,16 +131,63 @@ const Dashboard = () => {
                 <div className="mb-4 flex items-start justify-between">
                   <Link
                     to={`/viewer/${doc.id}`}
-                    className="flex h-16 w-12 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
+                    className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
                   >
                     <FileText size={22} />
                   </Link>
-                  <button
-                    aria-label="More options"
-                    className="p-1 text-text-light transition-colors hover:text-text-dark"
-                  >
-                    <MoreVertical size={18} />
-                  </button>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        aria-label="More options"
+                        className="p-1 text-text-light transition-colors hover:text-text-dark"
+                      >
+                        <MoreVertical size={18} />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-52">
+                      <DropdownMenuItem asChild>
+                        <a
+                          href={`/viewer/${doc.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink size={14} />
+                          Open in new tab
+                        </a>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() =>
+                          toast({ title: "Share", description: `Share ${doc.name}` })
+                        }
+                        className="flex items-center gap-2"
+                      >
+                        <Share2 size={14} />
+                        Share
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => {
+                          handleCopy(doc);
+                          toast({ title: "Link copied", description: doc.shortUrl });
+                        }}
+                        className="flex items-center gap-2"
+                      >
+                        <Link2 size={14} />
+                        Copy link
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                        onClick={() => {
+                          removeDocument(doc.id);
+                          toast({ title: "Deleted", description: `${doc.name} removed.` });
+                        }}
+                        className="flex items-center gap-2 text-destructive focus:text-destructive"
+                      >
+                        <Trash2 size={14} />
+                        Delete flipbook
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 <Link
