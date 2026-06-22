@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  UploadCloud,
+  ArrowDownToLine,
   BookOpen,
   Copy,
   MoreVertical,
@@ -9,10 +9,20 @@ import {
   Share2,
   FileText,
   Check,
+  ExternalLink,
+  Link2,
+  Trash2,
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
 import { toast } from "@/hooks/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 
