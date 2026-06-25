@@ -280,6 +280,13 @@ const Dashboard = () => {
           </div>
         )}
       </section>
+
+      <ShareDialog
+        open={!!shareDoc}
+        onOpenChange={(o) => !o && setShareDoc(null)}
+        title={shareDoc?.name ?? ""}
+        url={shareDoc ? `https://ezine.digital${shareDoc.shortUrl}` : ""}
+      />
     </AppShell>
   );
 };
