@@ -34,6 +34,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import ShareDialog from "@/components/ShareDialog";
 
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 
@@ -43,6 +44,7 @@ const Dashboard = () => {
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [shareDoc, setShareDoc] = useState<DocItem | null>(null);
 
   const handleFiles = (files: FileList | null) => {
     if (!files || files.length === 0) return;
