@@ -264,11 +264,35 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <div className="flex gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2">
             {user ? (
-              <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full border-none cursor-pointer">
-                Log Out
-              </button>
+              <>
+                <div className="flex items-center gap-3 pb-1">
+                  <Avatar className="h-10 w-10 bg-gradient-to-tr from-primary to-accent border-2 border-white shadow-sm">
+                    <AvatarFallback className="bg-transparent text-white text-sm font-semibold">
+                      {initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="text-sm font-medium text-text-dark">
+                    {meta?.first_name || meta?.last_name ? `${meta?.first_name ?? ""} ${meta?.last_name ?? ""}`.trim() : user?.email}
+                  </span>
+                </div>
+                <Link to="/profile" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-sm font-medium text-text-mid hover:text-primary no-underline">
+                  <User className="h-4 w-4" />
+                  My Profile
+                </Link>
+                <Link to="/profile" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-sm font-medium text-text-mid hover:text-primary no-underline">
+                  <Settings className="h-4 w-4" />
+                  Settings
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 text-sm font-medium text-destructive hover:text-destructive/80 bg-transparent border-none cursor-pointer text-left"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Log Out
+                </button>
+              </>
             ) : (
               <>
                 <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
