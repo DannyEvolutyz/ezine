@@ -34,6 +34,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import ShareDialog from "@/components/ShareDialog";
 
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 
@@ -43,6 +44,7 @@ const Dashboard = () => {
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [shareDoc, setShareDoc] = useState<DocItem | null>(null);
 
   const handleFiles = (files: FileList | null) => {
     if (!files || files.length === 0) return;
@@ -168,9 +170,7 @@ const Dashboard = () => {
                         </a>
                       </DropdownMenuItem>
                       <DropdownMenuItem
-                        onClick={() =>
-                          toast({ title: "Share", description: `Share ${doc.name}` })
-                        }
+                        onClick={() => setShareDoc(doc)}
                         className="flex items-center gap-2"
                       >
                         <Share2 size={14} />
@@ -240,21 +240,35 @@ const Dashboard = () => {
                   </span>
                   <button
                     onClick={() => handleCopy(doc)}
-                    aria-label="Copy link"
-                    className="rounded p-1 text-accent transition-colors hover:bg-background"
+                    aria-label={copiedId === doc.id ? "Copied" : "Copy URL"}
+                    className={`flex items-center gap-1 rounded px-2 py-1 text-xs font-semibold transition-colors ${
+                      copiedId === doc.id
+                        ? "text-green-600"
+                        : "text-accent hover:bg-background"
+                    }`}
                   >
-                    {copiedId === doc.id ? <Check size={14} /> : <Copy size={14} />}
+                    {copiedId === doc.id ? (
+                      <>
+                        <Check size={14} /> Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={14} /> Copy URL
+                      </>
+                    )}
                   </button>
                 </div>
 
                 <div className="mt-4 flex justify-end gap-2">
-                  <button
-                    aria-label="Chat"
+                  <Link
+                    to={`/viewer/${doc.id}?chat=open`}
+                    aria-label="Open chat assistant"
                     className="flex h-9 w-9 items-center justify-center rounded-full text-text-mid transition-colors hover:bg-accent/10 hover:text-accent"
                   >
                     <MessageSquare size={16} />
-                  </button>
+                  </Link>
                   <button
+                    onClick={() => setShareDoc(doc)}
                     aria-label="Share"
                     className="flex h-9 w-9 items-center justify-center rounded-full text-text-mid transition-colors hover:bg-primary/10 hover:text-primary"
                   >
@@ -266,6 +280,13 @@ const Dashboard = () => {
           </div>
         )}
       </section>
+
+      <ShareDialog
+        open={!!shareDoc}
+        onOpenChange={(o) => !o && setShareDoc(null)}
+        title={shareDoc?.name ?? ""}
+        url={shareDoc ? `https://ezine.digital${shareDoc.shortUrl}` : ""}
+      />
     </AppShell>
   );
 };
