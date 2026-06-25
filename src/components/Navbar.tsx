@@ -34,6 +34,11 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const meta = user?.user_metadata as { first_name?: string; last_name?: string } | undefined;
+  const initials =
+    ((meta?.first_name?.[0] ?? "") + (meta?.last_name?.[0] ?? "")).toUpperCase() ||
+    (user?.email?.[0]?.toUpperCase() ?? "U");
+
   const links = [
     { label: "Home", href: "/" },
     { label: "Features", href: "/features/ai-chat" },
