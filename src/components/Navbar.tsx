@@ -156,12 +156,35 @@ const Navbar = () => {
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-3">
         {user ? (
-          <button
-            onClick={handleLogout}
-            className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all border-none cursor-pointer"
-          >
-            Log Out
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="flex items-center gap-2 bg-transparent border-none cursor-pointer rounded-full focus:outline-none focus:ring-2 focus:ring-primary/30"
+                aria-label="Open user menu"
+              >
+                <Avatar className="h-9 w-9 bg-gradient-to-tr from-primary to-accent border-2 border-white shadow-sm">
+                  <AvatarFallback className="bg-transparent text-white text-sm font-semibold">
+                    {initials}
+                  </AvatarFallback>
+                </Avatar>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer">
+                <User className="mr-2 h-4 w-4" />
+                <span>My Profile</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer">
+                <Settings className="mr-2 h-4 w-4" />
+                <span>Settings</span>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-destructive focus:text-destructive">
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Log Out</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         ) : (
           <>
             <Link
