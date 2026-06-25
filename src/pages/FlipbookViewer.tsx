@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowLeft, ChevronLeft, ChevronRight, Send, Bot, MessageSquare, X } from "lucide-react";
 import { useDocuments } from "@/hooks/useDocuments";
 
@@ -38,7 +38,8 @@ const FlipbookViewer = () => {
   const [spread, setSpread] = useState(0);
   const totalSpreads = Math.ceil(totalPages / 2);
   const [flipping, setFlipping] = useState<"next" | "prev" | null>(null);
-  const [chatOpen, setChatOpen] = useState(false);
+  const [searchParams] = useSearchParams();
+  const [chatOpen, setChatOpen] = useState(searchParams.get("chat") === "open");
   const [scale, setScale] = useState(1);
   const stageRef = useRef<HTMLDivElement>(null);
 
