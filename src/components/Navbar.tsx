@@ -1,7 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, User, Settings, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const useCaseItems = [
   { label: "HR/People Ops", href: "/use-cases/hr-people-ops" },
@@ -25,6 +33,11 @@ const Navbar = () => {
     setMobileOpen(false);
     navigate("/");
   };
+
+  const meta = user?.user_metadata as { first_name?: string; last_name?: string } | undefined;
+  const initials =
+    ((meta?.first_name?.[0] ?? "") + (meta?.last_name?.[0] ?? "")).toUpperCase() ||
+    (user?.email?.[0]?.toUpperCase() ?? "U");
 
   const links = [
     { label: "Home", href: "/" },
@@ -143,12 +156,35 @@ const Navbar = () => {
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-3">
         {user ? (
-          <button
-            onClick={handleLogout}
-            className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full hover:opacity-90 transition-all border-none cursor-pointer"
-          >
-            Log Out
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="flex items-center gap-2 bg-transparent border-none cursor-pointer rounded-full focus:outline-none focus:ring-2 focus:ring-primary/30"
+                aria-label="Open user menu"
+              >
+                <Avatar className="h-9 w-9 bg-gradient-to-tr from-primary to-accent border-2 border-white shadow-sm">
+                  <AvatarFallback className="bg-transparent text-white text-sm font-semibold">
+                    {initials}
+                  </AvatarFallback>
+                </Avatar>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer">
+                <User className="mr-2 h-4 w-4" />
+                <span>My Profile</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer">
+                <Settings className="mr-2 h-4 w-4" />
+                <span>Settings</span>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-destructive focus:text-destructive">
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Log Out</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         ) : (
           <>
             <Link
@@ -228,11 +264,35 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <div className="flex gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2">
             {user ? (
-              <button onClick={handleLogout} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full border-none cursor-pointer">
-                Log Out
-              </button>
+              <>
+                <div className="flex items-center gap-3 pb-1">
+                  <Avatar className="h-10 w-10 bg-gradient-to-tr from-primary to-accent border-2 border-white shadow-sm">
+                    <AvatarFallback className="bg-transparent text-white text-sm font-semibold">
+                      {initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="text-sm font-medium text-text-dark">
+                    {meta?.first_name || meta?.last_name ? `${meta?.first_name ?? ""} ${meta?.last_name ?? ""}`.trim() : user?.email}
+                  </span>
+                </div>
+                <Link to="/profile" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-sm font-medium text-text-mid hover:text-primary no-underline">
+                  <User className="h-4 w-4" />
+                  My Profile
+                </Link>
+                <Link to="/profile" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-sm font-medium text-text-mid hover:text-primary no-underline">
+                  <Settings className="h-4 w-4" />
+                  Settings
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 text-sm font-medium text-destructive hover:text-destructive/80 bg-transparent border-none cursor-pointer text-left"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Log Out
+                </button>
+              </>
             ) : (
               <>
                 <Link to="/login" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-primary-foreground px-6 py-2 bg-primary rounded-full no-underline">
