@@ -106,7 +106,7 @@ const ComparisonPage = () => {
                   <th className="bg-ink p-6 text-left text-xs font-bold text-primary-foreground/50 tracking-[1px] uppercase w-[45%]">Feature</th>
                   <th className="bg-ink-2 p-6 text-center text-sm font-semibold text-primary-foreground/45 w-[27.5%] border-l border-primary-foreground/5">Typical Flipbook Tools</th>
                   <th className="bg-primary p-6 text-center text-sm font-bold text-primary-foreground w-[27.5%] border-l border-primary-foreground/10">
-                    <img src={ezineWhiteLogo} alt="eZFlip" className="inline-block h-8 mr-2 align-middle" />
+                    <span className="font-heading text-2xl font-bold tracking-tight text-primary-foreground align-middle mr-2">eZFlip.</span>
                     <div className="inline-block bg-primary-foreground/20 rounded px-2 py-0.5 text-[10px] font-bold tracking-[1px] ml-1 align-middle">AI-POWERED</div>
                   </th>
                 </tr>
