@@ -411,88 +411,37 @@ const FlipbookViewer = () => {
           </div>
         </div>
 
-        {/* AI Chat Sidebar */}
-        {sidebarOpen && (
-          <>
-            {/* Resize handle */}
-            <div
-              onMouseDown={() => (resizingRef.current = true)}
-              className="hidden md:block w-1 cursor-col-resize bg-white/5 hover:bg-accent/50 transition-colors shrink-0"
-              aria-label="Resize sidebar"
-            />
-            <aside
-              style={{ width: sidebarWidth }}
-              className="hidden md:flex h-full bg-background text-text-dark border-l border-border flex-col shrink-0 animate-fade-in"
-              aria-label="eZine Chat"
-            >
-              <SidebarContent
-                docName={docName}
-                messages={messages}
-                typing={typing}
-                suggestions={suggestions}
-                input={input}
-                setInput={setInput}
-                onSend={sendMessage}
-                onMinimize={() => setChatState("minimized")}
-                onClose={() => setChatState("closed")}
-                onClear={clearChat}
-                onCopy={copyMessage}
-                renderRich={renderRich}
-                chatScrollRef={chatScrollRef}
-              />
-            </aside>
-          </>
-        )}
       </div>
 
-      {/* Mobile chat (overlay) */}
+      {/* AI Chat — Full-height right overlay */}
       {sidebarOpen && (
-        <aside
-          className="md:hidden fixed inset-x-3 bottom-3 top-20 z-40 bg-background text-text-dark rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden animate-fade-in-up"
-          aria-label="eZine Chat"
-        >
-          <SidebarContent
-            docName={docName}
-            messages={messages}
-            typing={typing}
-            suggestions={suggestions}
-            input={input}
-            setInput={setInput}
-            onSend={sendMessage}
-            onMinimize={() => setChatState("minimized")}
-            onClose={() => setChatState("closed")}
-            onClear={clearChat}
-            onCopy={copyMessage}
-            renderRich={renderRich}
-            chatScrollRef={chatScrollRef}
+        <>
+          <div
+            onClick={() => setChatState("closed")}
+            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm animate-fade-in"
+            aria-hidden="true"
           />
-        </aside>
-      )}
-
-      {/* Floating toggle (closed) */}
-      {chatState === "closed" && (
-        <button
-          onClick={() => setChatState("open")}
-          title="Ask eZine about this document (⌘/)"
-          className="fixed bottom-20 right-5 z-40 group/fab inline-flex items-center gap-2 pl-3 pr-4 h-12 rounded-full bg-accent text-accent-foreground shadow-[0_12px_32px_rgba(240,90,40,0.45)] hover:scale-105 active:scale-95 transition-transform animate-fade-in-up"
-          aria-label="Open eZine Chat"
-        >
-          <Sparkles size={18} />
-          <span className="text-sm font-medium">eZine Chat</span>
-        </button>
-      )}
-
-      {/* Minimized pill */}
-      {chatState === "minimized" && (
-        <button
-          onClick={() => setChatState("open")}
-          className="fixed bottom-20 right-5 z-40 inline-flex items-center gap-2 pl-3 pr-4 h-10 rounded-full bg-background text-text-dark shadow-lg border border-border hover:bg-muted transition-colors animate-fade-in-up"
-          aria-label="Restore eZine Chat"
-        >
-          <MessageSquare size={16} className="text-accent" />
-          <span className="text-sm font-medium">Chat</span>
-          <span className="w-2 h-2 rounded-full bg-accent" />
-        </button>
+          <aside
+            style={{ width: `min(${sidebarWidth}px, 100vw)` }}
+            className="fixed top-0 right-0 bottom-0 z-50 bg-background text-text-dark border-l border-border flex flex-col shadow-2xl animate-slide-in-right"
+            aria-label="EzChat"
+          >
+            <SidebarContent
+              docName={docName}
+              messages={messages}
+              typing={typing}
+              suggestions={suggestions}
+              input={input}
+              setInput={setInput}
+              onSend={sendMessage}
+              onClose={() => setChatState("closed")}
+              onClear={clearChat}
+              onCopy={copyMessage}
+              renderRich={renderRich}
+              chatScrollRef={chatScrollRef}
+            />
+          </aside>
+        </>
       )}
     </div>
   );
