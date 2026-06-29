@@ -572,22 +572,24 @@ const SidebarContent = ({
           </div>
         )}
 
-        {showSuggestions && (
-          <div className="space-y-2 pt-2">
-            <div className="text-[11px] uppercase tracking-wider text-text-light px-1 font-semibold">
-              Suggested Questions
-            </div>
-            {suggestions.map((s) => (
-              <button
-                key={s}
-                onClick={() => onSend(s)}
-                className="w-full text-left text-sm px-3 py-2 rounded-lg bg-background border border-border hover:border-accent hover:bg-accent/5 text-text-dark transition-colors"
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        )}
+      </div>
+
+      {/* Suggestion tabs */}
+      <div className="px-3 pt-3 pb-1 border-t border-border bg-background">
+        <div className="text-[10px] uppercase tracking-wider text-text-light font-semibold mb-2 px-1">
+          Try Asking
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          {suggestions.slice(0, 3).map((s) => (
+            <button
+              key={s}
+              onClick={() => onSend(s)}
+              className="text-xs px-3 py-1.5 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground text-text-dark border border-border hover:border-accent transition-colors"
+            >
+              {s}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Input */}
