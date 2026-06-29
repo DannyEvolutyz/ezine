@@ -55,13 +55,13 @@ const AiChatFeaturePage = () => {
             </h1>
 
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground font-light max-w-[520px] mb-10">
-              Upload a document and ask questions in plain language. Ezine instantly finds the answer, understands the context, and helps you locate the information you need without manually searching through pages.
+              Upload a document and ask questions in plain language. eZFlip instantly finds the answer, understands the context, and helps you locate the information you need without manually searching through pages.
             </p>
 
             <div className="flex flex-col items-start gap-4">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
-                  href="https://www.ezine.digital"
+                  href="https://www.ezflip.ai"
                   className="font-heading text-[15px] font-semibold text-primary-foreground no-underline px-9 py-3.5 bg-primary rounded-xl inline-flex items-center justify-center gap-2 shadow-[0_8px_32px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_hsl(var(--primary)/0.4)] transition-all"
                 >
                   Try It On Your Document
@@ -116,7 +116,7 @@ const AiChatFeaturePage = () => {
               <div className="p-5 flex flex-col gap-3.5">
                 <div className="text-[11px] font-bold tracking-[1px] uppercase text-text-mid pb-3.5 border-b border-border flex items-center gap-2">
                   <span aria-hidden="true" className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-dot" />
-                  Ezine AI
+                  eZFlip AI
                 </div>
                 <div className="flex flex-col gap-3 flex-1">
                   <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
@@ -296,7 +296,7 @@ const AiChatFeaturePage = () => {
           <div className="flex flex-col items-center gap-4">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
-                href="https://www.ezine.digital"
+                href="https://www.ezflip.ai"
                 className="font-heading text-base font-bold text-accent-foreground no-underline px-10 py-4 bg-accent rounded-xl inline-flex items-center justify-center gap-2.5 shadow-[0_4px_16px_hsl(var(--accent)/0.25)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_hsl(var(--accent)/0.35)] transition-all duration-300"
               >
                 Upload A Document

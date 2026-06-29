@@ -51,7 +51,7 @@ const Login = () => {
                 Log in
               </h1>
               <p className="text-sm text-text-mid mt-2">
-                Welcome back to <span className="text-primary font-semibold">eZine</span>.
+                Welcome back to <span className="text-primary font-semibold">eZFlip</span>.
               </p>
             </div>
 

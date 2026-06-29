@@ -65,7 +65,7 @@ const Signup = () => {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
       return;
     }
-    toast({ title: "Account created!", description: "Welcome to eZine." });
+    toast({ title: "Account created!", description: "Welcome to eZFlip." });
     navigate("/dashboard");
   };
 
@@ -79,7 +79,7 @@ const Signup = () => {
                 Sign up
               </h1>
               <p className="text-sm text-text-mid mt-2">
-                Create your <span className="text-primary font-semibold">eZine</span> account.
+                Create your <span className="text-primary font-semibold">eZFlip</span> account.
               </p>
             </div>
 

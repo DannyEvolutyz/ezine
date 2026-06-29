@@ -165,7 +165,7 @@ const UseCasePage = () => {
             </p>
             <div className="flex items-center gap-4 flex-wrap">
               <a
-                href="https://www.ezine.digital"
+                href="https://www.ezflip.ai"
                 className="font-heading text-[15px] font-bold text-primary-foreground no-underline px-8 py-3.5 bg-primary rounded-xl inline-flex items-center gap-2 shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5 hover:shadow-[0_8px_28px_hsl(var(--primary)/0.4)] transition-all"
               >
                 Get Started
@@ -187,7 +187,7 @@ const UseCasePage = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
                 </div>
                 <div className="flex-1 bg-background rounded-md px-3 py-1.5 text-[11px] text-text-light font-medium border border-border text-center">
-                  {slug === "founders-writers" ? "Founders Agreement · Ezine" : "Document Preview · Ezine"}
+                  {slug === "founders-writers" ? "Founders Agreement · eZFlip" : "Document Preview · eZFlip"}
                 </div>
               </div>
 
@@ -323,7 +323,7 @@ const UseCasePage = () => {
       <section className="bg-off-white py-20 md:py-24 px-5 md:px-12">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-3.5">What Changes with Ezine</div>
+            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-3.5">What Changes with eZFlip</div>
             <h2 className="font-heading text-3xl md:text-[42px] font-bold tracking-tight leading-[1.15] text-text-dark mb-4">
               From static documents to<br /><em className="not-italic text-primary">interactive experiences</em>
             </h2>

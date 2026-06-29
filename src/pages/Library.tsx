@@ -33,7 +33,7 @@ type View = "card" | "list";
 
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 const PAGE_SIZE = 8;
-const VIEW_STORAGE_KEY = "ezine.library.view";
+const VIEW_STORAGE_KEY = "ezflip.library.view";
 
 const Library = () => {
   const { documents, addDocument } = useDocuments();
@@ -76,7 +76,7 @@ const Library = () => {
   };
 
   const handleCopy = async (doc: DocItem) => {
-    await navigator.clipboard.writeText(`https://ezine.digital${doc.shortUrl}`);
+    await navigator.clipboard.writeText(`https://ezflip.ai${doc.shortUrl}`);
     setCopiedId(doc.id);
     setTimeout(() => setCopiedId(null), 1500);
   };

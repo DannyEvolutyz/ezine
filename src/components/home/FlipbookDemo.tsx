@@ -49,7 +49,7 @@ const FlipbookDemo = ({ activeStep, onStepChange, pausedToken }: FlipbookDemoPro
             <span className="w-[9px] h-[9px] rounded-full bg-[#28C840]" />
           </div>
           <div className="flex-1 bg-background rounded-md px-3 py-1 text-[10px] text-text-light font-medium border border-border text-center">
-            ezine.digital / convert
+            ezflip.ai / convert
           </div>
         </div>
 
@@ -110,7 +110,7 @@ const FlipbookDemo = ({ activeStep, onStepChange, pausedToken }: FlipbookDemoPro
                   <Sparkles size={16} className="text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-text-dark">Converting to Ezine</p>
+                  <p className="text-sm font-semibold text-text-dark">Converting to eZFlip</p>
                   <p className="text-[10px] text-text-light">AI is reading your document…</p>
                 </div>
               </div>
@@ -179,7 +179,7 @@ const FlipbookDemo = ({ activeStep, onStepChange, pausedToken }: FlipbookDemoPro
                   <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                     <MessageSquare size={10} className="text-primary-foreground" />
                   </div>
-                  <span className="text-[10px] font-semibold text-text-dark">Ezine AI</span>
+                  <span className="text-[10px] font-semibold text-text-dark">eZFlip AI</span>
                 </div>
                 <p className="text-[11px] text-text-mid leading-snug">
                   Summary ready. Revenue grew <span className="text-primary font-semibold">28%</span> YoY.

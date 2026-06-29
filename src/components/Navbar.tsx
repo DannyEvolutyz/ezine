@@ -91,7 +91,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-5 md:px-12 bg-background/95 backdrop-blur-xl border-b border-border">
       <Link to="/" className="flex items-center gap-1.5 no-underline">
         <span className="font-heading font-bold text-xl tracking-tight text-text-dark">
-          <span className="text-primary">e</span><span className="text-primary">Z</span>ine.
+          <span className="text-primary">e</span><span className="text-primary">Z</span>Flip.
         </span>
         <span className="text-sm text-text-mid font-light ml-1 hidden sm:inline">by Evolutyz</span>
       </Link>

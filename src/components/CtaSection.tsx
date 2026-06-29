@@ -9,7 +9,7 @@ interface CtaSectionProps {
   disclaimer?: string;
 }
 
-const CtaSection = ({ eyebrow, title, body, buttonText, buttonHref = "https://www.ezine.digital", disclaimer = "Free to use · No credit card required" }: CtaSectionProps) => {
+const CtaSection = ({ eyebrow, title, body, buttonText, buttonHref = "https://www.ezflip.ai", disclaimer = "Free to use · No credit card required" }: CtaSectionProps) => {
   return (
     <section className="bg-ink py-24 md:py-32 px-5 md:px-12 text-center relative overflow-hidden">
       {/* Glow */}

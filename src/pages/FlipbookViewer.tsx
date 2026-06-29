@@ -48,8 +48,8 @@ type ChatMessage = {
   refs?: number[];
 };
 
-const SIDEBAR_STORAGE_KEY = "ezine-flipbook-sidebar";
-const SIDEBAR_WIDTH_KEY = "ezine-flipbook-sidebar-width";
+const SIDEBAR_STORAGE_KEY = "ezflip-flipbook-sidebar";
+const SIDEBAR_WIDTH_KEY = "ezflip-flipbook-sidebar-width";
 
 const FlipbookViewer = () => {
   const { id } = useParams<{ id: string }>();

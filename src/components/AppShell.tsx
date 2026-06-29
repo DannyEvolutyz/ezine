@@ -19,7 +19,7 @@ const Brand = ({ size = "md" }: { size?: "sm" | "md" }) => (
   <Link to="/dashboard" className="inline-flex items-baseline gap-1.5 no-underline">
     <span className={`font-heading font-bold tracking-tight text-text-dark ${size === "sm" ? "text-xl" : "text-2xl"}`}>
       <span className="text-accent">e</span>
-      <span className="text-accent">z</span>ine.
+      <span className="text-accent">Z</span>Flip.
     </span>
     <span className="text-[11px] text-text-mid font-light hidden sm:inline">by Evolutyz</span>
   </Link>
@@ -177,9 +177,9 @@ const AppShell = ({
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <Brand size="sm" />
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-text-mid">
-              <a href="https://www.ezine.digital/#terms" className="hover:text-accent transition-colors">Terms &amp; Service</a>
-              <a href="https://www.ezine.digital/#privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
-              <a href="https://www.ezine.digital/#data" className="hover:text-accent transition-colors">Data Processing</a>
+              <a href="https://www.ezflip.ai/#terms" className="hover:text-accent transition-colors">Terms &amp; Service</a>
+              <a href="https://www.ezflip.ai/#privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
+              <a href="https://www.ezflip.ai/#data" className="hover:text-accent transition-colors">Data Processing</a>
             </div>
             <div className="flex flex-col items-center md:items-end gap-1.5">
               <div className="flex items-center gap-4 text-text-mid">
@@ -189,7 +189,7 @@ const AppShell = ({
                 </a>
                 <a href="https://www.linkedin.com/company/evolutyz" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors"><Linkedin size={15} /></a>
               </div>
-              <span className="text-[11px] text-text-light">Copyright ©{new Date().getFullYear()} Ezine.digital</span>
+              <span className="text-[11px] text-text-light">Copyright ©{new Date().getFullYear()} eZFlip.ai</span>
             </div>
           </div>
         </footer>

@@ -16,8 +16,8 @@ type FormState = z.infer<typeof contactSchema>;
 type FieldErrors = Partial<Record<keyof FormState, string>>;
 
 const channels = [
-  { icon: Mail, title: "Email us", value: "hello@ezine.digital", href: "mailto:hello@ezine.digital", note: "We reply within one business day" },
-  { icon: MessageSquare, title: "Sales & demos", value: "sales@ezine.digital", href: "mailto:sales@ezine.digital", note: "Book a 20-minute walkthrough" },
+  { icon: Mail, title: "Email us", value: "hello@ezflip.ai", href: "mailto:hello@ezflip.ai", note: "We reply within one business day" },
+  { icon: MessageSquare, title: "Sales & demos", value: "sales@ezflip.ai", href: "mailto:sales@ezflip.ai", note: "Book a 20-minute walkthrough" },
   { icon: Phone, title: "Talk to a human", value: "+1 (415) 555-0142", href: "tel:+14155550142", note: "Mon–Fri · 9am to 6pm PT" },
 ];
 
@@ -65,7 +65,7 @@ const Contact = () => {
             Let's start a <span className="text-primary">conversation</span>.
           </h1>
           <p className="text-base md:text-lg leading-[1.75] text-text-mid font-light max-w-[640px] mx-auto reveal">
-            Questions, partnership ideas, or just want to see Ezine in action? Drop us a line — a real
+            Questions, partnership ideas, or just want to see eZFlip in action? Drop us a line — a real
             human will get back to you, fast.
           </p>
         </div>
@@ -199,7 +199,7 @@ const Contact = () => {
               <h3 className="font-heading text-lg font-bold text-text-dark mb-2 tracking-tight">We're quick on the draw</h3>
               <p className="text-[13.5px] leading-[1.75] text-text-mid font-light">
                 Most messages get a thoughtful reply within a few hours. For urgent demos or partnership
-                requests, email <a href="mailto:sales@ezine.digital" className="text-primary font-semibold hover:underline">sales@ezine.digital</a>.
+                requests, email <a href="mailto:sales@ezflip.ai" className="text-primary font-semibold hover:underline">sales@ezflip.ai</a>.
               </p>
             </div>
           </div>
