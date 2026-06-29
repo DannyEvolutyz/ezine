@@ -455,7 +455,6 @@ type SidebarContentProps = {
   input: string;
   setInput: (v: string) => void;
   onSend: (text: string) => void;
-  onMinimize: () => void;
   onClose: () => void;
   onClear: () => void;
   onCopy: (text: string) => void;
@@ -471,7 +470,6 @@ const SidebarContent = ({
   input,
   setInput,
   onSend,
-  onMinimize,
   onClose,
   onClear,
   onCopy,
