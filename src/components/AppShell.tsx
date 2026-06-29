@@ -19,7 +19,7 @@ const Brand = ({ size = "md" }: { size?: "sm" | "md" }) => (
   <Link to="/dashboard" className="inline-flex items-baseline gap-1.5 no-underline">
     <span className={`font-heading font-bold tracking-tight text-text-dark ${size === "sm" ? "text-xl" : "text-2xl"}`}>
       <span className="text-accent">e</span>
-      <span className="text-accent">z</span>ine.
+      <span className="text-accent">Z</span>Flip.
     </span>
     <span className="text-[11px] text-text-mid font-light hidden sm:inline">by Evolutyz</span>
   </Link>

@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex items-center gap-1.5">
             <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
-              <span className="text-primary">e</span><span className="text-primary">Z</span>ine.
+              <span className="text-primary">e</span><span className="text-primary">Z</span>Flip.
             </span>
             <span className="text-sm text-text-mid font-light ml-1">by Evolutyz</span>
           </div>
@@ -41,7 +41,7 @@ const Footer = () => {
           {/* Product logos row */}
           <div className="flex items-center justify-center gap-10 md:gap-16 mb-8 flex-wrap">
             <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
-              <span className="text-primary">e</span><span className="text-primary">Z</span>ine.
+              <span className="text-primary">e</span><span className="text-primary">Z</span>Flip.
             </span>
             <span className="font-heading text-2xl font-bold tracking-tight text-text-dark">
               e<span className="text-primary">Z</span><span className="font-light">connect</span>
