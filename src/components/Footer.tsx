@@ -16,20 +16,20 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex items-center gap-6 md:gap-10 flex-wrap justify-center">
-            <a href="https://www.ezine.digital/#terms" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+            <a href="https://www.ezflip.ai/#terms" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
               Terms & Services
             </a>
-            <a href="https://www.ezine.digital/#privacy" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+            <a href="https://www.ezflip.ai/#privacy" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
               Privacy Policy
             </a>
-            <a href="https://www.ezine.digital/#data" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
+            <a href="https://www.ezflip.ai/#data" className="text-sm font-semibold text-text-dark hover:text-primary transition-colors no-underline">
               Data Processing
             </a>
           </div>
 
           {/* Copyright */}
           <div className="flex items-center gap-2">
-            <span className="text-sm text-text-light">Copyright ©{new Date().getFullYear()} Ezine.digital</span>
+            <span className="text-sm text-text-light">Copyright ©{new Date().getFullYear()} eZFlip.ai</span>
           </div>
         </div>
 
@@ -60,7 +60,7 @@ const Footer = () => {
               <span className="font-heading text-xl font-bold text-accent">Evolutyz</span>
             </div>
             <p className="text-xs text-text-mid leading-relaxed">
-              Ezine, Ezconnect, Ezgifts and Ezrewards are registered trademarks of Evolutyz. Terms and conditions, features, support, pricing, and service options subject to change without notice.
+              eZFlip, Ezconnect, Ezgifts and Ezrewards are registered trademarks of Evolutyz. Terms and conditions, features, support, pricing, and service options subject to change without notice.
             </p>
           </div>
 

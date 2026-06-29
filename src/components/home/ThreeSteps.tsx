@@ -12,15 +12,15 @@ const ThreeSteps = () => {
     },
     {
       num: "2",
-      title: "Publish your EZINE",
-      desc: "Once your content is uploaded, hit Publish to bring your eZine to life. Preview your creation before it goes live — it's that simple and intuitive.",
+      title: "Publish your EZFLIP",
+      desc: "Once your content is uploaded, hit Publish to bring your eZFlip to life. Preview your creation before it goes live — it's that simple and intuitive.",
       demoSteps: ["process"] as DemoStep[],
       jumpTo: "process" as DemoStep,
     },
     {
       num: "3",
       title: "Share your Masterpiece",
-      desc: "Congratulations! Your interactive eZine is now alive. It's time to share it with the world. With just one link, you can share it from your website, social media channels, or any email — making it effortlessly accessible to everyone.",
+      desc: "Congratulations! Your interactive eZFlip is now alive. It's time to share it with the world. With just one link, you can share it from your website, social media channels, or any email — making it effortlessly accessible to everyone.",
       demoSteps: ["result"] as DemoStep[],
       jumpTo: "result" as DemoStep,
     },

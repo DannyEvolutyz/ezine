@@ -5,12 +5,12 @@ import ezineWhiteLogo from "@/assets/ezine_white_logo.png";
 
 const ComparisonPage = () => {
   const features = [
-    { name: "Convert PDF to flipbook", typical: true, ezine: true, note: "" },
-    { name: "Share via a link", typical: true, ezine: true, note: "" },
-    { name: "Navigate without scrolling", typical: false, ezine: true, note: "" },
-    { name: "Search inside the document", typical: false, ezine: true, note: "" },
-    { name: "Ask questions, get instant answers", typical: false, ezine: true, note: "" },
-    { name: "Built-in AI layer", typical: false, ezine: true, note: "" },
+    { name: "Convert PDF to flipbook", typical: true, ezflip: true, note: "" },
+    { name: "Share via a link", typical: true, ezflip: true, note: "" },
+    { name: "Navigate without scrolling", typical: false, ezflip: true, note: "" },
+    { name: "Search inside the document", typical: false, ezflip: true, note: "" },
+    { name: "Ask questions, get instant answers", typical: false, ezflip: true, note: "" },
+    { name: "Built-in AI layer", typical: false, ezflip: true, note: "" },
   ];
 
   const matters = [
@@ -33,7 +33,7 @@ const ComparisonPage = () => {
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_420px] gap-12 md:gap-24 items-center">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs text-text-light font-medium mb-7">
-              <a href="https://www.ezine.digital" className="text-text-light no-underline hover:text-primary transition-colors">Home</a>
+              <a href="https://www.ezflip.ai" className="text-text-light no-underline hover:text-primary transition-colors">Home</a>
               <span className="text-border-strong">/</span>
               <span className="text-primary font-semibold">Comparison</span>
             </div>
@@ -77,7 +77,7 @@ const ComparisonPage = () => {
                 <div className="w-[18px] h-[18px] bg-green-status/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check size={10} className="text-green-400" />
                 </div>
-                Ezine adds an interactive layer — AI chat, search, and navigation
+                eZFlip adds an interactive layer — AI chat, search, and navigation
               </div>
             </div>
             <div className="h-px bg-primary-foreground/8 mb-5" />
@@ -106,7 +106,7 @@ const ComparisonPage = () => {
                   <th className="bg-ink p-6 text-left text-xs font-bold text-primary-foreground/50 tracking-[1px] uppercase w-[45%]">Feature</th>
                   <th className="bg-ink-2 p-6 text-center text-sm font-semibold text-primary-foreground/45 w-[27.5%] border-l border-primary-foreground/5">Typical Flipbook Tools</th>
                   <th className="bg-primary p-6 text-center text-sm font-bold text-primary-foreground w-[27.5%] border-l border-primary-foreground/10">
-                    <img src={ezineWhiteLogo} alt="Ezine" className="inline-block h-8 mr-2 align-middle" />
+                    <img src={ezineWhiteLogo} alt="eZFlip" className="inline-block h-8 mr-2 align-middle" />
                     <div className="inline-block bg-primary-foreground/20 rounded px-2 py-0.5 text-[10px] font-bold tracking-[1px] ml-1 align-middle">AI-POWERED</div>
                   </th>
                 </tr>
@@ -167,7 +167,7 @@ const ComparisonPage = () => {
             <div className="bg-ink md:col-span-2 p-10 md:p-12 hover:bg-ink-2 transition-colors reveal">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <h3 className="font-heading text-2xl md:text-[28px] font-bold leading-[1.25] text-primary-foreground tracking-tight">
-                  Ezine takes a <span className="text-accent">different approach.</span>
+                  eZFlip takes a <span className="text-accent">different approach.</span>
                 </h3>
                 <p className="text-[15px] leading-[1.78] text-primary-foreground/55 font-light">
                   Instead of just converting PDFs into flipbooks, it adds an interactive layer — so users can navigate efficiently, find what they need instantly, and ask questions directly within the document when needed.

@@ -69,7 +69,7 @@ const WhyEzine = () => {
       <div className="max-w-[1100px] mx-auto">
         <div className="text-center mb-12 reveal">
           <h2 className="font-heading text-3xl md:text-[40px] font-extrabold tracking-tight leading-[1.1] text-text-dark">
-            Why <span className="text-primary">Ezine</span>?
+            Why <span className="text-primary">eZFlip</span>?
           </h2>
         </div>
 

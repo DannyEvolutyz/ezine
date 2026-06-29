@@ -66,7 +66,7 @@ const Dashboard = () => {
   };
 
   const handleCopy = async (doc: DocItem) => {
-    await navigator.clipboard.writeText(`https://ezine.digital${doc.shortUrl}`);
+    await navigator.clipboard.writeText(`https://ezflip.ai${doc.shortUrl}`);
     setCopiedId(doc.id);
     setTimeout(() => setCopiedId(null), 1500);
   };
@@ -285,7 +285,7 @@ const Dashboard = () => {
         open={!!shareDoc}
         onOpenChange={(o) => !o && setShareDoc(null)}
         title={shareDoc?.name ?? ""}
-        url={shareDoc ? `https://ezine.digital${shareDoc.shortUrl}` : ""}
+        url={shareDoc ? `https://ezflip.ai${shareDoc.shortUrl}` : ""}
       />
     </AppShell>
   );

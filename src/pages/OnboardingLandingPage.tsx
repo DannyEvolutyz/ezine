@@ -42,7 +42,7 @@ const OnboardingLandingPage = () => {
             </p>
             <div className="flex items-center gap-4 flex-wrap">
               <a
-                href="https://www.ezine.digital"
+                href="https://www.ezflip.ai"
                 className="font-heading text-[15px] font-bold text-primary-foreground no-underline px-8 py-3.5 bg-primary rounded-xl inline-flex items-center gap-2 shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5 hover:shadow-[0_8px_28px_hsl(var(--primary)/0.4)] transition-all"
               >
                 Get Started
@@ -140,11 +140,11 @@ const OnboardingLandingPage = () => {
         </div>
       </section>
 
-      {/* What Changes with Ezine */}
+      {/* What Changes with eZFlip */}
       <section className="bg-off-white py-20 md:py-24 px-5 md:px-12">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-3.5">What Changes with Ezine</div>
+            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-3.5">What Changes with eZFlip</div>
             <h2 className="font-heading text-3xl md:text-[42px] font-bold tracking-tight leading-[1.15] text-text-dark mb-4">
               From a document employees <em className="not-italic text-primary">"go through"</em><br />to one they actually use
             </h2>

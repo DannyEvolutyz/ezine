@@ -78,7 +78,7 @@ const ContactSection = () => {
     setForm(initial);
     toast({
       title: "Request received",
-      description: "Thanks! A real human from Ezine will get back to you within 1 business day.",
+      description: "Thanks! A real human from eZFlip will get back to you within 1 business day.",
     });
   };
 
@@ -98,10 +98,10 @@ const ContactSection = () => {
               </span>
             </div>
             <h2 className="font-heading text-3xl md:text-[40px] font-extrabold tracking-tight leading-[1.1] text-text-dark mb-5">
-              Let's see Ezine working on <span className="text-primary">your content</span>
+              Let's see eZFlip working on <span className="text-primary">your content</span>
             </h2>
             <p className="text-[15px] leading-[1.7] text-text-mid font-light mb-6 max-w-[460px]">
-              Tell us a bit about your team and what you'd like to publish. We'll show you how Ezine can
+              Tell us a bit about your team and what you'd like to publish. We'll show you how eZFlip can
               turn your existing PDFs, decks, and docs into interactive experiences — and answer any
               questions about pricing, security, or integrations.
             </p>
@@ -240,7 +240,7 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   rows={4}
-                  placeholder="What do you publish today, and what would you like Ezine to do for you?"
+                  placeholder="What do you publish today, and what would you like eZFlip to do for you?"
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
                   className={`${inputCls(false)} resize-none`}

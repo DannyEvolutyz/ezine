@@ -32,7 +32,7 @@ const HeroSection = () => {
               CREATE YOUR FIRST FLIPBOOK
             </Link>
             <a
-              href="#what-is-ezine"
+              href="#what-is-ezflip"
               className="font-heading text-sm font-bold text-text-dark px-7 py-3 bg-background border border-border rounded-full inline-flex items-center justify-center gap-2 hover:border-primary/40 hover:text-primary transition-all uppercase tracking-wide"
             >
               See How It Works

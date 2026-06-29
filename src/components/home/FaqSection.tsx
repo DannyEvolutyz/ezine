@@ -4,24 +4,24 @@ import { ChevronDown } from "lucide-react";
 const FaqSection = () => {
   const faqs = [
     {
-      q: "How do I create an interactive document with Ezine?",
-      a: "Simply upload your document (PDF, Word, or other formats) using our drag-and-drop uploader. Ezine converts it into an interactive flipbook, lets you add AI-powered features, generate summaries, and share it easily.",
+      q: "How do I create an interactive document with eZFlip?",
+      a: "Simply upload your document (PDF, Word, or other formats) using our drag-and-drop uploader. eZFlip converts it into an interactive flipbook, lets you add AI-powered features, generate summaries, and share it easily.",
     },
     {
-      q: "What types of documents can I create with Ezine?",
-      a: "Ezine supports PDFs, Word documents, images, and presentations. You can turn any of these into interactive, AI-powered digital publications.",
+      q: "What types of documents can I create with eZFlip?",
+      a: "eZFlip supports PDFs, Word documents, images, and presentations. You can turn any of these into interactive, AI-powered digital publications.",
     },
     {
-      q: "Does Ezine provide document analytics and tracking?",
-      a: "Yes! Ezine provides detailed analytics including who reads your document, how far they read, which sections get the most attention, and engagement metrics — all in real time.",
+      q: "Does eZFlip provide document analytics and tracking?",
+      a: "Yes! eZFlip provides detailed analytics including who reads your document, how far they read, which sections get the most attention, and engagement metrics — all in real time.",
     },
     {
-      q: "Is Ezine easy to use for non-technical users?",
+      q: "Is eZFlip easy to use for non-technical users?",
       a: "Absolutely. Our platform is designed for everyone — no coding or technical skills required. Just upload, customize, and share.",
     },
     {
-      q: "Is Ezine free to use?",
-      a: "Yes, Ezine offers a free tier to get started. You can create and share interactive documents at no cost. Premium features are available for teams that need more.",
+      q: "Is eZFlip free to use?",
+      a: "Yes, eZFlip offers a free tier to get started. You can create and share interactive documents at no cost. Premium features are available for teams that need more.",
     },
   ];
 

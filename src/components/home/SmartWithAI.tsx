@@ -1,7 +1,7 @@
 const SmartWithAI = () => {
   const features = [
     {
-      title: "Ask Your Ezine Anything",
+      title: "Ask Your eZFlip Anything",
       desc: "Instantly search your doc via natural questions.",
       iconBg: "bg-primary",
       icon: (
@@ -51,7 +51,7 @@ const SmartWithAI = () => {
             Make it smart with <span className="text-primary">AI</span>
           </h2>
           <p className="text-sm md:text-base text-text-mid font-light mt-3 max-w-xl mx-auto">
-            Turn every Ezine into an intelligent, interactive experience.
+            Turn every eZFlip into an intelligent, interactive experience.
           </p>
         </div>
 

@@ -5,7 +5,7 @@ import CtaSection from "@/components/CtaSection";
 
 const stats = [
   { value: "10K+", label: "Documents transformed" },
-  { value: "120+", label: "Teams using Ezine" },
+  { value: "120+", label: "Teams using eZFlip" },
   { value: "4.9/5", label: "Customer rating" },
   { value: "30+", label: "Countries served" },
 ];
@@ -34,12 +34,12 @@ const values = [
   {
     icon: Users,
     title: "Built with users",
-    desc: "Our roadmap is shaped by real conversations with HR leads, marketers, educators and founders who use Ezine daily.",
+    desc: "Our roadmap is shaped by real conversations with HR leads, marketers, educators and founders who use eZFlip daily.",
   },
   {
     icon: Zap,
     title: "Move fast, ship right",
-    desc: "We ship quickly without cutting corners. Continuous iteration keeps Ezine sharp, modern and ahead of expectations.",
+    desc: "We ship quickly without cutting corners. Continuous iteration keeps eZFlip sharp, modern and ahead of expectations.",
   },
 ];
 
@@ -51,13 +51,13 @@ const About = () => {
         <div className="max-w-[900px] mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-background border border-border mb-6 reveal">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
-            <span className="text-xs font-semibold tracking-wide text-text-mid uppercase">About Ezine</span>
+            <span className="text-xs font-semibold tracking-wide text-text-mid uppercase">About eZFlip</span>
           </div>
           <h1 className="font-heading text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-text-dark mb-6 reveal">
             We turn static documents into <span className="text-primary">living experiences</span>.
           </h1>
           <p className="text-base md:text-lg leading-[1.75] text-text-mid font-light max-w-[680px] mx-auto reveal">
-            Ezine is on a mission to make every PDF, report and presentation smarter, more interactive
+            eZFlip is on a mission to make every PDF, report and presentation smarter, more interactive
             and infinitely easier to share — powered by AI, designed for humans.
           </p>
         </div>
@@ -89,7 +89,7 @@ const About = () => {
               what they actually needed.
             </p>
             <p className="text-[15px] leading-[1.85] text-text-mid font-light">
-              So we built Ezine: a place where content comes alive. Interactive flipbooks. Instant AI
+              So we built eZFlip: a place where content comes alive. Interactive flipbooks. Instant AI
               answers. Real engagement insights. All from the same files you already create.
             </p>
           </div>
@@ -100,7 +100,7 @@ const About = () => {
               </div>
               <h3 className="font-heading text-xl font-bold text-text-dark mt-4 mb-3">Part of the Evolutyz suite</h3>
               <p className="text-sm leading-[1.8] text-text-mid font-light mb-6">
-                Ezine is proudly built by Evolutyz — a family of products helping modern teams work
+                eZFlip is proudly built by Evolutyz — a family of products helping modern teams work
                 smarter with AI-first tools that respect their time, taste and data.
               </p>
               <Link

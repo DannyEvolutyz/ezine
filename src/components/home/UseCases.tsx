@@ -103,9 +103,9 @@ const UseCases = () => {
               Built for the way <span className="text-primary">modern teams</span> create
             </h2>
             <p className="text-[15px] leading-[1.7] text-text-mid font-light mb-6 max-w-[420px]">
-              Ezine adapts to how your team already works — whether you're publishing thought leadership,
+              eZFlip adapts to how your team already works — whether you're publishing thought leadership,
               enabling sales, onboarding new hires, or turning static decks into interactive experiences.
-              Pick your role to see exactly how Ezine fits in.
+              Pick your role to see exactly how eZFlip fits in.
             </p>
             <a
               href="#contact"
