@@ -303,7 +303,15 @@ const FlipbookViewer = () => {
         <h1 className="font-heading text-sm sm:text-lg font-semibold text-primary-foreground truncate flex-1 text-center">
           {docName}
         </h1>
-        <div className="w-16 sm:w-32" />
+        <button
+          onClick={() => setChatState((s) => (s === "open" ? "closed" : "open"))}
+          title="Ask EzChat about this document (⌘/)"
+          aria-label="Open EzChat"
+          className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-semibold shadow-[0_8px_24px_rgba(240,90,40,0.35)] hover:scale-[1.03] active:scale-95 transition-transform"
+        >
+          <Sparkles size={16} />
+          <span>EzChat</span>
+        </button>
       </header>
 
       {/* Main layout: viewer + sidebar */}
