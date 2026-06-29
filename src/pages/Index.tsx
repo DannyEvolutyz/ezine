@@ -6,6 +6,7 @@ import ThreeSteps from "@/components/home/ThreeSteps";
 import SmartWithAI from "@/components/home/SmartWithAI";
 import UseCases from "@/components/home/UseCases";
 import ContactSection from "@/components/home/ContactSection";
+import ExploreByIndustry from "@/components/home/ExploreByIndustry";
 import Testimonials from "@/components/home/Testimonials";
 import FaqSection from "@/components/home/FaqSection";
 import OtherProducts from "@/components/home/OtherProducts";
@@ -20,6 +21,7 @@ const Index = () => {
       <SmartWithAI />
       <UseCases />
       <ContactSection />
+      <ExploreByIndustry />
       <Testimonials />
       <FaqSection />
       <OtherProducts />
