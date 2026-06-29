@@ -486,7 +486,7 @@ const SidebarContent = ({
             <Sparkles size={16} />
           </div>
           <div className="min-w-0">
-            <div className="font-heading font-semibold text-sm text-text-dark leading-tight">eZine Chat</div>
+            <div className="font-heading font-semibold text-sm text-text-dark leading-tight">EzChat</div>
             <div className="text-[11px] text-text-light truncate">{docName}</div>
           </div>
         </div>
@@ -498,14 +498,6 @@ const SidebarContent = ({
             title="Clear conversation"
           >
             <Trash2 size={15} />
-          </button>
-          <button
-            onClick={onMinimize}
-            className="p-1.5 hover:bg-muted rounded text-text-mid"
-            aria-label="Minimize"
-            title="Minimize"
-          >
-            <Minus size={15} />
           </button>
           <button
             onClick={onClose}
