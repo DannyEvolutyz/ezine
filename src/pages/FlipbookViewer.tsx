@@ -476,7 +476,7 @@ const SidebarContent = ({
   renderRich,
   chatScrollRef,
 }: SidebarContentProps) => {
-  const showSuggestions = messages.length <= 1;
+  
   return (
     <>
       {/* Header */}
