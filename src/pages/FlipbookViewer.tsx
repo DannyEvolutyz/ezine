@@ -51,8 +51,8 @@ const LeftPage = () => (
       <p>Share anywhere with a single link. Track exactly who reads it.</p>
     </div>
     <div
-      className="absolute bottom-0 right-0 w-10 h-10 bg-gradient-to-br from-transparent via-black/5 to-black/15"
-      style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+      className="absolute bottom-0 left-0 w-10 h-10 bg-gradient-to-bl from-transparent via-black/5 to-black/15"
+      style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
     />
   </div>
 );
