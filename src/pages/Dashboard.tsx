@@ -11,6 +11,7 @@ import {
   Check,
   ExternalLink,
   Link2,
+  BarChart3,
   Trash2,
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
