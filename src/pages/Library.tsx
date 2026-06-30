@@ -13,6 +13,7 @@ import {
   List as ListIcon,
   Bookmark,
   Inbox,
+  BarChart3,
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
@@ -125,8 +126,15 @@ const Library = () => {
     </div>
   );
 
-  const DocActions = () => (
+  const DocActions = ({ doc }: { doc: DocItem }) => (
     <div className="flex items-center gap-3">
+      <Link
+        to={`/analytics/${doc.id}`}
+        aria-label="Analytics"
+        className="text-primary transition-colors hover:text-accent"
+      >
+        <BarChart3 size={18} />
+      </Link>
       <button aria-label="Chat" className="text-primary transition-colors hover:text-accent">
         <MessageSquare size={18} />
       </button>

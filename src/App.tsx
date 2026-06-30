@@ -20,6 +20,7 @@ import Profile from "./pages/Profile.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import FlipbookViewer from "./pages/FlipbookViewer.tsx";
+import DocumentAnalytics from "./pages/DocumentAnalytics.tsx";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/viewer/:id" element={<FlipbookViewer />} />
+              <Route path="/analytics/:id" element={<DocumentAnalytics />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
