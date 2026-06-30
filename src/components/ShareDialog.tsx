@@ -62,7 +62,7 @@ const ShareDialog = ({ open, onOpenChange, title, url }: ShareDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="font-heading text-xl">Quick Share</DialogTitle>
         </DialogHeader>
