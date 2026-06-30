@@ -188,7 +188,22 @@ const Dashboard = () => {
                         <Link2 size={14} />
                         Copy link
                       </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => navigate(`/viewer/${doc.id}?chat=open`)}
+                        className="flex items-center gap-2"
+                      >
+                        <MessageSquare size={14} />
+                        EzChat
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => navigate(`/analytics/${doc.id}`)}
+                        className="flex items-center gap-2"
+                      >
+                        <BarChart3 size={14} />
+                        Analytics
+                      </DropdownMenuItem>
                       <DropdownMenuSeparator />
+
                       <AlertDialog>
                         <AlertDialogTrigger asChild>
                           <DropdownMenuItem
