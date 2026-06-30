@@ -1,47 +1,56 @@
-## My Library UX Enhancements
 
-Scope: `src/pages/Library.tsx` only (frontend/presentation).
+## Goal
+Add a publisher-only Document Analytics view per the handoff doc (Phase 1 MVP, plus a few Phase 2 visuals). Frontend/prototype only — mocked data, no tracking beacon or backend.
 
-### 1. Card View / List View toggle
+## Entry points
+1. **Library cards (History/Publications):** Add an Analytics icon (BarChart3) to `DocActions` on both card and list views. Clicking opens the analytics screen for that doc.
+2. **FlipbookViewer header:** The Analytics icon already exists in the top header — wire it to open the same analytics screen for the current doc.
 
-- Add a `view` state (`"card" | "list"`, default `"card"`) persisted to `localStorage` (`ezine.library.view`).
-- Place a toggle (two icon buttons: `LayoutGrid` for Card, `List` for List) on the right side of the tab row, just before the "Create new" button. Active state uses brand orange; inactive uses muted text.
-- **Card view**: responsive grid (`grid sm:grid-cols-2 lg:grid-cols-3 gap-5`). Each card shows thumbnail on top, name, page count, short URL with Copy URL button, and Chat / Share / More actions in a footer row.
-- **List view**: keep the existing horizontal article layout (thumbnail left, body right), rendered as a vertical stack. Thumbnail shrinks to ~h-28 w-28 for a denser row.
+## New route & screen
+- Route: `/analytics/:id` (registered in `src/App.tsx`), rendered inside `AppShell` so the publisher dashboard chrome is preserved.
+- File: `src/pages/DocumentAnalytics.tsx`.
+- Header strip: doc title, page count, share link with copy, "Back" link, last-updated stamp ("Data refreshed Xm ago").
 
-### 2. Pagination
+### Layout (Phase 1 MVP from §4.1)
+1. **Metric cards row (4 cards):**
+   - Total Unique Views
+   - Avg Read Time (`Xm Ys`)
+   - Completion Rate (%)
+   - Total Link Opens
+2. **Charts row (2 cols):**
+   - **Device Breakdown** donut (Mobile / Desktop / Tablet) using `recharts` PieChart.
+   - **Referrer Source** horizontal bar chart (Direct / Email / WhatsApp / Embedded / Social / Other).
+3. **Phase-2 visuals included as static mock charts** so the screen feels complete:
+   - **Page-time heatmap** bar chart (avg seconds per page, top-3 highlighted in accent).
+   - **Drop-off funnel** stepped bar (% readers reaching each page).
+   - Date-range filter pill group (Last 7 days / Last 30 days / All time), client-side only, defaults to All time.
+4. **Link Open Log table:**
+   - Columns: Date & time, Device (icon + label), Country (flag + name), Source.
+   - Sorted newest first, paginated at 25 rows using existing `Pagination` component.
+5. **Empty state (§4.1):** when mock opens count = 0, show illustration + "No views yet. Share your link to start tracking." with copy-to-clipboard share link, no charts/metric cards.
 
-- Page size: 8 items per page (constant `PAGE_SIZE`).
-- New `page` state, reset to 1 whenever `tab`, `search`, or `view` changes.
-- Slice `items` for display; render shadcn `Pagination` (`@/components/ui/pagination`) below the list when `items.length > PAGE_SIZE`. Show Prev / numbered pages (with ellipsis when >5 pages) / Next.
-- Hide pagination on empty states.
+## Mock data
+- `src/lib/analyticsMock.ts` — deterministic generator keyed by `doc.id` returning summary, devices, referrers, pageStats, funnel, opens (~60 rows). Uses simple seeded RNG so each doc has stable numbers across reloads. One seeded doc returns zero-state to demo the empty state.
 
-### 3. Bookmarks empty state CTA
+## Components
+- `src/components/analytics/MetricCard.tsx` — label, big value, sublabel, optional delta chip.
+- `src/components/analytics/DeviceDonut.tsx` — recharts donut + legend.
+- `src/components/analytics/ReferrerBars.tsx` — recharts horizontal bars.
+- `src/components/analytics/PageTimeChart.tsx` — recharts bar with top-3 accent color.
+- `src/components/analytics/FunnelChart.tsx` — stacked horizontal bars showing %.
+- `src/components/analytics/OpensTable.tsx` — table + pagination + device/country/source cells.
+- `src/components/analytics/DateRangeTabs.tsx` — pill group.
 
-Replace the plain "No bookmarks yet" block with a centered empty-state card containing:
+Reuses existing `src/components/ui/{card,table,tabs,pagination}.tsx`, `recharts` (already in deps via `chart.tsx`), and lucide icons (`Monitor`, `Smartphone`, `Tablet`, `Globe`, `BarChart3`, `Link2`, `Eye`, `Clock`, `CheckCircle2`).
 
-- `Bookmark` icon in a soft circle.
-- Heading: "No Bookmarks Yet".
-- Body: "Open any publication and tap the bookmark icon to save it here for quick access."
-- Primary CTA button "Browse Publications" → switches `tab` to `"Publications"`.
+## Wiring
+- **Library.tsx:** add `BarChart3` button to `DocActions` linking to `/analytics/${doc.id}`. Pass `doc` prop into `DocActions` (currently no props).
+- **FlipbookViewer.tsx:** existing Analytics icon `onClick` → `navigate(\`/analytics/${id}\`)`.
+- **App.tsx:** add `<Route path="/analytics/:id" element={<DocumentAnalytics />} />`.
 
-### 4. Received Files empty state CTA
+## Visual style
+- Follows existing tokens (accent orange, primary dark, `text-text-mid`, rounded-2xl cards, subtle shadow `hover:shadow-[0_18px_40px_-20px_...]`, `animate-fade-in-up`). No italics, Outfit font, Title Case headings.
+- Charts use accent (#F05A28), primary (#231F20), and neutral grays from the existing palette — no new colors.
 
-Same empty-state pattern:
-
-- `Inbox` icon.
-- Heading: "No Received Files".
-- Body: "Files shared with you by teammates or via a share link will appear here. Share a publication to invite others to send files back."
-- Primary CTA button "Share A Publication" → switches `tab` to `"Publications"` (where Share lives on each card).
-  &nbsp;
-  5. Create New CTA
-    Move the "Create New" CTA to the above banner inline with the My Library title, at the right side end.
-  &nbsp;
-
-### Technical Notes
-
-- Icons from `lucide-react`: `LayoutGrid`, `List`, `Bookmark`, `Inbox`.
-- Reuse existing `handleCopy`, `copiedId`, action buttons in both views; extract a small `DocActions` inline subcomponent inside the file to avoid duplication.
-- Keep all colors as semantic tokens (`bg-accent`, `text-primary`, `border-border`) — no hardcoded hex.
-- Title Case for all CTA labels per project rules. No italics.
-- No changes to `useDocuments`, routes, or other files.
+## Out of scope (per §8 + frontend-only)
+Tracking beacon, event ingestion, real backend, GDPR consent banner, CSV export, geographic map (skipped — country shown in table only), notifications, named link variants, free-tier locked state.
