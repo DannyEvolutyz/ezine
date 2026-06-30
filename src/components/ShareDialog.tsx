@@ -74,7 +74,7 @@ const ShareDialog = ({ open, onOpenChange, title, url }: ShareDialogProps) => {
             </p>
             <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/60 p-2 pl-3">
               <Link2 size={16} className="text-text-light shrink-0" />
-              <span className="flex-1 truncate font-mono text-xs text-text-mid">{url}</span>
+              <span className="flex-1 min-w-0 truncate font-mono text-xs text-text-mid">{url}</span>
               <button
                 onClick={handleCopy}
                 className="flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
