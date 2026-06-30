@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowDownToLine,
   BookOpen,
@@ -11,6 +11,7 @@ import {
   Check,
   ExternalLink,
   Link2,
+  BarChart3,
   Trash2,
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
@@ -40,6 +41,7 @@ const ACCEPTED = [".pdf", ".docx", ".doc"];
 
 const Dashboard = () => {
   const { documents, addDocument, removeDocument } = useDocuments();
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
@@ -186,7 +188,22 @@ const Dashboard = () => {
                         <Link2 size={14} />
                         Copy link
                       </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => navigate(`/viewer/${doc.id}?chat=open`)}
+                        className="flex items-center gap-2"
+                      >
+                        <MessageSquare size={14} />
+                        EzChat
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => navigate(`/analytics/${doc.id}`)}
+                        className="flex items-center gap-2"
+                      >
+                        <BarChart3 size={14} />
+                        Analytics
+                      </DropdownMenuItem>
                       <DropdownMenuSeparator />
+
                       <AlertDialog>
                         <AlertDialogTrigger asChild>
                           <DropdownMenuItem
