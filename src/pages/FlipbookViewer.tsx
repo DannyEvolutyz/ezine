@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import {
   ArrowLeft,
   ChevronLeft,
@@ -85,6 +85,7 @@ const iconBtn =
 
 const FlipbookViewer = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const { getDocument } = useDocuments();
   const doc = id ? getDocument(id) : undefined;
   const docName = doc?.name ?? "eZFlip - Product Overview";
@@ -239,7 +240,11 @@ const FlipbookViewer = () => {
             >
               <Search size={18} />
             </button>
-            <button className={iconBtn} aria-label="Analytics">
+            <button
+              onClick={() => id && navigate(`/analytics/${id}`)}
+              className={iconBtn}
+              aria-label="Analytics"
+            >
               <BarChart3 size={18} />
             </button>
             <button

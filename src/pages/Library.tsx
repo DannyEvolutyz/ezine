@@ -299,7 +299,7 @@ const Library = () => {
                     <CopyLink doc={doc} />
                   </div>
                   <div className="mt-4 flex items-center justify-end gap-3 pt-3 border-t border-border/60">
-                    <DocActions />
+                    <DocActions doc={doc} />
                   </div>
                   <button
                     aria-label="More options"
@@ -337,7 +337,7 @@ const Library = () => {
                     </p>
                     <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
                       <CopyLink doc={doc} />
-                      <DocActions />
+                      <DocActions doc={doc} />
                     </div>
                   </div>
                   <button
