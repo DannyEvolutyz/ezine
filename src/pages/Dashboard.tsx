@@ -41,6 +41,7 @@ const ACCEPTED = [".pdf", ".docx", ".doc"];
 
 const Dashboard = () => {
   const { documents, addDocument, removeDocument } = useDocuments();
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
