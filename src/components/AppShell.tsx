@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, BookOpen, User, Info, Mail, HelpCircle, LogOut, Facebook, Linkedin, Menu, X, Search } from "lucide-react";
+import { Home, BookOpen, User, Info, Mail, HelpCircle, LogOut, Facebook, Linkedin, Menu, X, Search, Bell } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 const primaryNav = [
