@@ -97,10 +97,14 @@ const FlipbookViewer = () => {
   const docName = doc?.name ?? "eZFlip - Product Overview";
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
-  const totalPages = doc?.pages ?? 5;
-  const [spread, setSpread] = useState(0);
+  const totalPages = doc?.pages ?? 6;
+  const pagesArr = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const [currentPage, setCurrentPage] = useState(0); // 0-indexed page shown on left
   const totalSpreads = Math.ceil(totalPages / 2);
+  const spread = Math.floor(currentPage / 2);
   const [searchParams] = useSearchParams();
+
+  const bookRef = useRef<any>(null);
 
   const [chatOpen, setChatOpen] = useState(searchParams.get("chat") === "open");
   const [zoom, setZoom] = useState(0.5);
@@ -119,7 +123,7 @@ const FlipbookViewer = () => {
       if (!el) return;
       const availW = el.clientWidth - 40;
       const availH = el.clientHeight - 40;
-      const s = Math.min(availW / 880, availH / 620, 1);
+      const s = Math.min(availW / (PAGE_W * 2), availH / PAGE_H, 1);
       setAutoScale(Math.max(s, 0.3));
     };
     fit();
@@ -129,14 +133,16 @@ const FlipbookViewer = () => {
 
   const scale = autoScale * (0.7 + zoom * 0.6);
 
-  const leftPage = spread * 2 + 1;
+  const leftPage = currentPage + 1;
   const rightPage = Math.min(leftPage + 1, totalPages);
   const progress = totalSpreads <= 1 ? 1 : spread / (totalSpreads - 1);
 
   const goNext = useCallback(() => {
-    setSpread((s) => Math.min(totalSpreads - 1, s + 1));
-  }, [totalSpreads]);
-  const goPrev = useCallback(() => setSpread((s) => Math.max(0, s - 1)), []);
+    bookRef.current?.pageFlip?.()?.flipNext();
+  }, []);
+  const goPrev = useCallback(() => {
+    bookRef.current?.pageFlip?.()?.flipPrev();
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -159,7 +165,8 @@ const FlipbookViewer = () => {
     if (!t) return;
     const r = t.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
-    setSpread(Math.round(ratio * (totalSpreads - 1)));
+    const targetSpread = Math.round(ratio * (totalSpreads - 1));
+    bookRef.current?.pageFlip?.()?.flip(targetSpread * 2);
   };
 
   const toggleBookmark = () => {
