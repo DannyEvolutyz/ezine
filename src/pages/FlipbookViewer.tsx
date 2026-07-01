@@ -334,7 +334,7 @@ const FlipbookViewer = () => {
                 willChange: "transform",
               }}
             >
-              {/* @ts-expect-error react-pageflip types */}
+              {/* react-pageflip */}
               <HTMLFlipBook
                 ref={bookRef}
                 width={440}
