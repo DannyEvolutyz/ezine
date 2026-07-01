@@ -78,7 +78,7 @@ const Library = () => {
   };
 
   const handleCopy = async (doc: DocItem) => {
-    await navigator.clipboard.writeText(`https://ezflip.ai${doc.shortUrl}`);
+    try { await navigator.clipboard.writeText(`https://ezflip.ai${doc.shortUrl}`); } catch { /* ignore */ }
     setCopiedId(doc.id);
     setTimeout(() => setCopiedId(null), 1500);
   };
