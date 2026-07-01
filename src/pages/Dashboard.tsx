@@ -61,7 +61,7 @@ const Dashboard = () => {
   };
 
   const handleCopy = async (doc: DocItem) => {
-    await navigator.clipboard.writeText(`https://ezflip.ai${doc.shortUrl}`);
+    await copyToClipboard(`https://ezflip.ai${doc.shortUrl}`);
     setCopiedId(doc.id);
     setTimeout(() => setCopiedId(null), 1500);
   };
