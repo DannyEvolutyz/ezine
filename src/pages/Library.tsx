@@ -16,6 +16,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
+import PublicationCard from "@/components/PublicationCard";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
 import { toast } from "@/hooks/use-toast";
 import {
