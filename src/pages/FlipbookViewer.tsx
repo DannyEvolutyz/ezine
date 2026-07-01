@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import HTMLFlipBook from "react-pageflip";
 import {
   ArrowLeft,
   ChevronLeft,
@@ -28,10 +29,13 @@ type ChatMessage = {
   text: string;
 };
 
-const LeftPage = () => (
-  <div className="w-[440px] h-[620px] bg-white relative overflow-hidden px-12 py-12 text-[#231F20]">
+const PAGE_W = 440;
+const PAGE_H = 620;
+
+const LeftPage = forwardRef<HTMLDivElement, { pageNumber?: number }>(({ pageNumber = 2 }, ref) => (
+  <div ref={ref} className="bg-white relative overflow-hidden px-12 py-12 text-[#231F20]" style={{ width: PAGE_W, height: PAGE_H }}>
     <div className="text-[12px] mb-5">
-      <span className="font-medium">02</span>
+      <span className="font-medium">{String(pageNumber).padStart(2, "0")}</span>
       <span className="mx-2 text-text-light">·</span>
       <span>What is eZFlip?</span>
     </div>
@@ -55,12 +59,13 @@ const LeftPage = () => (
       style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
     />
   </div>
-);
+));
+LeftPage.displayName = "LeftPage";
 
-const RightPage = () => (
-  <div className="w-[440px] h-[620px] bg-white relative overflow-hidden px-12 py-12 text-[#231F20]">
+const RightPage = forwardRef<HTMLDivElement, { pageNumber?: number }>(({ pageNumber = 3 }, ref) => (
+  <div ref={ref} className="bg-white relative overflow-hidden px-12 py-12 text-[#231F20]" style={{ width: PAGE_W, height: PAGE_H }}>
     <div className="text-[12px] mb-5">
-      <span className="font-medium">03</span>
+      <span className="font-medium">{String(pageNumber).padStart(2, "0")}</span>
       <span className="mx-2 text-text-light">·</span>
       <span>Why it matters</span>
     </div>
@@ -68,7 +73,7 @@ const RightPage = () => (
       <p className="font-medium">● THE PROBLEM WE SOLVE</p>
       <p>Your readers aren't disengaged. Your content is just hard to use.</p>
       <p>eZFlip removes friction. Upload once, share everywhere, track everything.</p>
-      <p className="italic">"The issue isn't your content. It's how it's consumed."</p>
+      <p>"The issue isn't your content. It's how it's consumed."</p>
       <p>— Darahas Muggu, eZFlip by Evolutyz</p>
       <p className="font-medium pt-1">Built for every team</p>
       <p>Sales · Marketing · HR · Education · Founders · Product</p>
@@ -78,7 +83,8 @@ const RightPage = () => (
       style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
     />
   </div>
-);
+));
+RightPage.displayName = "RightPage";
 
 const iconBtn =
   "w-10 h-10 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md hover:border-[#ddd]";
@@ -91,10 +97,14 @@ const FlipbookViewer = () => {
   const docName = doc?.name ?? "eZFlip - Product Overview";
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
-  const totalPages = doc?.pages ?? 5;
-  const [spread, setSpread] = useState(0);
+  const totalPages = doc?.pages ?? 6;
+  const pagesArr = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const [currentPage, setCurrentPage] = useState(0); // 0-indexed page shown on left
   const totalSpreads = Math.ceil(totalPages / 2);
+  const spread = Math.floor(currentPage / 2);
   const [searchParams] = useSearchParams();
+
+  const bookRef = useRef<any>(null);
 
   const [chatOpen, setChatOpen] = useState(searchParams.get("chat") === "open");
   const [zoom, setZoom] = useState(0.5);
@@ -113,7 +123,7 @@ const FlipbookViewer = () => {
       if (!el) return;
       const availW = el.clientWidth - 40;
       const availH = el.clientHeight - 40;
-      const s = Math.min(availW / 880, availH / 620, 1);
+      const s = Math.min(availW / (PAGE_W * 2), availH / PAGE_H, 1);
       setAutoScale(Math.max(s, 0.3));
     };
     fit();
@@ -123,14 +133,16 @@ const FlipbookViewer = () => {
 
   const scale = autoScale * (0.7 + zoom * 0.6);
 
-  const leftPage = spread * 2 + 1;
+  const leftPage = currentPage + 1;
   const rightPage = Math.min(leftPage + 1, totalPages);
   const progress = totalSpreads <= 1 ? 1 : spread / (totalSpreads - 1);
 
   const goNext = useCallback(() => {
-    setSpread((s) => Math.min(totalSpreads - 1, s + 1));
-  }, [totalSpreads]);
-  const goPrev = useCallback(() => setSpread((s) => Math.max(0, s - 1)), []);
+    bookRef.current?.pageFlip?.()?.flipNext();
+  }, []);
+  const goPrev = useCallback(() => {
+    bookRef.current?.pageFlip?.()?.flipPrev();
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -153,7 +165,8 @@ const FlipbookViewer = () => {
     if (!t) return;
     const r = t.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
-    setSpread(Math.round(ratio * (totalSpreads - 1)));
+    const targetSpread = Math.round(ratio * (totalSpreads - 1));
+    bookRef.current?.pageFlip?.()?.flip(targetSpread * 2);
   };
 
   const toggleBookmark = () => {
@@ -278,7 +291,6 @@ const FlipbookViewer = () => {
             </button>
 
             <div
-              className="flex relative"
               style={{
                 transform: `scale(${scale})`,
                 transformOrigin: "center center",
@@ -286,15 +298,42 @@ const FlipbookViewer = () => {
                   "drop-shadow(0 20px 30px rgba(0,0,0,0.12)) drop-shadow(0 8px 12px rgba(0,0,0,0.08))",
               }}
             >
-              <LeftPage />
-              <RightPage />
-              <div
-                className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-12 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, transparent, rgba(0,0,0,0.15) 50%, transparent)",
-                }}
-              />
+              {/* @ts-ignore - react-pageflip types are loose */}
+              <HTMLFlipBook
+                ref={bookRef}
+                width={PAGE_W}
+                height={PAGE_H}
+                size="fixed"
+                minWidth={PAGE_W}
+                maxWidth={PAGE_W}
+                minHeight={PAGE_H}
+                maxHeight={PAGE_H}
+                drawShadow
+                flippingTime={700}
+                usePortrait={false}
+                showCover={false}
+                mobileScrollSupport={false}
+                maxShadowOpacity={0.5}
+                className=""
+                style={{}}
+                startPage={0}
+                startZIndex={0}
+                autoSize={false}
+                clickEventForward
+                useMouseEvents
+                swipeDistance={30}
+                showPageCorners
+                disableFlipByClick={false}
+                onFlip={(e: any) => setCurrentPage(e.data)}
+              >
+                {pagesArr.map((n) =>
+                  n % 2 === 0 ? (
+                    <RightPage key={n} pageNumber={n} />
+                  ) : (
+                    <LeftPage key={n} pageNumber={n} />
+                  )
+                )}
+              </HTMLFlipBook>
             </div>
           </div>
         </div>
