@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, BookOpen, User, Info, Mail, HelpCircle, LogOut, Facebook, Linkedin, Menu, X, Search } from "lucide-react";
+import { Home, BookOpen, User, Info, Mail, HelpCircle, LogOut, Facebook, Linkedin, Menu, X, Search, Bell } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 const primaryNav = [
@@ -62,7 +62,7 @@ const AppShell = ({
         to={to}
         className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
           active
-            ? "bg-gradient-to-r from-primary/10 to-transparent text-primary border-l-4 border-primary"
+            ? "bg-primary/10 text-primary"
             : "text-text-mid hover:bg-muted hover:text-text-dark hover:translate-x-0.5 border-l-4 border-transparent"
         }`}
       >
@@ -152,6 +152,12 @@ const AppShell = ({
               />
             </div>
           )}
+          <button
+            className="p-2 rounded-full text-text-mid hover:bg-muted hover:text-text-dark transition-colors shrink-0"
+            aria-label="Notifications"
+          >
+            <Bell size={20} />
+          </button>
         </header>
 
         {/* Mobile search bar */}
