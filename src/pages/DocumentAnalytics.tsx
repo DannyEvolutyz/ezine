@@ -283,14 +283,14 @@ const DocumentAnalytics = () => {
           {/* Devices + Referrers */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
             <ChartCard title="Device Breakdown" subtitle="Where your readers open the flipbook">
-              <div className="flex items-center gap-6">
-                <div className="h-48 w-48 shrink-0">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                <div className="h-40 w-40 sm:h-48 sm:w-48 shrink-0 self-start">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
                         data={data.devices}
-                        innerRadius={48}
-                        outerRadius={80}
+                        innerRadius={40}
+                        outerRadius={70}
                         paddingAngle={2}
                         dataKey="value"
                         stroke="none"
@@ -310,10 +310,10 @@ const DocumentAnalytics = () => {
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
-                <ul className="flex-1 space-y-3">
+                <ul className="flex-1 w-full space-y-3">
                   {data.devices.map((d, i) => (
-                    <li key={d.name} className="flex items-center justify-between">
-                      <span className="flex items-center gap-2 text-sm text-text-dark">
+                    <li key={d.name} className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-2 text-sm text-text-dark min-w-0">
                         <span
                           className="inline-block h-2.5 w-2.5 rounded-full"
                           style={{ background: PIE_COLORS[i % PIE_COLORS.length] }}
