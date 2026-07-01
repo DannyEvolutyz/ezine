@@ -200,7 +200,10 @@ const FlipbookViewer = () => {
     if (!t) return;
     const r = t.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
-    setSpread(Math.round(ratio * (totalSpreads - 1)));
+    const targetSpread = Math.round(ratio * (totalSpreads - 1));
+    const targetPage = targetSpread * 2;
+    bookRef.current?.pageFlip?.()?.turnToPage?.(targetPage);
+    setCurrentPage(targetPage);
   };
 
   const toggleBookmark = () => {
