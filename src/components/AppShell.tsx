@@ -152,6 +152,12 @@ const AppShell = ({
               />
             </div>
           )}
+          <button
+            className="p-2 rounded-full text-text-mid hover:bg-muted hover:text-text-dark transition-colors shrink-0"
+            aria-label="Notifications"
+          >
+            <Bell size={20} />
+          </button>
         </header>
 
         {/* Mobile search bar */}
