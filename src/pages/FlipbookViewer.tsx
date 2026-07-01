@@ -291,7 +291,6 @@ const FlipbookViewer = () => {
             </button>
 
             <div
-              className="flex relative"
               style={{
                 transform: `scale(${scale})`,
                 transformOrigin: "center center",
@@ -299,15 +298,42 @@ const FlipbookViewer = () => {
                   "drop-shadow(0 20px 30px rgba(0,0,0,0.12)) drop-shadow(0 8px 12px rgba(0,0,0,0.08))",
               }}
             >
-              <LeftPage />
-              <RightPage />
-              <div
-                className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-12 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, transparent, rgba(0,0,0,0.15) 50%, transparent)",
-                }}
-              />
+              {/* @ts-ignore - react-pageflip types are loose */}
+              <HTMLFlipBook
+                ref={bookRef}
+                width={PAGE_W}
+                height={PAGE_H}
+                size="fixed"
+                minWidth={PAGE_W}
+                maxWidth={PAGE_W}
+                minHeight={PAGE_H}
+                maxHeight={PAGE_H}
+                drawShadow
+                flippingTime={700}
+                usePortrait={false}
+                showCover={false}
+                mobileScrollSupport={false}
+                maxShadowOpacity={0.5}
+                className=""
+                style={{}}
+                startPage={0}
+                startZIndex={0}
+                autoSize={false}
+                clickEventForward
+                useMouseEvents
+                swipeDistance={30}
+                showPageCorners
+                disableFlipByClick={false}
+                onFlip={(e: any) => setCurrentPage(e.data)}
+              >
+                {pagesArr.map((n) =>
+                  n % 2 === 0 ? (
+                    <RightPage key={n} pageNumber={n} />
+                  ) : (
+                    <LeftPage key={n} pageNumber={n} />
+                  )
+                )}
+              </HTMLFlipBook>
             </div>
           </div>
         </div>
