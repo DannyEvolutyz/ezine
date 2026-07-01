@@ -128,162 +128,18 @@ const Dashboard = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filtered.map((doc, idx) => (
-              <article
+            {filtered.map((doc) => (
+              <PublicationCard
                 key={doc.id}
-                style={{ animationDelay: `${idx * 70}ms` }}
-                className="group rounded-2xl border border-border/70 bg-background p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_40px_-20px_rgba(35,31,32,0.25)] animate-fade-in-up"
-              >
-                <div className="mb-4 flex items-start justify-between">
-                  <Link
-                    to={`/viewer/${doc.id}`}
-                    className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
-                  >
-                    <FileText size={22} />
-                  </Link>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button
-                        aria-label="More options"
-                        className="p-1 text-text-light transition-colors hover:text-text-dark"
-                      >
-                        <MoreVertical size={18} />
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-52">
-                      <DropdownMenuItem asChild>
-                        <a
-                          href={`/viewer/${doc.id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <ExternalLink size={14} />
-                          Open in new tab
-                        </a>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => setShareDoc(doc)}
-                        className="flex items-center gap-2"
-                      >
-                        <Share2 size={14} />
-                        Share
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => {
-                          handleCopy(doc);
-                          toast({ title: "Link copied", description: doc.shortUrl });
-                        }}
-                        className="flex items-center gap-2"
-                      >
-                        <Link2 size={14} />
-                        Copy link
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => navigate(`/viewer/${doc.id}?chat=open`)}
-                        className="flex items-center gap-2"
-                      >
-                        <MessageSquare size={14} />
-                        EzChat
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => navigate(`/analytics/${doc.id}`)}
-                        className="flex items-center gap-2"
-                      >
-                        <BarChart3 size={14} />
-                        Analytics
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-
-                      <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                          <DropdownMenuItem
-                            onSelect={(e) => e.preventDefault()}
-                            aria-label={`Delete flipbook ${doc.name}`}
-                            className="flex items-center gap-2 text-destructive focus:text-destructive"
-                          >
-                            <Trash2 size={14} aria-hidden="true" />
-                            Delete flipbook
-                          </DropdownMenuItem>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                          <AlertDialogHeader>
-                            <AlertDialogTitle>Delete this flipbook?</AlertDialogTitle>
-                            <AlertDialogDescription>
-                              This will permanently remove “{doc.name}”. This action cannot be undone.
-                            </AlertDialogDescription>
-                          </AlertDialogHeader>
-                          <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction
-                              onClick={() => {
-                                removeDocument(doc.id);
-                                toast({ title: "Deleted", description: `${doc.name} removed.` });
-                              }}
-                              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                            >
-                              Delete flipbook
-                            </AlertDialogAction>
-                          </AlertDialogFooter>
-                        </AlertDialogContent>
-                      </AlertDialog>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
-
-                <Link
-                  to={`/viewer/${doc.id}`}
-                  className="block truncate font-heading text-base font-bold text-text-dark transition-colors hover:text-primary"
-                >
-                  {doc.name}
-                </Link>
-                <p className="mt-1 flex items-center gap-1.5 text-xs font-medium text-text-mid">
-                  <BookOpen size={13} />
-                  {doc.pages} pages
-                </p>
-
-                <div className="mt-4 flex items-center justify-between gap-2 rounded-lg border border-border bg-muted/60 p-2">
-                  <span className="truncate font-mono text-xs font-medium text-text-mid">
-                    {doc.shortUrl}
-                  </span>
-                  <button
-                    onClick={() => handleCopy(doc)}
-                    aria-label={copiedId === doc.id ? "Copied" : "Copy URL"}
-                    className={`flex items-center gap-1 rounded px-2 py-1 text-xs font-semibold transition-colors ${
-                      copiedId === doc.id
-                        ? "text-green-600"
-                        : "text-accent hover:bg-background"
-                    }`}
-                  >
-                    {copiedId === doc.id ? (
-                      <>
-                        <Check size={14} /> Copied
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={14} /> Copy URL
-                      </>
-                    )}
-                  </button>
-                </div>
-
-                <div className="mt-4 flex justify-end gap-2">
-                  <Link
-                    to={`/viewer/${doc.id}?chat=open`}
-                    aria-label="Open chat assistant"
-                    className="flex h-9 w-9 items-center justify-center rounded-full text-text-mid transition-colors hover:bg-accent/10 hover:text-accent"
-                  >
-                    <MessageSquare size={16} />
-                  </Link>
-                  <button
-                    onClick={() => setShareDoc(doc)}
-                    aria-label="Share"
-                    className="flex h-9 w-9 items-center justify-center rounded-full text-text-mid transition-colors hover:bg-primary/10 hover:text-primary"
-                  >
-                    <Share2 size={16} />
-                  </button>
-                </div>
-              </article>
+                doc={doc}
+                copied={copiedId === doc.id}
+                onCopy={handleCopy}
+                onShare={setShareDoc}
+                onDelete={(d) => {
+                  removeDocument(d.id);
+                  toast({ title: "Deleted", description: `${d.name} removed.` });
+                }}
+              />
             ))}
           </div>
         )}
