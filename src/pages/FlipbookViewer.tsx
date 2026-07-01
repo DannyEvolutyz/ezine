@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import HTMLFlipBook from "react-pageflip";
 import {
   ArrowLeft,
   ChevronLeft,
@@ -28,8 +29,22 @@ type ChatMessage = {
   text: string;
 };
 
-const LeftPage = () => (
-  <div className="w-[440px] h-[620px] bg-white relative overflow-hidden px-12 py-12 text-[#231F20]">
+// Individual page wrapper — react-pageflip requires forwardRef children.
+const BookPage = forwardRef<HTMLDivElement, { children: React.ReactNode }>(
+  ({ children }, ref) => (
+    <div
+      ref={ref}
+      className="bg-white overflow-hidden text-[#231F20]"
+      style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden" }}
+    >
+      {children}
+    </div>
+  ),
+);
+BookPage.displayName = "BookPage";
+
+const PageContentTwo = memo(() => (
+  <div className="w-full h-full relative px-12 py-12">
     <div className="text-[12px] mb-5">
       <span className="font-medium">02</span>
       <span className="mx-2 text-text-light">·</span>
@@ -50,15 +65,12 @@ const LeftPage = () => (
       <p className="font-medium">🔗 One-link sharing</p>
       <p>Share anywhere with a single link. Track exactly who reads it.</p>
     </div>
-    <div
-      className="absolute bottom-0 left-0 w-10 h-10 bg-gradient-to-bl from-transparent via-black/5 to-black/15"
-      style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
-    />
   </div>
-);
+));
+PageContentTwo.displayName = "PageContentTwo";
 
-const RightPage = () => (
-  <div className="w-[440px] h-[620px] bg-white relative overflow-hidden px-12 py-12 text-[#231F20]">
+const PageContentThree = memo(() => (
+  <div className="w-full h-full relative px-12 py-12">
     <div className="text-[12px] mb-5">
       <span className="font-medium">03</span>
       <span className="mx-2 text-text-light">·</span>
@@ -68,17 +80,42 @@ const RightPage = () => (
       <p className="font-medium">● THE PROBLEM WE SOLVE</p>
       <p>Your readers aren't disengaged. Your content is just hard to use.</p>
       <p>eZFlip removes friction. Upload once, share everywhere, track everything.</p>
-      <p className="italic">"The issue isn't your content. It's how it's consumed."</p>
+      <p>"The issue isn't your content. It's how it's consumed."</p>
       <p>— Darahas Muggu, eZFlip by Evolutyz</p>
       <p className="font-medium pt-1">Built for every team</p>
       <p>Sales · Marketing · HR · Education · Founders · Product</p>
     </div>
-    <div
-      className="absolute bottom-0 right-0 w-10 h-10 bg-gradient-to-br from-transparent via-black/5 to-black/15"
-      style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-    />
   </div>
-);
+));
+PageContentThree.displayName = "PageContentThree";
+
+const GenericPage = memo(({ n, title }: { n: number; title: string }) => (
+  <div className="w-full h-full relative px-12 py-12">
+    <div className="text-[12px] mb-5">
+      <span className="font-medium">{String(n).padStart(2, "0")}</span>
+      <span className="mx-2 text-text-light">·</span>
+      <span>{title}</span>
+    </div>
+    <div className="space-y-3 text-[12px] leading-relaxed text-text-mid">
+      <p>
+        This page is part of the document preview. Turn the corner or use the
+        arrows to continue reading — the flipbook mimics a real book.
+      </p>
+      <p>
+        eZFlip renders every page with realistic curl, soft shadows, and
+        natural easing, keeping your content the star of the experience.
+      </p>
+    </div>
+  </div>
+));
+GenericPage.displayName = "GenericPage";
+
+const renderPageContent = (n: number) => {
+  if (n === 2) return <PageContentTwo />;
+  if (n === 3) return <PageContentThree />;
+  const titles = ["Introduction", "Overview", "Highlights", "Insights", "Details", "Next Steps", "Appendix", "Thank You"];
+  return <GenericPage n={n} title={titles[(n - 1) % titles.length]} />;
+};
 
 const iconBtn =
   "w-10 h-10 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md hover:border-[#ddd]";
@@ -92,8 +129,8 @@ const FlipbookViewer = () => {
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   const totalPages = doc?.pages ?? 5;
-  const [spread, setSpread] = useState(0);
-  const totalSpreads = Math.ceil(totalPages / 2);
+  const bookPages = Math.max(2, totalPages % 2 === 0 ? totalPages : totalPages + 1);
+  const [currentPage, setCurrentPage] = useState(0); // 0-based left page index
   const [searchParams] = useSearchParams();
 
   const [chatOpen, setChatOpen] = useState(searchParams.get("chat") === "open");
@@ -105,7 +142,9 @@ const FlipbookViewer = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const stageRef = useRef<HTMLDivElement>(null);
+  const bookRef = useRef<any>(null);
   const [autoScale, setAutoScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fit = () => {
@@ -113,7 +152,10 @@ const FlipbookViewer = () => {
       if (!el) return;
       const availW = el.clientWidth - 40;
       const availH = el.clientHeight - 40;
-      const s = Math.min(availW / 880, availH / 620, 1);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      const bookW = mobile ? 440 : 880;
+      const s = Math.min(availW / bookW, availH / 620, 1);
       setAutoScale(Math.max(s, 0.3));
     };
     fit();
@@ -123,14 +165,19 @@ const FlipbookViewer = () => {
 
   const scale = autoScale * (0.7 + zoom * 0.6);
 
-  const leftPage = spread * 2 + 1;
-  const rightPage = Math.min(leftPage + 1, totalPages);
-  const progress = totalSpreads <= 1 ? 1 : spread / (totalSpreads - 1);
+  const totalSpreads = Math.max(1, Math.ceil(bookPages / 2));
+  const spreadIndex = Math.floor(currentPage / 2);
+  const leftPage = Math.min(currentPage + 1, totalPages);
+  const rightPage = Math.min(currentPage + 2, totalPages);
+  const progress = totalSpreads <= 1 ? 1 : spreadIndex / (totalSpreads - 1);
 
   const goNext = useCallback(() => {
-    setSpread((s) => Math.min(totalSpreads - 1, s + 1));
-  }, [totalSpreads]);
-  const goPrev = useCallback(() => setSpread((s) => Math.max(0, s - 1)), []);
+    bookRef.current?.pageFlip?.()?.flipNext();
+  }, []);
+  const goPrev = useCallback(() => {
+    bookRef.current?.pageFlip?.()?.flipPrev();
+  }, []);
+
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -153,7 +200,10 @@ const FlipbookViewer = () => {
     if (!t) return;
     const r = t.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
-    setSpread(Math.round(ratio * (totalSpreads - 1)));
+    const targetSpread = Math.round(ratio * (totalSpreads - 1));
+    const targetPage = targetSpread * 2;
+    bookRef.current?.pageFlip?.()?.turnToPage?.(targetPage);
+    setCurrentPage(targetPage);
   };
 
   const toggleBookmark = () => {
@@ -262,7 +312,7 @@ const FlipbookViewer = () => {
           <div ref={stageRef} className="flex-1 flex items-center justify-center relative min-w-0">
             <button
               onClick={goPrev}
-              disabled={spread === 0}
+              disabled={currentPage === 0}
               aria-label="Previous"
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md disabled:opacity-40"
             >
@@ -270,7 +320,7 @@ const FlipbookViewer = () => {
             </button>
             <button
               onClick={goNext}
-              disabled={spread >= totalSpreads - 1}
+              disabled={currentPage >= bookPages - (isMobile ? 1 : 2)}
               aria-label="Next"
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md disabled:opacity-40"
             >
@@ -278,26 +328,49 @@ const FlipbookViewer = () => {
             </button>
 
             <div
-              className="flex relative"
               style={{
                 transform: `scale(${scale})`,
                 transformOrigin: "center center",
-                filter:
-                  "drop-shadow(0 20px 30px rgba(0,0,0,0.12)) drop-shadow(0 8px 12px rgba(0,0,0,0.08))",
+                willChange: "transform",
               }}
             >
-              <LeftPage />
-              <RightPage />
-              <div
-                className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-12 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, transparent, rgba(0,0,0,0.15) 50%, transparent)",
-                }}
-              />
+              {/* react-pageflip */}
+              <HTMLFlipBook
+                ref={bookRef}
+                width={440}
+                height={620}
+                size="fixed"
+                minWidth={315}
+                maxWidth={1000}
+                minHeight={420}
+                maxHeight={1350}
+                showCover={false}
+                usePortrait={isMobile}
+                mobileScrollSupport={true}
+                drawShadow={true}
+                maxShadowOpacity={0.35}
+                flippingTime={550}
+                useMouseEvents={true}
+                swipeDistance={30}
+                showPageCorners={true}
+                disableFlipByClick={false}
+                startPage={0}
+                className="ezflip-book"
+                style={{}}
+                startZIndex={0}
+                autoSize={false}
+                clickEventForward={true}
+                onFlip={(e: any) => setCurrentPage(e.data)}
+              >
+                {Array.from({ length: bookPages }).map((_, i) => (
+                  <BookPage key={i}>{renderPageContent(i + 1)}</BookPage>
+                ))}
+              </HTMLFlipBook>
             </div>
           </div>
         </div>
+
+
 
         {/* Bottom controls */}
         <div className="shrink-0 bg-[#f4f4f4]">
