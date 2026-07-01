@@ -62,7 +62,7 @@ const AppShell = ({
         to={to}
         className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
           active
-            ? "bg-gradient-to-r from-primary/10 to-transparent text-primary border-l-4 border-primary"
+            ? "bg-primary/10 text-primary"
             : "text-text-mid hover:bg-muted hover:text-text-dark hover:translate-x-0.5 border-l-4 border-transparent"
         }`}
       >
