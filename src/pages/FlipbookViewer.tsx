@@ -129,8 +129,8 @@ const FlipbookViewer = () => {
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   const totalPages = doc?.pages ?? 5;
-  const [spread, setSpread] = useState(0);
-  const totalSpreads = Math.ceil(totalPages / 2);
+  const bookPages = Math.max(2, totalPages % 2 === 0 ? totalPages : totalPages + 1);
+  const [currentPage, setCurrentPage] = useState(0); // 0-based left page index
   const [searchParams] = useSearchParams();
 
   const [chatOpen, setChatOpen] = useState(searchParams.get("chat") === "open");
@@ -142,7 +142,9 @@ const FlipbookViewer = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const stageRef = useRef<HTMLDivElement>(null);
+  const bookRef = useRef<any>(null);
   const [autoScale, setAutoScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fit = () => {
@@ -150,7 +152,10 @@ const FlipbookViewer = () => {
       if (!el) return;
       const availW = el.clientWidth - 40;
       const availH = el.clientHeight - 40;
-      const s = Math.min(availW / 880, availH / 620, 1);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      const bookW = mobile ? 440 : 880;
+      const s = Math.min(availW / bookW, availH / 620, 1);
       setAutoScale(Math.max(s, 0.3));
     };
     fit();
@@ -160,14 +165,19 @@ const FlipbookViewer = () => {
 
   const scale = autoScale * (0.7 + zoom * 0.6);
 
-  const leftPage = spread * 2 + 1;
-  const rightPage = Math.min(leftPage + 1, totalPages);
-  const progress = totalSpreads <= 1 ? 1 : spread / (totalSpreads - 1);
+  const totalSpreads = Math.max(1, Math.ceil(bookPages / 2));
+  const spreadIndex = Math.floor(currentPage / 2);
+  const leftPage = Math.min(currentPage + 1, totalPages);
+  const rightPage = Math.min(currentPage + 2, totalPages);
+  const progress = totalSpreads <= 1 ? 1 : spreadIndex / (totalSpreads - 1);
 
   const goNext = useCallback(() => {
-    setSpread((s) => Math.min(totalSpreads - 1, s + 1));
-  }, [totalSpreads]);
-  const goPrev = useCallback(() => setSpread((s) => Math.max(0, s - 1)), []);
+    bookRef.current?.pageFlip?.()?.flipNext();
+  }, []);
+  const goPrev = useCallback(() => {
+    bookRef.current?.pageFlip?.()?.flipPrev();
+  }, []);
+
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
