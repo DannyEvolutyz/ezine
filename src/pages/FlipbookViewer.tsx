@@ -16,11 +16,20 @@ import {
   Volume2,
   Maximize2,
   BarChart3,
+  MoreVertical,
 } from "lucide-react";
 import { useDocuments } from "@/hooks/useDocuments";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { toast } from "sonner";
 import ezflipLogo from "@/assets/ezflip-logo.png.asset.json";
 import ShareDialog from "@/components/ShareDialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 type ChatMessage = {
   id: string;
@@ -80,6 +89,34 @@ const RightPage = () => (
   </div>
 );
 
+// Mobile single-page content (uses the same body text but at a mobile size)
+const MobilePage = ({ pageNum }: { pageNum: number }) => (
+  <div className="w-full h-full bg-white overflow-hidden px-6 py-6 text-[#231F20]">
+    <div className="text-[13px] mb-4">
+      <span className="font-medium">{String(pageNum).padStart(2, "0")}</span>
+      <span className="mx-2 text-text-light">·</span>
+      <span>What is eZine?</span>
+    </div>
+    <div className="space-y-3 text-[13px] leading-relaxed">
+      <p className="font-medium">● PLATFORM OVERVIEW</p>
+      <p className="font-medium">Turn documents into experiences</p>
+      <p>
+        Most tools make documents look better. eZine makes them easier to use — readers ask,
+        search, navigate, and actually finish what they open.
+      </p>
+      <p className="font-medium pt-1">What eZine does differently</p>
+      <p className="font-medium">💬 Ask anything</p>
+      <p>Readers ask questions. The AI answers directly from the document — no hallucinations, just your content.</p>
+      <p className="font-medium">📓 Instant summaries</p>
+      <p>One click. A clean TL;DR of any document or section, so readers get the gist before they commit.</p>
+      <p className="font-medium">🔗 One-link sharing</p>
+      <p>Share anywhere with a single link. Control who sees it, track exactly who reads it.</p>
+      <p className="pt-2">Loved by 10K+ teams across 50+ countries</p>
+      <p>eZine. by Evolutyz · Made with ♥ from Vizag</p>
+    </div>
+  </div>
+);
+
 const iconBtn =
   "w-10 h-10 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md hover:border-[#ddd]";
 
@@ -87,8 +124,9 @@ const FlipbookViewer = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { getDocument } = useDocuments();
+  const isMobile = useIsMobile();
   const doc = id ? getDocument(id) : undefined;
-  const docName = doc?.name ?? "eZFlip - Product Overview";
+  const docName = doc?.name ?? "eZine - Product Overview";
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   const totalPages = doc?.pages ?? 5;
@@ -106,6 +144,10 @@ const FlipbookViewer = () => {
 
   const stageRef = useRef<HTMLDivElement>(null);
   const [autoScale, setAutoScale] = useState(1);
+
+  // Mobile: single-page navigation + flip animation
+  const [mobilePage, setMobilePage] = useState(1);
+  const [flipDir, setFlipDir] = useState<"next" | "prev" | null>(null);
 
   useEffect(() => {
     const fit = () => {
@@ -125,12 +167,43 @@ const FlipbookViewer = () => {
 
   const leftPage = spread * 2 + 1;
   const rightPage = Math.min(leftPage + 1, totalPages);
-  const progress = totalSpreads <= 1 ? 1 : spread / (totalSpreads - 1);
+  const progress = isMobile
+    ? totalPages <= 1
+      ? 1
+      : (mobilePage - 1) / (totalPages - 1)
+    : totalSpreads <= 1
+      ? 1
+      : spread / (totalSpreads - 1);
 
   const goNext = useCallback(() => {
-    setSpread((s) => Math.min(totalSpreads - 1, s + 1));
-  }, [totalSpreads]);
-  const goPrev = useCallback(() => setSpread((s) => Math.max(0, s - 1)), []);
+    if (isMobile) {
+      setMobilePage((p) => {
+        if (p >= totalPages) return p;
+        setFlipDir("next");
+        return p + 1;
+      });
+    } else {
+      setSpread((s) => Math.min(totalSpreads - 1, s + 1));
+    }
+  }, [totalSpreads, isMobile, totalPages]);
+
+  const goPrev = useCallback(() => {
+    if (isMobile) {
+      setMobilePage((p) => {
+        if (p <= 1) return p;
+        setFlipDir("prev");
+        return p - 1;
+      });
+    } else {
+      setSpread((s) => Math.max(0, s - 1));
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (!flipDir) return;
+    const t = setTimeout(() => setFlipDir(null), 500);
+    return () => clearTimeout(t);
+  }, [flipDir, mobilePage]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -153,7 +226,11 @@ const FlipbookViewer = () => {
     if (!t) return;
     const r = t.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
-    setSpread(Math.round(ratio * (totalSpreads - 1)));
+    if (isMobile) {
+      setMobilePage(Math.max(1, Math.round(ratio * (totalPages - 1)) + 1));
+    } else {
+      setSpread(Math.round(ratio * (totalSpreads - 1)));
+    }
   };
 
   const toggleBookmark = () => {
@@ -186,6 +263,239 @@ const FlipbookViewer = () => {
     }, 700);
   };
 
+  // ============ MOBILE LAYOUT ============
+  if (isMobile) {
+    const squareBtn =
+      "w-11 h-11 rounded-xl bg-white border border-[#e5e5e5] flex items-center justify-center active:scale-95 transition-transform";
+
+    return (
+      <div className="h-screen bg-[#f4f4f4] text-[#231F20] flex flex-col overflow-hidden">
+        {/* Header */}
+        <header className="px-4 py-3 flex items-center gap-3 shrink-0 bg-white border-b border-[#eee]">
+          <button
+            onClick={() => navigate("/dashboard")}
+            aria-label="Back"
+            className={squareBtn}
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <h1 className="flex-1 text-center text-[15px] font-medium truncate">{docName}</h1>
+          <button
+            onClick={() => setChatOpen(true)}
+            aria-label="eZ Chat"
+            className="w-11 h-11 rounded-full bg-accent text-white flex items-center justify-center shadow-[0_4px_14px_rgba(240,90,40,0.4)] active:scale-95 transition-transform"
+          >
+            <Sparkles size={20} fill="white" />
+          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button aria-label="More" className={squareBtn}>
+                <MoreVertical size={20} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={toggleBookmark}>
+                <Bookmark size={16} className={`mr-2 ${bookmarked ? "text-accent" : ""}`} fill={bookmarked ? "#F05A28" : "none"} />
+                {bookmarked ? "Bookmarked" : "Bookmark"}
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setShareOpen(true)}>
+                <Share2 size={16} className="mr-2" /> Share
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setSearchOpen(true)}>
+                <Search size={16} className="mr-2" /> Search
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => id && navigate(`/analytics/${id}`)}>
+                <BarChart3 size={16} className="mr-2" /> Analytics
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </header>
+
+        {searchOpen && (
+          <div className="px-4 py-2 bg-white border-b border-[#eee] flex items-center gap-2">
+            <div className="flex-1 flex items-center gap-2 h-10 px-3 rounded-full bg-[#f5f5f5] border border-[#e5e5e5]">
+              <Search size={16} className="text-text-mid" />
+              <input
+                ref={searchInputRef}
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                placeholder="Search in document..."
+                className="flex-1 bg-transparent text-sm focus:outline-none"
+                style={{ caretColor: "#F05A28" }}
+              />
+              <button
+                onClick={() => {
+                  setSearchOpen(false);
+                  setSearchValue("");
+                }}
+                aria-label="Close search"
+              >
+                <X size={16} className="text-text-mid" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Viewer stage */}
+        <div className="flex-1 flex items-center justify-center relative min-h-0 px-4">
+          <div
+            className="relative w-full max-w-[360px] h-full max-h-[560px] my-4"
+            style={{ perspective: "1400px" }}
+          >
+            <div
+              key={mobilePage}
+              className={`w-full h-full shadow-[0_20px_40px_rgba(0,0,0,0.15)] origin-left ${
+                flipDir === "next"
+                  ? "animate-[flipNext_0.5s_ease-in-out]"
+                  : flipDir === "prev"
+                    ? "animate-[flipPrev_0.5s_ease-in-out]"
+                    : ""
+              }`}
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <MobilePage pageNum={mobilePage} />
+            </div>
+          </div>
+        </div>
+
+        {/* Nav buttons row */}
+        <div className="px-4 pb-2 flex items-center justify-between">
+          <button
+            onClick={goPrev}
+            disabled={mobilePage <= 1}
+            aria-label="Previous"
+            className={`${squareBtn} disabled:opacity-40`}
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={goNext}
+            disabled={mobilePage >= totalPages}
+            aria-label="Next"
+            className={`${squareBtn} disabled:opacity-40`}
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Progress bar */}
+        <div
+          ref={trackRef}
+          onMouseDown={(e) => handleScrub(e.clientX)}
+          onTouchStart={(e) => handleScrub(e.touches[0].clientX)}
+          onTouchMove={(e) => handleScrub(e.touches[0].clientX)}
+          className="h-1.5 bg-[#d8d8d8] relative cursor-pointer w-full"
+        >
+          <div
+            className="absolute inset-y-0 left-0 bg-[#231F20]"
+            style={{ width: `${progress * 100}%` }}
+          />
+        </div>
+
+        {/* Page indicator */}
+        <div className="text-center py-2 text-sm font-medium tabular-nums">
+          {mobilePage} / {totalPages}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="px-4 pb-4 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <button className={squareBtn} aria-label="View">
+              <Monitor size={18} />
+            </button>
+            <button
+              onClick={() => setZoom((z) => Math.max(0, z - 0.1))}
+              className={squareBtn}
+              aria-label="Zoom out"
+            >
+              <ZoomOut size={18} />
+            </button>
+            <button
+              onClick={() => setZoom((z) => Math.min(1, z + 0.1))}
+              className={squareBtn}
+              aria-label="Zoom in"
+            >
+              <ZoomIn size={18} />
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="h-11 px-3 rounded-xl bg-white border border-[#e5e5e5] flex items-center">
+              <img src={ezflipLogo.url} alt="eZflip" className="h-5" />
+            </div>
+            <button className={squareBtn} aria-label="Sound">
+              <Volume2 size={18} />
+            </button>
+            <button className={squareBtn} aria-label="Fullscreen">
+              <Maximize2 size={16} />
+            </button>
+          </div>
+        </div>
+
+        {/* eZ Chat bottom sheet */}
+        <Sheet open={chatOpen} onOpenChange={setChatOpen}>
+          <SheetContent
+            side="bottom"
+            className="h-[75vh] p-0 rounded-t-2xl flex flex-col"
+          >
+            <div className="pt-2 pb-1 flex justify-center">
+              <div className="w-10 h-1 rounded-full bg-[#d8d8d8]" />
+            </div>
+            <div className="px-5 py-4 flex items-center gap-3 border-b border-[#eee]">
+              <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                <Sparkles size={18} fill="currentColor" />
+              </div>
+              <div className="font-semibold text-[16px]">eZ Chat</div>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+              {messages.length === 0 && (
+                <div className="text-sm text-text-light text-center mt-8">
+                  Ask anything about this document.
+                </div>
+              )}
+              {messages.map((m) => (
+                <div key={m.id} className={m.from === "user" ? "flex justify-end" : "flex"}>
+                  <div
+                    className={`max-w-[85%] px-3 py-2 rounded-2xl text-sm ${
+                      m.from === "user"
+                        ? "bg-accent text-white rounded-tr-sm"
+                        : "bg-muted text-[#231F20] rounded-tl-sm"
+                    }`}
+                  >
+                    {m.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage(input);
+              }}
+              className="p-3 flex items-center gap-2 border-t border-[#eee]"
+            >
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask about this document"
+                className="flex-1 h-12 px-4 rounded-lg bg-white border border-[#e5e5e5] text-sm focus:outline-none placeholder:text-text-light"
+              />
+              <button
+                type="submit"
+                className="w-12 h-12 rounded-lg bg-accent text-white flex items-center justify-center active:scale-95 transition-transform"
+                aria-label="Send"
+              >
+                <Send size={18} />
+              </button>
+            </form>
+          </SheetContent>
+        </Sheet>
+
+        <ShareDialog open={shareOpen} onOpenChange={setShareOpen} title={docName} url={shareUrl} />
+      </div>
+    );
+  }
+
+  // ============ DESKTOP LAYOUT (unchanged) ============
   return (
     <div className="h-screen bg-[#f4f4f4] text-[#231F20] flex overflow-hidden">
       {/* Main column (shrinks when chat opens) */}
