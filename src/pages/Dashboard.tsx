@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  ArrowDownToLine,
+  ArrowUpToLine,
   BookOpen,
   Copy,
   MoreVertical,
@@ -14,6 +14,7 @@ import {
   BarChart3,
   Trash2,
 } from "lucide-react";
+
 import AppShell from "@/components/AppShell";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
 import { toast } from "@/hooks/use-toast";
@@ -99,15 +100,13 @@ const Dashboard = () => {
         }`}
       >
         <div className="mx-auto mb-5 sm:mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground shadow-[0_10px_25px_-8px_rgba(240,90,40,0.5)] transition-transform group-hover:scale-110 group-hover:-rotate-3">
-          <ArrowDownToLine size={28} />
+          <ArrowUpToLine size={28} />
         </div>
-        <h2 className="font-heading text-xl sm:text-2xl font-bold text-text-dark">Drag &amp; Drop</h2>
-        <p className="mt-1 text-sm sm:text-base font-medium text-text-mid">
-          or <span className="text-accent border-b border-accent">select files from device</span>
-        </p>
-        <p className="mt-4 text-[10px] font-semibold uppercase tracking-widest text-text-light">
+        <h2 className="font-heading text-lg sm:text-xl font-bold text-text-dark">Select files from device</h2>
+        <p className="mt-2 text-xs sm:text-sm font-medium text-text-light">
           .pdf, .docx, .doc files supported
         </p>
+
         <input
           ref={inputRef}
           type="file"
