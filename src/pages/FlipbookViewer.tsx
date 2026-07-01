@@ -312,7 +312,7 @@ const FlipbookViewer = () => {
           <div ref={stageRef} className="flex-1 flex items-center justify-center relative min-w-0">
             <button
               onClick={goPrev}
-              disabled={spread === 0}
+              disabled={currentPage === 0}
               aria-label="Previous"
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md disabled:opacity-40"
             >
@@ -320,7 +320,7 @@ const FlipbookViewer = () => {
             </button>
             <button
               onClick={goNext}
-              disabled={spread >= totalSpreads - 1}
+              disabled={currentPage >= bookPages - (isMobile ? 1 : 2)}
               aria-label="Next"
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md disabled:opacity-40"
             >
@@ -328,26 +328,49 @@ const FlipbookViewer = () => {
             </button>
 
             <div
-              className="flex relative"
               style={{
                 transform: `scale(${scale})`,
                 transformOrigin: "center center",
-                filter:
-                  "drop-shadow(0 20px 30px rgba(0,0,0,0.12)) drop-shadow(0 8px 12px rgba(0,0,0,0.08))",
+                willChange: "transform",
               }}
             >
-              <LeftPage />
-              <RightPage />
-              <div
-                className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-12 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, transparent, rgba(0,0,0,0.15) 50%, transparent)",
-                }}
-              />
+              {/* @ts-expect-error react-pageflip types */}
+              <HTMLFlipBook
+                ref={bookRef}
+                width={440}
+                height={620}
+                size="fixed"
+                minWidth={315}
+                maxWidth={1000}
+                minHeight={420}
+                maxHeight={1350}
+                showCover={false}
+                usePortrait={isMobile}
+                mobileScrollSupport={true}
+                drawShadow={true}
+                maxShadowOpacity={0.35}
+                flippingTime={550}
+                useMouseEvents={true}
+                swipeDistance={30}
+                showPageCorners={true}
+                disableFlipByClick={false}
+                startPage={0}
+                className="ezflip-book"
+                style={{}}
+                startZIndex={0}
+                autoSize={false}
+                clickEventForward={true}
+                onFlip={(e: any) => setCurrentPage(e.data)}
+              >
+                {Array.from({ length: bookPages }).map((_, i) => (
+                  <BookPage key={i}>{renderPageContent(i + 1)}</BookPage>
+                ))}
+              </HTMLFlipBook>
             </div>
           </div>
         </div>
+
+
 
         {/* Bottom controls */}
         <div className="shrink-0 bg-[#f4f4f4]">
