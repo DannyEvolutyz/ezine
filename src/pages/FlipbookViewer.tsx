@@ -29,10 +29,13 @@ type ChatMessage = {
   text: string;
 };
 
-const LeftPage = () => (
-  <div className="w-[440px] h-[620px] bg-white relative overflow-hidden px-12 py-12 text-[#231F20]">
+const PAGE_W = 440;
+const PAGE_H = 620;
+
+const LeftPage = forwardRef<HTMLDivElement, { pageNumber?: number }>(({ pageNumber = 2 }, ref) => (
+  <div ref={ref} className="bg-white relative overflow-hidden px-12 py-12 text-[#231F20]" style={{ width: PAGE_W, height: PAGE_H }}>
     <div className="text-[12px] mb-5">
-      <span className="font-medium">02</span>
+      <span className="font-medium">{String(pageNumber).padStart(2, "0")}</span>
       <span className="mx-2 text-text-light">·</span>
       <span>What is eZFlip?</span>
     </div>
@@ -56,12 +59,13 @@ const LeftPage = () => (
       style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
     />
   </div>
-);
+));
+LeftPage.displayName = "LeftPage";
 
-const RightPage = () => (
-  <div className="w-[440px] h-[620px] bg-white relative overflow-hidden px-12 py-12 text-[#231F20]">
+const RightPage = forwardRef<HTMLDivElement, { pageNumber?: number }>(({ pageNumber = 3 }, ref) => (
+  <div ref={ref} className="bg-white relative overflow-hidden px-12 py-12 text-[#231F20]" style={{ width: PAGE_W, height: PAGE_H }}>
     <div className="text-[12px] mb-5">
-      <span className="font-medium">03</span>
+      <span className="font-medium">{String(pageNumber).padStart(2, "0")}</span>
       <span className="mx-2 text-text-light">·</span>
       <span>Why it matters</span>
     </div>
@@ -69,7 +73,7 @@ const RightPage = () => (
       <p className="font-medium">● THE PROBLEM WE SOLVE</p>
       <p>Your readers aren't disengaged. Your content is just hard to use.</p>
       <p>eZFlip removes friction. Upload once, share everywhere, track everything.</p>
-      <p className="italic">"The issue isn't your content. It's how it's consumed."</p>
+      <p>"The issue isn't your content. It's how it's consumed."</p>
       <p>— Darahas Muggu, eZFlip by Evolutyz</p>
       <p className="font-medium pt-1">Built for every team</p>
       <p>Sales · Marketing · HR · Education · Founders · Product</p>
@@ -79,7 +83,8 @@ const RightPage = () => (
       style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
     />
   </div>
-);
+));
+RightPage.displayName = "RightPage";
 
 const iconBtn =
   "w-10 h-10 rounded-lg bg-white border border-[#eee] flex items-center justify-center transition-all hover:bg-[#f5f5f5] hover:shadow-md hover:border-[#ddd]";
