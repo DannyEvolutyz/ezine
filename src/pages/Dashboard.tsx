@@ -1,48 +1,40 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  ArrowUpToLine,
-  BookOpen,
-  Copy,
-  MoreVertical,
-  MessageSquare,
-  Share2,
-  FileText,
-  Check,
-  ExternalLink,
-  Link2,
-  BarChart3,
-  Trash2,
-} from "lucide-react";
+import { ArrowUpToLine } from "lucide-react";
 
 import AppShell from "@/components/AppShell";
+import PublicationCard from "@/components/PublicationCard";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
 import { toast } from "@/hooks/use-toast";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 import ShareDialog from "@/components/ShareDialog";
 
 const ACCEPTED = [".pdf", ".docx", ".doc"];
 
+const copyToClipboard = async (text: string) => {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    /* fall through */
+  }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 const Dashboard = () => {
   const { documents, addDocument, removeDocument } = useDocuments();
-  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [search, setSearch] = useState("");
