@@ -273,41 +273,15 @@ const Library = () => {
         <>
           {view === "card" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {pagedItems.map((doc, idx) => (
-                <article
+              {pagedItems.map((doc) => (
+                <PublicationCard
                   key={doc.id}
-                  style={{ animationDelay: `${idx * 60}ms` }}
-                  className="group relative flex flex-col rounded-2xl border border-border/70 bg-background p-4 transition-all hover:border-accent/40 hover:shadow-[0_18px_40px_-20px_rgba(35,31,32,0.25)] animate-fade-in-up"
-                >
-                  <Link
-                    to={`/viewer/${doc.id}`}
-                    className="flex h-44 w-full items-center justify-center rounded-lg border border-border bg-muted text-text-light transition-colors group-hover:border-accent/40 group-hover:text-accent"
-                  >
-                    <FileText size={48} strokeWidth={1.25} />
-                  </Link>
-                  <Link
-                    to={`/viewer/${doc.id}`}
-                    className="mt-4 break-all font-heading text-lg font-bold text-primary hover:underline pr-8"
-                  >
-                    {doc.name}
-                  </Link>
-                  <p className="mt-1 flex items-center gap-2 text-sm font-medium text-accent">
-                    <BookOpen size={16} />
-                    {doc.pages} pages
-                  </p>
-                  <div className="mt-3">
-                    <CopyLink doc={doc} />
-                  </div>
-                  <div className="mt-4 flex items-center justify-end gap-3 pt-3 border-t border-border/60">
-                    <DocActions doc={doc} />
-                  </div>
-                  <button
-                    aria-label="More options"
-                    className="absolute right-3 top-3 text-text-light transition-colors hover:text-text-dark"
-                  >
-                    <MoreVertical size={20} />
-                  </button>
-                </article>
+                  doc={doc}
+                  copied={copiedId === doc.id}
+                  onCopy={handleCopy}
+                  onShare={(d) => toast({ title: "Share", description: d.name })}
+                  showDelete={false}
+                />
               ))}
             </div>
           ) : (
