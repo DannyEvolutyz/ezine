@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import AppShell from "@/components/AppShell";
 import PublicationCard from "@/components/PublicationCard";
+import ShareDialog from "@/components/ShareDialog";
 import { useDocuments, type DocItem } from "@/hooks/useDocuments";
 import { toast } from "@/hooks/use-toast";
 import {
@@ -42,6 +43,7 @@ const Library = () => {
   const [tab, setTab] = useState<Tab>("Publications");
   const [search, setSearch] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [shareDoc, setShareDoc] = useState<DocItem | null>(null);
   const [view, setView] = useState<View>(() => {
     if (typeof window === "undefined") return "card";
     const stored = window.localStorage.getItem(VIEW_STORAGE_KEY);
@@ -139,7 +141,11 @@ const Library = () => {
       <button aria-label="Chat" className="text-primary transition-colors hover:text-accent">
         <MessageSquare size={18} />
       </button>
-      <button aria-label="Share" className="text-primary transition-colors hover:text-accent">
+      <button
+        onClick={() => setShareDoc(doc)}
+        aria-label="Share"
+        className="text-primary transition-colors hover:text-accent"
+      >
         <Share2 size={18} />
       </button>
     </div>
@@ -280,7 +286,7 @@ const Library = () => {
                   doc={doc}
                   copied={copiedId === doc.id}
                   onCopy={handleCopy}
-                  onShare={(d) => toast({ title: "Share", description: d.name })}
+                  onShare={(d) => setShareDoc(d)}
                   showDelete={false}
                 />
               ))}
@@ -374,6 +380,12 @@ const Library = () => {
           )}
         </>
       )}
+      <ShareDialog
+        open={!!shareDoc}
+        onOpenChange={(o) => !o && setShareDoc(null)}
+        title={shareDoc?.name ?? ""}
+        url={shareDoc ? `https://ezflip.ai${shareDoc.shortUrl}` : ""}
+      />
     </AppShell>
   );
 };
