@@ -1,29 +1,27 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import flipbookShot from "@/assets/feature-flipbook-viewer.jpg.asset.json";
+import shelvesShot from "@/assets/feature-shelves.jpg.asset.json";
+import shareShot from "@/assets/feature-share.png.asset.json";
 
-/* ---------- mini visuals (bento tiles) ---------- */
+/* ---------- screenshot visuals (bento tiles) ---------- */
 
-const FlipbookVisual = () => (
-  <div className="relative h-28">
-    <div className="absolute inset-x-3 top-1 bottom-1 flex overflow-hidden rounded-lg border border-border bg-background shadow-[0_12px_26px_-16px_hsl(var(--ink)/0.4)]">
-      <div className="flex-1 space-y-1.5 p-2.5">
-        <div className="h-1.5 w-3/4 rounded-full bg-text-dark/15" />
-        <div className="h-1.5 w-full rounded-full bg-text-dark/8" />
-        <div className="h-1.5 w-5/6 rounded-full bg-text-dark/8" />
-        <div className="h-1.5 w-2/3 rounded-full bg-text-dark/8" />
-        <div className="mt-2 h-6 w-full rounded bg-red-bg" />
-      </div>
-      <div className="w-[3px] bg-gradient-to-r from-transparent via-border-strong/70 to-transparent" />
-      <div className="flex-1 space-y-1.5 p-2.5">
-        <div className="h-1.5 w-2/3 rounded-full bg-text-dark/15" />
-        <div className="h-1.5 w-full rounded-full bg-text-dark/8" />
-        <div className="h-1.5 w-4/5 rounded-full bg-text-dark/8" />
-        <div className="h-1.5 w-1/2 rounded-full bg-text-dark/8" />
-        <div className="mt-2 h-6 w-full rounded bg-muted" />
-      </div>
-    </div>
-    {/* turning page */}
-    <div className="absolute bottom-1 right-3 top-1 w-1/3 origin-right -rotate-3 rounded-lg border border-border bg-background shadow-[0_10px_20px_-12px_hsl(var(--ink)/0.45)]" />
+const ShotVisual = ({
+  src,
+  alt,
+  canvas,
+  height,
+}: {
+  src: string;
+  alt: string;
+  canvas: string;
+  height: string;
+}) => (
+  <div
+    className={`overflow-hidden rounded-xl border border-border ${height}`}
+    style={{ backgroundColor: canvas }}
+  >
+    <img src={src} alt={alt} className="h-full w-full object-contain" loading="lazy" />
   </div>
 );
 
@@ -52,54 +50,20 @@ const ChatVisual = () => (
   </div>
 );
 
-const ShelvesVisual = () => (
-  <div className="space-y-2">
-    {[
-      ["bg-primary", "bg-accent", "bg-text-light/30", "bg-primary/35"],
-      ["bg-accent", "bg-text-light/30", "bg-primary", "bg-accent/40"],
-      ["bg-text-light/30", "bg-primary/35", "bg-accent", "bg-primary"],
-    ].map((row, i) => (
-      <div key={i} className="flex items-end gap-1 border-b-2 border-border-strong/50 pb-1">
-        {row.map((bg, j) => (
-          <div
-            key={j}
-            className={`h-6 rounded-sm ${bg}`}
-            style={{ width: [18, 10, 14, 8][j] }}
-          />
-        ))}
-      </div>
-    ))}
-  </div>
-);
-
 const AnalyticsVisual = () => (
-  <div className="rounded-xl border border-border bg-background p-3">
-    <div className="flex items-end gap-1.5">
+  <div className="flex h-52 w-full items-end rounded-xl border border-border bg-background p-3">
+    <div className="flex w-full items-end gap-1.5">
       {[38, 62, 48, 88, 70, 54].map((h, i) => (
         <div
           key={i}
           className={`w-3 rounded-t ${i === 3 ? "bg-accent" : "bg-primary/30"}`}
-          style={{ height: `${h * 0.4}px` }}
+          style={{ height: `${h * 1.9}px` }}
         />
       ))}
       <div className="ml-auto text-right">
         <div className="text-[10px] font-semibold text-text-mid">Avg. read</div>
         <div className="font-heading text-sm font-bold text-text-dark">3m 41s</div>
       </div>
-    </div>
-  </div>
-);
-
-const ApiVisual = () => (
-  <div className="rounded-xl border border-border bg-background p-3">
-    <div className="flex items-center justify-between gap-2">
-      <span className="text-[11px] font-semibold tracking-wider text-text-dark">ezf_live_9f3a••••</span>
-      <span className="rounded-full bg-green-bg px-2 py-0.5 text-[10px] font-semibold text-green-status">Active</span>
-    </div>
-    <div className="mt-2 flex flex-wrap gap-1.5">
-      <span className="rounded-full bg-red-bg px-2 py-0.5 text-[10px] font-semibold text-primary">portal.ezflip.ai</span>
-      <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold text-text-mid">LMS</span>
-      <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold text-text-mid">HR Tools</span>
     </div>
   </div>
 );
@@ -115,6 +79,7 @@ type Feature = {
   href: string;
   span: string;
   large?: boolean;
+  visualWrap?: string;
   visual: React.ReactNode;
 };
 
@@ -129,7 +94,14 @@ const features: Feature[] = [
     href: "/features#flipbooks",
     span: "lg:col-span-3",
     large: true,
-    visual: <FlipbookVisual />,
+    visual: (
+      <ShotVisual
+        src={flipbookShot.url}
+        alt="eZFlip reader showing a two-page spread with a chart and page controls"
+        canvas="#f8f6f7"
+        height="h-52"
+      />
+    ),
   },
   {
     id: "ai-chat",
@@ -141,6 +113,7 @@ const features: Feature[] = [
     href: "/features#ai-chat",
     span: "lg:col-span-3",
     large: true,
+    visualWrap: "flex-1 flex items-center",
     visual: <ChatVisual />,
   },
   {
@@ -152,7 +125,14 @@ const features: Feature[] = [
     cta: "Explore Shelves",
     href: "/features#shelves",
     span: "lg:col-span-2",
-    visual: <ShelvesVisual />,
+    visual: (
+      <ShotVisual
+        src={shelvesShot.url}
+        alt="Shelf holding four colour-coded flipbooks"
+        canvas="#f6f6f8"
+        height="h-52"
+      />
+    ),
   },
   {
     id: "analytics",
@@ -166,15 +146,22 @@ const features: Feature[] = [
     visual: <AnalyticsVisual />,
   },
   {
-    id: "api-keys",
-    kicker: "API Keys",
-    title: "Automate & Integrate Into Your Stack",
+    id: "sharing",
+    kicker: "Sharing",
+    title: "Share Flipbooks & Shelves With Control",
     copy:
-      "Generate domain-restricted API keys in seconds to connect EzFlip with your internal portals, LMS, HR tools, or automated publishing workflows.",
-    cta: "Explore API Keys",
-    href: "/features#api-keys",
+      "Share any flipbook or shelf via a clean direct link, send private email invites, and switch between Public or Private access in one click.",
+    cta: "Explore Sharing",
+    href: "/features#shelves",
     span: "lg:col-span-2",
-    visual: <ApiVisual />,
+    visual: (
+      <ShotVisual
+        src={shareShot.url}
+        alt="Share dialog with a copyable link, social icons and email invite field"
+        canvas="#f7f5f2"
+        height="h-52"
+      />
+    ),
   },
 ];
 
@@ -231,7 +218,7 @@ const FeaturesBento = () => {
               </h3>
               <p className="text-[13px] md:text-sm leading-[1.7] text-text-mid font-light mb-5">{f.copy}</p>
 
-              <div className="mt-auto">{f.visual}</div>
+              <div className={f.visualWrap ?? "mt-auto"}>{f.visual}</div>
 
               <Link
                 to={f.href}
