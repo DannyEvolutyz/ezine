@@ -1,7 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import MarketingLayout from "@/components/MarketingLayout";
-import CtaSection from "@/components/CtaSection";
 
 /* ---------- section anchors listed in the hero ---------- */
 
@@ -199,14 +198,13 @@ const features: Feature[] = [
   {
     id: "flipbooks",
     kicker: "Interactive Flipbooks",
-    title: "Turn Static Files Into Page-Turning Experiences",
+    title: "From Static PDFs to Effortless Digital Reading.",
     copy:
-      "Upload any PDF or Word document and convert it in seconds into a responsive, swipeable flipbook with crisp typography and frictionless navigation.",
+      "Traditional PDFs force readers to pinch, zoom, and endlessly scroll. EzFlip converts your PDFs and Word documents into fast, responsive flipbooks that feel natural on desktop, tablet, and mobile.",
     bullets: [
-      "Convert PDFs and Word files in seconds — no design or dev work",
-      "Swipe, tap and keyboard navigation that works on every screen size",
-      "Crisp typography with realistic page-turn motion",
-      "Embed anywhere or share with one clean link",
+      "Instant Conversion: Drag and drop on desktop or tap to upload on mobile/tablet — ready in seconds.",
+      "Built for Every Screen: Smooth page turns, thumbnail navigation, zoom controls, and fullscreen reading.",
+      "Frictionless Distribution: Share via clean public links or embed flipbooks directly on your website.",
     ],
     cta: { text: "Create Your First Flipbook", href: "/signup" },
     secondary: { text: "See How We Compare", href: "/compare" },
@@ -214,15 +212,14 @@ const features: Feature[] = [
   },
   {
     id: "ai-chat",
-    kicker: "AI Chat & Summaries",
-    title: "Let Readers Chat With Every Document",
+    kicker: "Built-In AI Chat & 1-Click Summaries",
+    title: "Answers in Seconds. Zero Endless Scrolling.",
     copy:
-      "Built-in EzBot AI answers natural-language questions straight from your content and generates 1-click summaries so readers find answers without scrolling.",
+      "Dense handbooks, reports, and manuals shouldn't slow readers down. EzFlip's built-in AI assistant lets anyone ask questions in plain language and get accurate, source-grounded answers right beside the page.",
     bullets: [
-      "Natural-language Q&A grounded in your own document",
-      "1-click summaries that surface the highlights instantly",
-      "Every answer cites the page it came from",
-      "Suggested questions readers can tap to get started",
+      "Conversational Q&A (EzBot): Readers ask questions and jump directly to the relevant insights without scanning 50+ pages.",
+      "1-Click AI Summaries: Generate concise executive summaries in one click for fast comprehension.",
+      "Context-Accurate Responses: Responses are grounded strictly in your uploaded document so answers stay accurate.",
     ],
     cta: { text: "Explore AI Chat", href: "/features/ai-chat" },
     secondary: { text: "Talk To Us", href: "/contact" },
@@ -231,15 +228,15 @@ const features: Feature[] = [
   },
   {
     id: "shelves",
-    kicker: "Shelves",
-    title: "Organize & Share Collections in One Link",
+    kicker: "Curated Shelves",
+    title: "One Link for Every Collection. Zero File Chaos.",
     copy:
-      "Group related flipbooks into curated, branded shelves. Control public or private access, invite readers by email, and share an entire library with one URL.",
+      "Stop sending five separate PDF links in an email. With EzFlip Shelves, you can bundle related flipbooks—like onboarding handbooks, quarterly catalogs, or course modules—into a clean, interactive shelf.",
     bullets: [
-      "Curate branded shelves for teams, campaigns or courses",
-      "Public or private access, controlled per shelf",
-      "Invite readers by email in a single click",
-      "Share a whole library with one shareable URL",
+      "Curated Organization: Drag and drop flipbooks into the exact reading order you want.",
+      "Flexible Access Control: Publish publicly for open access or restrict to Private with email-based invites.",
+      "Custom Presentation: Choose Light, Dark, Minimal, or Modern themes to match your brand.",
+      "Always Up-to-Date: Update flipbooks inside a shelf anytime without changing the shared URL.",
     ],
     cta: { text: "Build A Shelf", href: "/signup" },
     secondary: { text: "Explore Use Cases", href: "/use-cases/marketing-teams" },
@@ -247,15 +244,15 @@ const features: Feature[] = [
   },
   {
     id: "analytics",
-    kicker: "Analytics",
-    title: "See How Readers Actually Engage",
+    kicker: "Flipbook & Shelf Analytics",
+    title: "Know What Gets Read — Not Just What Gets Clicked.",
     copy:
-      "Go beyond view counts. Track total reading time, average pages read, completion rates, traffic sources (Direct vs. Shelves), and export reports to CSV.",
+      "Every flipbook and shelf includes built-in engagement analytics so you can measure content performance, spot drop-off points, and prove ROI.",
     bullets: [
-      "Total reading time and average pages read per document",
-      "Completion rates and drop-off by page",
-      "Traffic sources split between Direct links and Shelves",
-      "Export every report to CSV for your own tooling",
+      "Actionable Engagement KPIs: Monitor Views, Unique Readers, Total Reading Time, Avg. Pages Read, and Completion Rate.",
+      "Source Attribution: Compare Direct Link visits against From Shelves discovery to see where readers come from.",
+      "Audience & Time-Series Insights: Filter by custom date ranges and inspect country, device, and browser breakdowns.",
+      "One-Click CSV Export: Download clean CSV reports for leadership reviews or client reporting.",
     ],
     cta: { text: "See Analytics In Action", href: "/signup" },
     secondary: { text: "Ask About Your Numbers", href: "/contact" },
@@ -264,15 +261,14 @@ const features: Feature[] = [
   },
   {
     id: "api-keys",
-    kicker: "API Keys",
-    title: "Automate & Integrate Into Your Stack",
+    kicker: "Developer API Keys",
+    title: "Secure, Domain-Restricted Integration for Your Team.",
     copy:
-      "Generate domain-restricted API keys in seconds to connect EzFlip with your internal portals, LMS, HR tools, or automated publishing workflows.",
+      "Ready to connect EzFlip to your own software? Generate scoped API keys right from your dashboard and lock them to your approved domains.",
     bullets: [
-      "Create domain-restricted keys in seconds",
-      "Publish and update flipbooks straight from your own systems",
-      "Connect portals, LMS platforms and HR tools",
-      "Revoke or rotate a key the moment you need to",
+      "Self-Serve Key Management: Create, name, copy, and revoke API keys anytime with zero downtime.",
+      "Domain Allow-Listing: Restrict each key to specific Allowed Domains so it only works where you authorize.",
+      "Workflow Automation: Automate flipbook creation, shelf updates, and analytics syncs from your CMS, HRIS, or LMS.",
     ],
     cta: { text: "Get An API Key", href: "/signup" },
     secondary: { text: "Talk To Us", href: "/contact" },
@@ -315,12 +311,55 @@ const FeaturesPage = () => {
         </div>
       </section>
 
+      {/* The Problem */}
+      <section className="bg-background py-20 md:py-24 px-5 md:px-12">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="reveal">
+            <div className="text-xs font-bold tracking-[2px] uppercase text-primary mb-5">The Problem</div>
+            <h2 className="font-heading text-3xl md:text-[40px] font-bold leading-[1.15] tracking-tight text-text-dark mb-6">
+              Nobody reads documents.<br />They <span className="text-primary">search</span> them.
+            </h2>
+            <ul className="space-y-3.5">
+              {[
+                "Static PDFs force readers to pinch, zoom and scroll through pages they never needed.",
+                "Files get scattered across emails and drives, with no single link to share.",
+                "Once a file is sent, you have no idea whether anyone actually read it.",
+              ].map((t) => (
+                <li key={t} className="flex gap-3 text-[16px] leading-[1.7] text-text-mid font-light">
+                  <span aria-hidden="true" className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="reveal">
+            <div className="relative p-7 md:p-8 bg-off-white rounded-2xl border border-border shadow-[0_24px_56px_hsl(var(--ink)/0.08)]">
+              <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-primary mb-5">Static PDF vs. eZFlip</div>
+              {[
+                ["Reading", "Pinch, zoom, scroll", "Swipeable flipbook on any screen"],
+                ["Finding answers", "Ctrl+F through 50 pages", "Ask EzBot, get the page"],
+                ["Sharing", "Five separate attachments", "One shelf, one link"],
+                ["Insight", "No idea who read it", "Reading time, completion, sources"],
+              ].map(([k, before, after], i) => (
+                <div key={k} className={`grid grid-cols-[1fr_1fr] gap-4 py-3.5 ${i ? "border-t border-border" : ""}`}>
+                  <div>
+                    <div className="text-[10px] font-bold tracking-[1.2px] uppercase text-text-light mb-1">{k}</div>
+                    <div className="text-sm text-text-mid font-light line-through decoration-text-light/60">{before}</div>
+                  </div>
+                  <div className="self-end text-sm font-semibold text-primary">{after}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feature sections */}
       {features.map((f, i) => (
         <section
           key={f.id}
           id={f.id}
-          className={`scroll-mt-20 py-16 md:py-24 px-5 md:px-12 ${i % 2 === 0 ? "bg-background" : "bg-off-white"}`}
+          className={`scroll-mt-20 py-16 md:py-24 px-5 md:px-12 ${i % 2 === 0 ? "bg-off-white" : "bg-background"}`}
         >
           <div className="max-w-[1100px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className={`reveal ${f.reverse ? "lg:order-2" : ""}`}>
@@ -338,7 +377,14 @@ const FeaturesPage = () => {
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-bg">
                       <Check className="h-3 w-3 text-primary" strokeWidth={3} />
                     </span>
-                    <span className="text-[14px] leading-[1.6] text-text-dark font-light">{b}</span>
+                    <span className="text-[14px] leading-[1.6] text-text-mid font-light">
+                      {b.includes(":") ? (
+                        <>
+                          <strong className="font-semibold text-text-dark">{b.split(":")[0]}:</strong>
+                          {b.slice(b.indexOf(":") + 1)}
+                        </>
+                      ) : b}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -368,13 +414,30 @@ const FeaturesPage = () => {
         </section>
       ))}
 
-      <CtaSection
-        eyebrow="Get started"
-        title={<>Put every feature to work on <span className="text-accent">your own documents</span>.</>}
-        body="Upload a file, turn on AI answers, organize a shelf and watch the engagement roll in — all in one place."
-        buttonText="Get Started Free"
-        buttonHref="/signup"
-      />
+      {/* Final CTA */}
+      <section className="bg-ink py-24 md:py-32 px-5 md:px-12 text-center relative overflow-hidden">
+        <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse,hsl(var(--accent)/0.15)_0%,transparent_65%)] pointer-events-none" />
+        <div className="max-w-[680px] mx-auto relative z-10">
+          <h2 className="font-heading text-3xl md:text-5xl font-medium tracking-tight leading-[1.05] text-primary-foreground mb-5">
+            Turn your next document<br /><span className="text-accent">into a smart experience.</span>
+          </h2>
+          <p className="text-base md:text-lg leading-relaxed text-primary-foreground/60 font-light mb-11">
+            Upload a file, turn on AI answers, organize a shelf and watch the engagement roll in. No setup, no credit card.
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <Link to="/signup" className="font-heading text-base font-bold text-accent-foreground no-underline px-10 py-4 bg-accent rounded-xl inline-flex items-center justify-center gap-2.5 shadow-[0_4px_16px_hsl(var(--accent)/0.25)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_hsl(var(--accent)/0.35)] transition-all duration-300">
+                Get Started Free
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+              <a href="/#contact" className="font-heading text-base font-bold text-primary-foreground no-underline px-10 py-4 border border-primary-foreground/25 rounded-xl inline-flex items-center justify-center gap-2.5 hover:border-primary-foreground/60 transition-all duration-300">
+                Talk To Sales
+              </a>
+            </div>
+            <span className="text-xs text-primary-foreground/50">No credit card · 2-minute setup · Works on any PDF</span>
+          </div>
+        </div>
+      </section>
     </MarketingLayout>
   );
 };
