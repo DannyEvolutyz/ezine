@@ -152,7 +152,7 @@ const features: Feature[] = [
     copy:
       "Share any flipbook or shelf via a clean direct link, send private email invites, and switch between Public or Private access in one click.",
     cta: "Explore Sharing",
-    href: "/features#shelves",
+    href: "/features#flipbooks",
     span: "lg:col-span-2",
     visual: (
       <ShotVisual
