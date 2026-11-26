@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import MarketingLayout from "@/components/MarketingLayout";
 
@@ -279,34 +279,139 @@ const features: Feature[] = [
 const FeaturesPage = () => {
   return (
     <MarketingLayout>
-      {/* Hero */}
-      <section className="bg-off-white pt-20 md:pt-28 pb-16 md:pb-20 px-5 md:px-12 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[820px] h-[380px] bg-[radial-gradient(ellipse,hsl(var(--primary)/0.07)_0%,transparent_70%)] pointer-events-none" />
-        <div className="max-w-[900px] mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-primary/10 mb-5 reveal">
-            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse-dot" />
-            <span className="text-xs font-semibold text-primary uppercase tracking-wider">Features</span>
-          </div>
-          <h1 className="font-heading text-4xl md:text-[52px] font-extrabold tracking-tight leading-[1.08] text-text-dark mb-5 reveal">
-            Everything You Need to Turn Static Files Into{" "}
-            <span className="text-primary">Smart Experiences</span>.
-          </h1>
-          <p className="text-base md:text-lg leading-[1.7] text-text-mid font-light max-w-[680px] mx-auto reveal">
-            Convert documents into interactive flipbooks, answer reader questions with AI, organize
-            collections on Shelves, measure engagement, and automate via API.
-          </p>
+      {/* Hero — light with warm gradients */}
+      <section className="bg-background px-5 md:px-12 pt-20 md:pt-28 pb-20 md:pb-24 relative overflow-hidden">
+        {/* Single warm gradient blob */}
+        <div aria-hidden="true" className="absolute top-[-120px] right-[-80px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,hsl(var(--primary)/0.10)_0%,hsl(var(--accent)/0.06)_40%,transparent_70%)] pointer-events-none blur-[40px]" />
 
-          <div className="mt-9 flex flex-wrap justify-center gap-2.5 reveal">
-            {sections.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => scrollToSection(s.id)}
-                className="rounded-full bg-background border border-border px-4 py-2 text-[13px] font-semibold text-text-mid hover:text-primary hover:border-primary/30 transition-colors"
-              >
-                {s.label}
-              </button>
-            ))}
+        {/* Subtle grid pattern */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none opacity-[0.35]" style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--ink) / 0.07) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse 70% 50% at 50% 40%, black 0%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 50% at 50% 40%, black 0%, transparent 100%)',
+        }} />
+
+        <div className="max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Left — Text content */}
+          <div className="flex flex-col items-start text-left">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-text-mid mb-6">
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <span className="text-text-light">/</span>
+              <span className="text-primary font-semibold">Features</span>
+            </nav>
+            <div className="inline-flex items-center gap-2 bg-background border border-primary/30 rounded-full px-5 py-2 text-[11px] font-bold text-primary tracking-[1.5px] uppercase mb-7">
+              <span aria-hidden="true" className="w-[5px] h-[5px] bg-primary rounded-full animate-pulse-dot" />
+              Features
+            </div>
+
+            <h1 className="font-heading text-4xl md:text-[52px] leading-[1.05] tracking-tighter text-text-dark mb-6 font-semibold">
+              Ask questions.<br />
+              Get answers.<br />
+              <span className="text-primary">No scrolling, no guessing.</span>
+            </h1>
+
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground font-light max-w-[520px] mb-10">
+              Chat with your documents using built-in AI and get precise answers instantly, without reading through everything.
+            </p>
+
+            <div className="flex flex-col items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
+                <Link
+                  to="/signup"
+                  className="font-heading text-[15px] font-semibold text-primary-foreground no-underline px-9 py-3.5 bg-primary rounded-xl inline-flex items-center justify-center gap-2 shadow-[0_8px_32px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_hsl(var(--primary)/0.4)] transition-all"
+                >
+                  Try It On Your Document
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+                <span className="text-sm text-muted-foreground flex items-center gap-1.5">
+                  <Check size={14} className="text-primary" aria-hidden="true" />
+                  Free to use
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right — Chat Demo Window */}
+          <div className="w-full">
+          <div className="bg-background rounded-2xl border border-border overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]">
+            <div className="bg-warm-gray p-3.5 px-5 flex items-center gap-3 border-b border-border">
+              <div aria-hidden="true" className="flex gap-[7px]">
+                <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+                <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+              </div>
+              <div className="flex-1 text-center text-xs text-text-mid font-medium">
+                <strong className="text-text-dark">Employee Onboarding Handbook.pdf</strong> · AI Chat enabled
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] min-h-[420px]">
+              <div aria-hidden="true" className="hidden lg:block p-7 border-r border-border relative overflow-hidden">
+                <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-text-mid mb-4">Section 4 · Leave Policy</div>
+                <div className="space-y-2.5">
+                  <div className="h-[11px] w-4/5 bg-warm-gray rounded" />
+                  <div className="h-[7px] w-full bg-warm-gray rounded" />
+                  <div className="h-[7px] w-[90%] bg-warm-gray rounded" />
+                  <div className="h-[7px] w-[65%] bg-warm-gray rounded" />
+                  <div className="h-5" />
+                  <div className="text-[10px] font-semibold text-primary tracking-wide">↑ Relevant passage found</div>
+                  <div className="h-[7px] w-full bg-primary/20 border border-primary/30 rounded relative overflow-hidden animate-shimmer" />
+                  <div className="h-[7px] w-4/5 bg-primary/20 border border-primary/30 rounded relative overflow-hidden animate-shimmer" />
+                  <div className="h-[7px] w-[55%] bg-primary/20 border border-primary/30 rounded relative overflow-hidden animate-shimmer" />
+                  <div className="h-5" />
+                  <div className="h-[7px] w-[90%] bg-warm-gray rounded" />
+                  <div className="h-[7px] w-4/5 bg-warm-gray rounded" />
+                  <div className="h-[7px] w-[65%] bg-warm-gray rounded" />
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-3.5">
+                <div className="text-[11px] font-bold tracking-[1px] uppercase text-text-mid pb-3.5 border-b border-border flex items-center gap-2">
+                  <span aria-hidden="true" className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-dot" />
+                  EzBot · AI Chat
+                </div>
+                <div className="flex flex-col gap-3 flex-1">
+                  <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
+                    What's the leave policy for the first 3 months?
+                  </div>
+                  <div className="self-start flex gap-2 items-start max-w-[95%]">
+                    <div aria-hidden="true" className="w-6 h-6 bg-primary rounded-[7px] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
+                    </div>
+                    <div className="bg-off-white border border-border rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-text-mid">
+                      During the first 3 months, employees are eligible for <strong className="text-text-dark font-semibold">6 days of sick leave</strong>. Casual leave accrues from month 2 onwards at <strong className="text-text-dark font-semibold">1 day per month</strong>.
+                      <div className="inline-flex items-center gap-1 bg-primary/15 border border-primary/30 rounded px-2 py-0.5 text-[10px] text-primary font-semibold mt-2 shadow-[0_0_0_3px_hsl(var(--primary)/0.08)] animate-pulse-dot">
+                        <FileText size={10} aria-hidden="true" />
+                        Section 4 · Page 12
+                      </div>
+                    </div>
+                  </div>
+                  <div className="self-end bg-primary/10 border border-primary/15 rounded-xl rounded-br-sm px-3.5 py-2.5 text-xs leading-relaxed text-text-dark max-w-[85%]">
+                    When does the probation period end?
+                  </div>
+                  <div className="self-start flex gap-2 items-start max-w-[95%]">
+                    <div aria-hidden="true" className="w-6 h-6 bg-primary rounded-[7px] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-primary-foreground"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
+                    </div>
+                    <div className="bg-off-white border border-border rounded-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3.5 py-2.5 text-xs leading-relaxed text-text-mid">
+                      The standard probation period is <strong className="text-text-dark font-semibold">90 days</strong> from your date of joining, unless extended in writing by your manager.
+                      <div className="inline-flex items-center gap-1 bg-primary/10 border border-primary/15 rounded px-2 py-0.5 text-[10px] text-primary font-semibold mt-2">
+                        <FileText size={10} aria-hidden="true" />
+                        Section 2 · Page 6
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2 items-center pt-2.5 border-t border-border">
+                  <div className="flex-1 bg-off-white border border-border rounded-lg px-3 py-2 text-[11px] text-text-mid">
+                    Ask anything about this document…
+                  </div>
+                  <div aria-hidden="true" className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-primary-foreground"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z" /></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </section>
