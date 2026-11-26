@@ -9,7 +9,7 @@ const sections = [
   { id: "ai-chat", label: "AI Chat & Summaries" },
   { id: "shelves", label: "Shelves" },
   { id: "analytics", label: "Analytics" },
-  { id: "api-keys", label: "API Keys" },
+  { id: "share", label: "Sharing" },
 ];
 
 const scrollToSection = (id: string) => {
@@ -152,35 +152,36 @@ const AnalyticsMock = () => (
   </div>
 );
 
-const ApiMock = () => (
-  <div className="rounded-2xl border border-border bg-off-white p-6 md:p-8">
-    <div className="rounded-xl bg-ink p-4 shadow-[0_18px_40px_-20px_hsl(var(--ink)/0.6)]">
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-[11px] font-semibold text-primary-foreground">API Key</span>
-        <span className="rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-bold text-primary-foreground">Active</span>
-      </div>
-      <div className="rounded-lg bg-ink-2 px-3 py-2.5 text-[12px] font-semibold tracking-wider text-primary-foreground">
-        ezf_live_9f3a••••••••••••
-      </div>
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        {["portal.ezflip.ai", "lms.yourschool.edu", "hr.yourco.com"].map((d) => (
-          <span key={d} className="rounded-full bg-primary-foreground/10 px-2.5 py-1 text-[10px] font-semibold text-primary-foreground">
-            {d}
-          </span>
-        ))}
-      </div>
+const ShareMock = () => (
+  <div className="rounded-2xl border border-border bg-card p-5 shadow-xl">
+    <div className="flex items-center justify-between">
+      <p className="text-base font-bold text-foreground">Share Your Flipbook</p>
+      <span className="text-muted-foreground">×</span>
     </div>
-    <div className="mt-4 flex flex-wrap gap-2">
-      {["Instant generation", "Domain-restricted", "Revoke anytime"].map((t) => (
-        <span key={t} className="rounded-full bg-background border border-border px-3 py-1 text-[11px] font-semibold text-text-mid">
-          {t}
-        </span>
+    <p className="mt-1 text-xs text-muted-foreground">Q3 Product Catalog · Shelf: Sales Kit</p>
+    <div className="mt-4 grid grid-cols-2 gap-1 rounded-full bg-muted p-1 text-xs font-semibold">
+      <span className="rounded-full py-1.5 text-center text-muted-foreground">Public</span>
+      <span className="rounded-full bg-card py-1.5 text-center text-foreground shadow-sm">Private</span>
+    </div>
+    <div className="mt-4 flex items-center gap-2 rounded-lg border border-accent/60 p-1.5 pl-3">
+      <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground">ezflip.ai/f/q3-catalog</span>
+      <span className="inline-flex items-center gap-1 rounded-md bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground">
+        <Check className="h-3 w-3" /> Copy Link
+      </span>
+    </div>
+    <p className="mt-4 text-xs font-semibold text-foreground">Invite by email</p>
+    <div className="mt-2 flex flex-wrap gap-1.5 rounded-lg border border-border p-2">
+      {["sara@acme.com", "dev.team@acme.com", "li@studio.io"].map((e) => (
+        <span key={e} className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-medium text-primary">{e} ×</span>
       ))}
+      <span className="px-1 py-1 text-[11px] text-muted-foreground">Add email…</span>
+    </div>
+    <div className="mt-4 flex justify-end gap-2 text-xs font-semibold">
+      <span className="rounded-lg border border-border px-3 py-2 text-foreground">Cancel</span>
+      <span className="rounded-lg bg-accent px-3 py-2 text-accent-foreground shadow-sm">Send Invites</span>
     </div>
   </div>
 );
-
-/* ---------- section shell ---------- */
 
 type Feature = {
   id: string;
@@ -260,19 +261,20 @@ const features: Feature[] = [
     reverse: true,
   },
   {
-    id: "api-keys",
-    kicker: "Developer API Keys",
-    title: "Secure, Domain-Restricted Integration for Your Team.",
+    id: "share",
+    kicker: "Sharing & Access Control",
+    title: "One Click to Share. Full Control Over Who Reads.",
     copy:
-      "Ready to connect EzFlip to your own software? Generate scoped API keys right from your dashboard and lock them to your approved domains.",
+      "Whether you are sending a single flipbook or an entire curated shelf, EzFlip makes distribution effortless. Copy a direct link for instant public sharing, or switch to Private access and invite specific people by email.",
     bullets: [
-      "Self-Serve Key Management: Create, name, copy, and revoke API keys anytime with zero downtime.",
-      "Domain Allow-Listing: Restrict each key to specific Allowed Domains so it only works where you authorize.",
-      "Workflow Automation: Automate flipbook creation, shelf updates, and analytics syncs from your CMS, HRIS, or LMS.",
+      "Direct Link Sharing: Copy a clean, short URL for any flipbook or shelf — no heavy email attachments or file downloads required.",
+      "Email Invites: Invite team members, students, or clients directly by email right from the Share dialog.",
+      "Public & Private Access: Keep marketing brochures open to everyone (Public) or lock sensitive handbooks and proposals to invited readers only (Private).",
+      "Works Across Flipbooks & Shelves: Use the same consistent sharing experience whether you're sharing one document or a full collection.",
     ],
-    cta: { text: "Get An API Key", href: "/signup" },
+    cta: { text: "Start Sharing", href: "/signup" },
     secondary: { text: "Talk To Us", href: "/contact" },
-    visual: <ApiMock />,
+    visual: <ShareMock />,
   },
 ];
 

@@ -11,7 +11,9 @@ const ShotVisual = ({
   alt,
   canvas,
   height,
+  fit = "object-contain",
 }: {
+  fit?: string;
   src: string;
   alt: string;
   canvas: string;
@@ -21,7 +23,7 @@ const ShotVisual = ({
     className={`overflow-hidden rounded-xl border border-border ${height}`}
     style={{ backgroundColor: canvas }}
   >
-    <img src={src} alt={alt} className="h-full w-full object-contain" loading="lazy" />
+    <img src={src} alt={alt} className={`h-full w-full ${fit} object-center`} loading="lazy" />
   </div>
 );
 
@@ -152,10 +154,11 @@ const features: Feature[] = [
     copy:
       "Share any flipbook or shelf via a clean direct link, send private email invites, and switch between Public or Private access in one click.",
     cta: "Explore Sharing",
-    href: "/features#flipbooks",
+    href: "/features#share",
     span: "lg:col-span-2",
     visual: (
       <ShotVisual
+        fit="object-cover"
         src={shareShot.url}
         alt="Share dialog with a copyable link, social icons and email invite field"
         canvas="#f7f5f2"
