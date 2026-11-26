@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Features", href: "/features/ai-chat" },
+    { label: "Features", href: "/features" },
     { label: "Use Cases", href: "#", isDropdown: true },
     { label: "Comparison", href: "/compare" },
     { label: "Contact us", href: "/#contact", isHash: true },

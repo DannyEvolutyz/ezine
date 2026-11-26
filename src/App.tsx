@@ -8,6 +8,7 @@ import { DocumentsProvider } from "@/hooks/useDocuments";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ComparisonPage from "./pages/ComparisonPage.tsx";
+import FeaturesPage from "./pages/FeaturesPage.tsx";
 import AiChatFeaturePage from "./pages/AiChatFeaturePage.tsx";
 import OnboardingLandingPage from "./pages/OnboardingLandingPage.tsx";
 import UseCasePage from "./pages/UseCasePage.tsx";
@@ -35,6 +36,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/compare" element={<ComparisonPage />} />
+              <Route path="/features" element={<FeaturesPage />} />
               <Route path="/features/ai-chat" element={<AiChatFeaturePage />} />
               <Route path="/use-cases/hr-people-ops" element={<OnboardingLandingPage />} />
               <Route path="/use-cases/:slug" element={<UseCasePage />} />
